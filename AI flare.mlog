@@ -11,13 +11,13 @@ set flag i
 op abs flag flag 1
 ucontrol flag flag yc 5 0 0
 sensor current_hp @unit @health
-jump 18 lessThan current_hp 70
-sensor current_items_amount @unit @totalItems
-jump 20 notEqual current_items_amount 0
-ucontrol stop nodeX nodeY 20 within? 0
-end
+jump 16 greaterThan current_hp 70
 ulocate building repair false 0 ap_x ap_y found? repair_building
 jump 22 equal found? true
 ulocate building core false minore ap_x ap_y found core
+sensor current_items_amount @unit @totalItems
+jump 21 notEqual current_items_amount 0
+ucontrol approach ap_x ap_y 12 0 0
+end
 ucontrol itemDrop core 20 0 0 0
-ucontrol approach ap_x ap_y 10 0 0
+ucontrol approach ap_x ap_y 5 0 0
