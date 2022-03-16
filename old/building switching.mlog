@@ -1,0 +1,1264 @@
+#
+#
+#
+#
+#
+
+
+
+
+sensor switch switch1 @enabled
+jump 4 equal switch false
+control enabled factory1 true 0 0 0
+end
+control enabled factory1 false 0 0 0
+
+
+
+
+<iceandfire:troll_tusk>
+<iceandfire:deathworm_chitin:*>
+<iceandfire:dread_shard>
+<iceandfire:sea_serpent_fang>
+<iceandfire:hydra_fang>
+
+
+
+        {"output": {"item": "craftingdead:stanag_box_magazine"},        "payment": {"item": "quark:magenta_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:stanag_drum_magazine"},       "payment": {"item": "quark:orange_rune",       "count": 3},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:stanag_30_round_magazine"},   "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:stanag_20_round_magazine"},   "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mpt55_magazine"},             "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:ak47_30_round_magazine"},     "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:fnfal_magazine"},             "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:acr_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:g36c_magazine"},              "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:hk417_magazine"},             "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:m1911_magazine"},             "payment": {"item": "quark:white_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:g18_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:m9_magazine"},                "payment": {"item": "quark:white_rune",       "count": 4},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:desert_eagle_magazine"},      "payment": {"item": "quark:white_rune",       "count": 3},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:p250_magazine"},              "payment": {"item": "quark:white_rune",       "count": 3},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:magnum_magazine"},            "payment": {"item": "quark:white_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:fn57_magazine"},              "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:p90_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:vector_magazine"},            "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mp5a5_35_round_magazine"},    "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mp5a5_21_round_magazine"},    "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mac10_extended_magazine"},    "payment": {"item": "quark:orange_rune",       "count": 3},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mac10_magazine"},             "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:sporter22_magazine"},         "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:m107_magazine"},              "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:as50_magazine"},              "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:m1garand_magazine"},          "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:awp_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:trenchgun_shells"},           "payment": {"item": "quark:white_rune",       "count": 4},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mossberg_shells"},            "payment": {"item": "quark:white_rune",       "count": 4},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:dmr_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:taser_cartridge"},            "payment": {"item": "quark:orange_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:m240b_magazine"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:rpk_drum_magazine"},          "payment": {"item": "quark:magenta_rune",       "count": 1},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:rpk_magazine"},               "payment": {"item": "quark:orange_rune",       "count": 3},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:minigun_magazine"},           "payment": {"item": "quark:magenta_rune",       "count": 4},    "category": "gun_and_ammo"},
+        {"output": {"item": "craftingdead:mk48mod_magazine"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "gun_and_ammo"},
+        {"output": {"item": "minecraft:brown_mushroom"},           "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "other"},
+        {"output": {"item": "minecraft:red_mushroom"},           "payment": {"item": "quark:orange_rune",       "count": 2},    "category": "other"}
+
+
+
+
+
+
+        {"output": {"item": "craftingdead:black_tactical_vest"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ghillie_tactical_vest"},         "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:green_tactical_vest"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:grey_tactical_vest"},            "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:riot_vest"},                     "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:tan_tactical_vest"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        
+        {"output": {"item": "craftingdead:shovel"},                        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:wrench"},                        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:crowbar"},                       "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:katana"},                        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:chainsaw"},                      "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:weaponized_scythe"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+        {"output": {"item": "craftingdead:scythe"},                        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_melee"},
+
+        {"output": {"item": "craftingdead:beanie_hat"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:black_ballistic_hat"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:chief_fireman_hat"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:blue_hard_hat"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:camo_helmet"},                   "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:clone_hat"},                     "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:combat_bdu_helmet"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:gas_mask"},                      "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ghillie_hat"},                   "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:green_army_helmet"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:green_ballistic_helmet"},        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:green_hard_hat"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:grey_army_helmet"},              "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:hazmat_hat"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:juggernaut_helmet"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:military_hazmat_hat"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ninja_hat"},                     "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:nv_goggles_hat"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:pilot_helmet"},                  "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:radar_cap"},                     "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:riot_hat"},                      "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:spetsnaz_helmet"},               "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:top_hat"},                       "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:trapper_hat"},                   "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ushanka_hat"},                   "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:winter_military_helmet"},        "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+
+        {"output": {"item": "craftingdead:army_clothing"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:sas_clothing"},                  "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:spetsnaz_clothing"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:police_clothing"},               "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:camo_clothing"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:combat_bdu_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:winter_army_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:army_desert_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:pilot_clothing"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:hazmat_clothing"},               "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:tac_ghillie_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:swat_clothing"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:sheriff_clothing"},              "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:juggernaut_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:fireman_clothing"},              "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:doctor_clothing"},               "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:business_clothing"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:mil_hazmat_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:full_ghillie_clothing"},         "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:red_dusk_clothing"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ninja_clothing"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:army_medic_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:president_clothing"},            "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:yellow_dusk_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:orange_dusk_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:green_dusk_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:white_dusk_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:purple_dusk_clothing"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:ddpat_clothing"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+        {"output": {"item": "craftingdead:contractor_clothing"},           "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_clothing"},
+
+        {"output": {"item": "craftingdead:vulcan_paint"},                  "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:asmo_paint"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:candy_apple_paint"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:cyrex_paint"},                   "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:diamond_paint"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:dragon_paint"},                  "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:fade_paint"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:fury_paint"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:gem_paint"},                     "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:inferno_paint"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:ruby_paint"},                    "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:scorched_paint"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:slaughter_paint"},               "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:uv_paint"},                      "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:hyper_beast_paint"},             "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:emperor_dragon_paint"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:nuclear_winter_paint"},          "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:monarch_paint"},                 "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"},
+        {"output": {"item": "craftingdead:lovelace_paint"},                "payment": {"item": "quark:magenta_rune",       "count": 2},    "category": "cd_paint"}
+
+
+
+w
+<item:craftingdead:stanag_box_magazine>.maxStackize = 64;
+<item:craftingdead:stanag_drum_magazine>.maxStackize = 64;
+<item:craftingdead:stanag_30_round_magazine>.maxStackize = 64;
+<item:craftingdead:stanag_20_round_magazine>.maxStackize = 64;
+<item:craftingdead:mpt55_magazine>.maxStackize = 64;
+<item:craftingdead:ak47_30_round_magazine>.maxStackize = 64;
+<item:craftingdead:fnfal_magazine>.maxStackize = 64;
+<item:craftingdead:acr_magazine>.maxStackize = 64;
+<item:craftingdead:g36c_magazine>.maxStackize = 64;
+<item:craftingdead:hk417_magazine>.maxStackize = 64;
+<item:craftingdead:m1911_magazine>.maxStackize = 64;
+<item:craftingdead:g18_magazine>.maxStackize = 64;
+<item:craftingdead:m9_magazine>.maxStackize = 64;
+<item:craftingdead:desert_eagle_magazine>.maxStackize = 64;
+<item:craftingdead:p250_magazine>.maxStackize = 64;
+<item:craftingdead:magnum_magazine>.maxStackize = 64;
+<item:craftingdead:fn57_magazine>.maxStackize = 64;
+<item:craftingdead:p90_magazine>.maxStackize = 64;
+<item:craftingdead:vector_magazine>.maxStackize = 64;
+<item:craftingdead:mp5a5_35_round_magazine>.maxStackize = 64;
+<item:craftingdead:mp5a5_21_round_magazine>.maxStackize = 64;
+<item:craftingdead:mac10_extended_magazine>.maxStackize = 64;
+<item:craftingdead:mac10_magazine>.maxStackize = 64;
+<item:craftingdead:sporter22_magazine>.maxStackize = 64;
+<item:craftingdead:m107_magazine>.maxStackize = 64;
+<item:craftingdead:as50_magazine>.maxStackize = 64;
+<item:craftingdead:m1garand_magazine>.maxStackize = 64;
+<item:craftingdead:awp_magazine>.maxStackize = 64;
+<item:craftingdead:trenchgun_shells>.maxStackize = 64;
+<item:craftingdead:mossberg_shells>.maxStackize = 64;
+<item:craftingdead:dmr_magazine>.maxStackize = 64;
+<item:craftingdead:taser_cartridge>.maxStackize = 64;
+<item:craftingdead:m240b_magazine>.maxStackize = 64;
+<item:craftingdead:rpk_drum_magazine>.maxStackize = 64;
+<item:craftingdead:rpk_magazine>.maxStackize = 64;
+<item:craftingdead:minigun_magazine>.maxStackize = 64;
+<item:craftingdead:mk48mod_magazine>.maxStackize = 64;
+
+
+
+
+
+minecraft:absorption
+minecraft:bad_omen
+minecraft:blindness
+minecraft:conduit_power
+minecraft:dolphins_grace
+minecraft:fire_resistance
+minecraft:glowing
+minecraft:haste
+minecraft:health_boost
+minecraft:hero_of_the_village
+minecraft:hunger
+minecraft:instant_damage
+minecraft:instant_health
+minecraft:invisibility
+minecraft:jump_boost
+minecraft:levitation
+minecraft:luck
+minecraft:mining_fatigue
+minecraft:nausea
+minecraft:night_vision
+minecraft:poison
+minecraft:regeneration
+minecraft:resistance
+minecraft:saturation
+minecraft:slow_falling
+minecraft:slowness
+minecraft:speed
+minecraft:strength
+minecraft:unluck
+minecraft:water_breathing
+minecraft:weakness
+minecraft:wither
+
+craftingdead:adrenaline
+craftingdead:flash_blindness
+craftingdead:parachute
+craftingdead:scuba
+
+firstaid:morphine
+
+paraglider:exhausted
+
+botania:allure
+botania:bloodthirst
+botania:clear
+botania:emptiness
+botania:feather_feet
+botania:soul_cross
+
+tetra:bleeding
+tetra:earthbound
+tetra:exhausted
+tetra:howling
+tetra:pried
+tetra:punctured
+tetra:severed
+tetra:small_absorb
+tetra:small_health
+tetra:small_strength
+tetra:steeled
+tetra:stun
+tetra:suspended
+tetra:unwavering
+
+rats:plague
+rats:synesthesia
+
+quark:danger_sight
+quark:resilience
+
+ars_nouveau:bounce
+ars_nouveau:familiar_sickness
+ars_nouveau:flight
+ars_nouveau:glide
+ars_nouveau:gravity
+ars_nouveau:hex
+ars_nouveau:mana_regen
+ars_nouveau:scrying
+ars_nouveau:shield
+ars_nouveau:shocked
+ars_nouveau:snared
+ars_nouveau:spell_damage
+ars_nouveau:summoning_sickness
+
+cyclic:stun
+cyclic:swimspeed
+
+farmersdelight:comfort
+farmersdelight:nourished
+
+tconstruct:bleeding
+tconstruct:carry
+tconstruct:insatiable
+tconstruct:magnetic
+tconstruct:momentum
+
+castle_in_the_sky:sacred_castle_ef
+
+
+
+"flansmod:molotovcocktail"                  :"1*quark:rune:2",
+"flansmod:c4"                               :"2*quark:rune:2",
+"flansmod:rpgammo"                          :"4*quark:rune:2",
+"flansmod:3006bullet"                       :"1*quark:rune:1",
+"flansmod:shulkersniperammo"                :"1*quark:rune:1",
+"flansmod:m4carbineammo"                    :"2*quark:rune:1",
+"flansmod:mp5kammo"                         :"2*quark:rune:1",
+"flansmod:smg100ammo"                       :"4*quark:rune:1",
+"flansmod:12gaugeshell"                     :"1*quark:rune:1",
+"flansmod:12gaugeshellincendiary"           :"1*quark:rune:1",
+"flansmod:357magnum"                        :"1*quark:rune:1",
+"flansmod:highexpistolammo"                 :"1*quark:rune:1",
+"flansmod:appistolammo"                     :"1*quark:rune:1",
+"flansmod:flaregunammo"                     :"1*quark:rune:1",
+"flansmod:kar98kammo"                       :"2*quark:rune:1",
+"flansmod:fg42ammo"                         :"2*quark:rune:1",
+"flansmod:g43ammo"                          :"2*quark:rune:1",
+"flansmod:lugerammo"                        :"2*quark:rune:1",
+"flansmod:mp40ammo"                         :"2*quark:rune:1",
+"flansmod:mp44ammo"                         :"2*quark:rune:1",
+"flansmod:mg42ammo50"                       :"2*quark:rune:1",
+"flansmod:mg42ammo250"                      :"1*quark:rune:2",
+"flansmod:mg151ammo"                        :"4*quark:rune:1",
+"flansmod:flakvierlingammo"                 :"1*quark:rune:1",
+"flansmod:20mmammo"                         :"1*quark:rune:2",
+"flansmod:37mmammo"                         :"1*quark:rune:2",
+"flansmod:type38ammo"                       :"2*quark:rune:1",
+"flansmod:type100ammo"                      :"2*quark:rune:1",
+"flansmod:flamethrowerammo"                 :"1*quark:rune:1",
+"flansmod:type14ammo"                       :"1*quark:rune:1",
+"flansmod:type99ammo"                       :"2*quark:rune:1",
+"flansmod:m1carbineammo"                    :"2*quark:rune:1",
+"flansmod:m1garandammo"                     :"2*quark:rune:1",
+"flansmod:springfieldammo"                  :"2*quark:rune:1",
+"flansmod:coltammo"                         :"2*quark:rune:1",
+"flansmod:thompsonammo"                     :"2*quark:rune:1",
+"flansmod:barammo"                          :"2*quark:rune:1",
+"flansmod:m3a1ammo"                         :"3*quark:rune:1",
+"flansmod:trenchgunammo"                    :"2*quark:rune:1",
+"flansmod:browningammo"                     :"1*quark:rune:2",
+"flansmod:50calammo"                        :"1*quark:rune:2",
+"flansmod:leeenfieldammo"                   :"2*quark:rune:1",
+"flansmod:stenammo"                         :"2*quark:rune:1",
+"flansmod:webleyammo"                       :"2*quark:rune:1",
+"flansmod:brenammo30"                       :"2*quark:rune:1",
+"flansmod:brenammo100"                      :"4*quark:rune:1",
+"flansmod:vickerskammo100"                  :"4*quark:rune:1",
+"flansmod:british2pdrapshell"               :"1*quark:rune:1",
+"flansmod:nagantammo"                       :"2*quark:rune:1",
+"flansmod:ppshammo"                         :"4*quark:rune:1",
+"flansmod:tt33ammo"                         :"2*quark:rune:1",
+"flansmod:dp28ammo"                         :"3*quark:rune:1",
+"flansmod:dragunovammo"                     :"2*quark:rune:1",
+"flansmod:m14ammo"                          :"3*quark:rune:1",
+"flansmod:g3ammo"                           :"3*quark:rune:1",
+"flansmod:tripletakeammo"                   :"3*quark:rune:1",
+"flansmod:sg550ammo"                        :"2*quark:rune:1",
+"flansmod:seekerrifleammo"                  :"3*quark:rune:1",
+"flansmod:m16a4ammo"                        :"2*quark:rune:1",
+"flansmod:mtarammo"                         :"3*quark:rune:1",
+"flansmod:fnscarammo"                       :"3*quark:rune:1",
+"flansmod:acrammo"                          :"3*quark:rune:1",
+"flansmod:augammo"                          :"3*quark:rune:1",
+"flansmod:adar15ammo"                       :"3*quark:rune:1",
+"flansmod:an94ammo"                         :"3*quark:rune:1",
+"flansmod:ash12ammo"                        :"2*quark:rune:1",
+"flansmod:galilammo"                        :"2*quark:rune:1",
+"flansmod:famasammo"                        :"2*quark:rune:1",
+"flansmod:betacmag"                         :"1*quark:rune:2",
+"flansmod:apcrrifleammo"                    :"4*quark:rune:1",
+"flansmod:ak47ammo"                         :"2*quark:rune:1",
+"flansmod:ak74ammo"                         :"2*quark:rune:1",
+"flansmod:rpdammo"                          :"4*quark:rune:1",
+"flansmod:rpkammo"                          :"2*quark:rune:1",
+"flansmod:witheringakammo"                  :"2*quark:rune:1",
+"flansmod:mp5ammo"                          :"2*quark:rune:1",
+"flansmod:skorpionammo"                     :"2*quark:rune:1",
+"flansmod:mp7ammo"                          :"2*quark:rune:1",
+"flansmod:uziammo"                          :"2*quark:rune:1",
+"flansmod:12gbirdshotammo"                  :"2*quark:rune:0",
+"flansmod:12gbuckshotammo"                  :"2*quark:rune:0",
+"flansmod:12gslugammo"                      :"2*quark:rune:0",
+"flansmod:12gheammo"                        :"2*quark:rune:0",
+"flansmod:12gflechetteammo"                 :"2*quark:rune:0",
+"flansmod:m9ammo"                           :"2*quark:rune:0",
+"flansmod:uspammo"                          :"2*quark:rune:0",
+"flansmod:m1911ammo"                        :"2*quark:rune:0",
+"flansmod:sigp226ammo"                      :"2*quark:rune:0",
+"flansmod:makarovammo"                      :"2*quark:rune:0",
+"flansmod:glockammo"                        :"2*quark:rune:0",
+"flansmod:deserteagleammo"                  :"2*quark:rune:0",
+"flansmod:kcasmartpistolammo"               :"3*quark:rune:0",
+"flansmod:usppoisonammo"                    :"4*quark:rune:0",
+"flansmod:m21ammo"                          :"2*quark:rune:1",
+"flansmod:l96ammo"                          :"2*quark:rune:1",
+"flansmod:ntw20ammo"                        :"4*quark:rune:1",
+"flansmod:sniperammo"                       :"1*quark:rune:1",
+"flansmod:hesniperammo"                     :"1*quark:rune:1",
+"flansmod:barrettammo"                      :"3*quark:rune:1",
+"flansmod:barrettexplosiveammo"             :"4*quark:rune:1",
+"flansmod:barrettcompactammo"               :"2*quark:rune:1",
+"flansmod:kcasmart50ammo"                   :"1*quark:rune:2",
+"flansmod:kcasmartcarbineammo"              :"3*quark:rune:1",
+"flansmod:l86ammo"                          :"4*quark:rune:1",
+"flansmod:g36ammo"                          :"3*quark:rune:1",
+"flansmod:hcarammo"                         :"3*quark:rune:1",
+"flansmod:m249ammo"                         :"4*quark:rune:1",
+"flansmod:m60ammo"                          :"4*quark:rune:1",
+"flansmod:devotionx55ammo"                  :"4*quark:rune:1",
+"flansmod:pr3ammo"                          :"2*quark:rune:1",
+"flansmod:pr3oscammo"                       :"4*quark:rune:1",
+"flansmod:p90ammo"                          :"3*quark:rune:1",
+"flansmod:bizonammo"                        :"3*quark:rune:1",
+"flansmod:krissvectorammo"                  :"4*quark:rune:1",
+"flansmod:honeybadgerammo"                  :"2*quark:rune:1",
+"flansmod:12gincendiaryammo"                :"1*quark:rune:1",
+"flansmod:12gpoisonedflechetteammo"         :"1*quark:rune:1",
+"flansmod:mastiff1218ammo"                  :"4*quark:rune:1",
+"flansmod:minigunammo"                      :"1*quark:rune:2",
+"flansmod:minigunexplosiveammo"             :"1*quark:rune:2",
+"flansmod:minigunportableammo"              :"1*quark:rune:2",
+"flansmod:gau19ammo"                        :"1*quark:rune:2",
+"flansmod:juryammo"                         :"1*quark:rune:1",
+"flansmod:b4crossbowammo"                   :"1*quark:rune:1",
+"flansmod:mlrs6ammo"                        :"1*quark:rune:1",
+"flansmod:grenadelauncherammo"              :"2*quark:rune:1",
+"flansmod:grenadelauncherincendiaryammo"    :"2*quark:rune:1",
+"flansmod:grenadelauncherbouncyammo"        :"2*quark:rune:1",
+"flansmod:grenadelaunchergasammo"           :"2*quark:rune:1",
+"flansmod:largebomb"                        :"4*quark:rune:1",
+"flansmod:smallbomb"                        :"2*quark:rune:1",
+"flansmod:napalm"                           :"1*quark:rune:2"
+
+"customrecord:one"      :"1*quark:rune:3",
+"customrecord:0101"     :"1*quark:rune:3",
+"customrecord:0102"     :"1*quark:rune:3",
+"customrecord:0103"     :"1*quark:rune:3",
+"customrecord:0104"     :"1*quark:rune:3",
+"customrecord:0105"     :"1*quark:rune:3",
+"customrecord:0106"     :"1*quark:rune:3",
+"customrecord:0107"     :"1*quark:rune:3",
+"customrecord:0108"     :"1*quark:rune:3",
+"customrecord:0109"     :"1*quark:rune:3",
+"customrecord:0110"     :"1*quark:rune:3",
+"customrecord:0111"     :"1*quark:rune:3",
+"customrecord:0112"     :"1*quark:rune:3",
+"customrecord:0113"     :"1*quark:rune:3",
+"customrecord:0114"     :"1*quark:rune:3",
+"customrecord:0115"     :"1*quark:rune:3",
+"customrecord:0801"     :"1*quark:rune:3",
+"customrecord:0802"     :"1*quark:rune:3",
+"customrecord:0803"     :"1*quark:rune:3",
+"customrecord:0804"     :"1*quark:rune:3",
+"customrecord:0805"     :"1*quark:rune:3",
+"customrecord:0806"     :"1*quark:rune:3",
+"customrecord:0807"     :"1*quark:rune:3",
+"customrecord:0808"     :"1*quark:rune:3",
+"customrecord:0809"     :"1*quark:rune:3",
+"customrecord:0810"     :"1*quark:rune:3",
+"customrecord:0811"     :"1*quark:rune:3",
+"customrecord:0812"     :"1*quark:rune:3",
+"customrecord:0813"     :"1*quark:rune:3",
+"customrecord:0814"     :"1*quark:rune:3",
+"customrecord:0815"     :"1*quark:rune:3",
+"customrecord:lp01"     :"1*quark:rune:3",
+"customrecord:lp02"     :"1*quark:rune:3",
+"customrecord:lp03"     :"1*quark:rune:3",
+"customrecord:lp04"     :"1*quark:rune:3",
+"customrecord:lp05"     :"1*quark:rune:3",
+"customrecord:lp06"     :"1*quark:rune:3",
+"customrecord:lp07"     :"1*quark:rune:3",
+"customrecord:lp08"     :"1*quark:rune:3",
+"customrecord:lp09"     :"1*quark:rune:3",
+"customrecord:lp10"     :"1*quark:rune:3",
+"customrecord:lp11"     :"1*quark:rune:3",
+"customrecord:lp12"     :"1*quark:rune:3",
+"customrecord:lp13"     :"1*quark:rune:3",
+"customrecord:lp14"     :"1*quark:rune:3",
+"customrecord:lp15"     :"1*quark:rune:3",
+"customrecord:lp16"     :"1*quark:rune:3",
+"customrecord:lp17"     :"1*quark:rune:3",
+"customrecord:lp18"     :"1*quark:rune:3",
+"customrecord:lp19"     :"1*quark:rune:3",
+"customrecord:lp20"     :"1*quark:rune:3",
+"customrecord:lp21"     :"1*quark:rune:3",
+"customrecord:lp22"     :"1*quark:rune:3",
+"customrecord:lp23"     :"1*quark:rune:3",
+"customrecord:lp24"     :"1*quark:rune:3",
+"customrecord:lp25"     :"1*quark:rune:3",
+"customrecord:lp26"     :"1*quark:rune:3",
+"customrecord:lp27"     :"1*quark:rune:3",
+"customrecord:lp28"     :"1*quark:rune:3",
+"customrecord:kr01"     :"1*quark:rune:3",
+"customrecord:kr0101"   :"1*quark:rune:3",
+"customrecord:kr0102"   :"1*quark:rune:3",
+"customrecord:kr0103"   :"1*quark:rune:3",
+"customrecord:kr0104"   :"1*quark:rune:3",
+"customrecord:kr0105"   :"1*quark:rune:3",
+"customrecord:kr0201"   :"1*quark:rune:3",
+"customrecord:kr0301"   :"1*quark:rune:3",
+"customrecord:kr0302"   :"1*quark:rune:3",
+"customrecord:kr0401"   :"1*quark:rune:3",
+"customrecord:kr0402"   :"1*quark:rune:3",
+"customrecord:kr0403"   :"1*quark:rune:3",
+"customrecord:kr0501"   :"1*quark:rune:3",
+"customrecord:kr0502"   :"1*quark:rune:3",
+"customrecord:kr0503"   :"1*quark:rune:3",
+"customrecord:kr0504"   :"1*quark:rune:3",
+"customrecord:kr0505"   :"1*quark:rune:3",
+"customrecord:kr0506"   :"1*quark:rune:3",
+"customrecord:kr0507"   :"1*quark:rune:3",
+"customrecord:kr0508"   :"1*quark:rune:3",
+"customrecord:kr0509"   :"1*quark:rune:3",
+"customrecord:kr0510"   :"1*quark:rune:3",
+"customrecord:kr0511"   :"1*quark:rune:3",
+"customrecord:kr0512"   :"1*quark:rune:3",
+"customrecord:kr0601"   :"1*quark:rune:3",
+"customrecord:l0101"    :"1*quark:rune:3",
+"customrecord:l0102"    :"1*quark:rune:3",
+"customrecord:l0103"    :"1*quark:rune:3",
+"customrecord:l0104"    :"1*quark:rune:3",
+"customrecord:l0105"    :"1*quark:rune:3",
+"customrecord:l0106"    :"1*quark:rune:3",
+"customrecord:l0107"    :"1*quark:rune:3",
+"customrecord:l0201"    :"1*quark:rune:3",
+"customrecord:l0301"    :"1*quark:rune:3",
+"customrecord:l0302"    :"1*quark:rune:3",
+"customrecord:l0303"    :"1*quark:rune:3",
+"customrecord:l0304"    :"1*quark:rune:3",
+"customrecord:l0305"    :"1*quark:rune:3",
+"customrecord:l0306"    :"1*quark:rune:3",
+"customrecord:l0307"    :"1*quark:rune:3",
+"customrecord:l0308"    :"1*quark:rune:3",
+"customrecord:l0309"    :"1*quark:rune:3",
+"customrecord:l0310"    :"1*quark:rune:3",
+"customrecord:l0311"    :"1*quark:rune:3",
+"customrecord:l0312"    :"1*quark:rune:3",
+"customrecord:l0313"    :"1*quark:rune:3",
+"customrecord:l0314"    :"1*quark:rune:3",
+"customrecord:l0315"    :"1*quark:rune:3",
+"customrecord:l0316"    :"1*quark:rune:3",
+"customrecord:l0317"    :"1*quark:rune:3",
+"customrecord:l0401"    :"1*quark:rune:3",
+"customrecord:l0402"    :"1*quark:rune:3",
+"customrecord:l0403"    :"1*quark:rune:3",
+"customrecord:l0404"    :"1*quark:rune:3",
+"customrecord:l0405"    :"1*quark:rune:3",
+"customrecord:l0406"    :"1*quark:rune:3",
+"customrecord:l0407"    :"1*quark:rune:3",
+"customrecord:l0408"    :"1*quark:rune:3",
+"customrecord:l0409"    :"1*quark:rune:3",
+"customrecord:l0410"    :"1*quark:rune:3",
+"customrecord:l0411"    :"1*quark:rune:3",
+"customrecord:l0412"    :"1*quark:rune:3",
+"customrecord:l0413"    :"1*quark:rune:3",
+"customrecord:l0414"    :"1*quark:rune:3",
+"customrecord:l0415"    :"1*quark:rune:3",
+"customrecord:l0416"    :"1*quark:rune:3",
+"customrecord:l0417"    :"1*quark:rune:3",
+"customrecord:l0418"    :"1*quark:rune:3",
+"customrecord:l0419"    :"1*quark:rune:3",
+"customrecord:l0420"    :"1*quark:rune:3",
+"customrecord:l0421"    :"1*quark:rune:3",
+"customrecord:l0422"    :"1*quark:rune:3",
+"customrecord:l0501"    :"1*quark:rune:3",
+"customrecord:l0502"    :"1*quark:rune:3",
+"customrecord:l0503"    :"1*quark:rune:3",
+"customrecord:l0504"    :"1*quark:rune:3",
+"customrecord:l0505"    :"1*quark:rune:3",
+"customrecord:l0506"    :"1*quark:rune:3",
+"customrecord:l0507"    :"1*quark:rune:3",
+"customrecord:l0508"    :"1*quark:rune:3",
+"customrecord:l0509"    :"1*quark:rune:3",
+"customrecord:l0510"    :"1*quark:rune:3",
+"customrecord:l0511"    :"1*quark:rune:3",
+"customrecord:l0512"    :"1*quark:rune:3",
+"customrecord:l0513"    :"1*quark:rune:3",
+"customrecord:l0514"    :"1*quark:rune:3",
+"customrecord:l0515"    :"1*quark:rune:3",
+"customrecord:l0516"    :"1*quark:rune:3",
+"customrecord:l0517"    :"1*quark:rune:3",
+"customrecord:l0518"    :"1*quark:rune:3",
+"customrecord:l0519"    :"1*quark:rune:3",
+"customrecord:l0520"    :"1*quark:rune:3",
+"customrecord:l0521"    :"1*quark:rune:3",
+"customrecord:l0522"    :"1*quark:rune:3",
+"customrecord:l0523"    :"1*quark:rune:3",
+"customrecord:l0524"    :"1*quark:rune:3",
+"customrecord:l0525"    :"1*quark:rune:3",
+"customrecord:l0526"    :"1*quark:rune:3"
+
+
+
+"1*minecraft:emerald"             :"1*quark:rune:4",
+"8*minecraft:emerald"             :"1*quark:rune:4",
+"64*minecraft:emerald"             :"1*quark:rune:4",
+"1*minecraft:emerald_block"       :"9*quark:rune:4",
+"8*minecraft:emerald_block"       :"9*quark:rune:4",
+"64*minecraft:emerald_block"       :"9*quark:rune:4",
+"1*minecraft:iron_ingot"          :"2*quark:rune:1",
+"8*minecraft:iron_ingot"          :"2*quark:rune:1",
+"64*minecraft:iron_ingot"          :"2*quark:rune:1",
+"1*minecraft:iron_block"          :"18*quark:rune:1",
+"8*minecraft:iron_block"          :"18*quark:rune:1",
+"64*minecraft:iron_block"          :"18*quark:rune:1",
+"1*minecraft:gunpowder"           :"1*quark:rune:1",
+"8*minecraft:gunpowder"           :"1*quark:rune:1",
+"64*minecraft:gunpowder"           :"1*quark:rune:1",
+"1*dcs_climate:dcs_cont_metal:4"  :"1*quark:rune:2",
+"8*dcs_climate:dcs_cont_metal:4"  :"1*quark:rune:2",
+"64*dcs_climate:dcs_cont_metal:4"  :"1*quark:rune:2",
+"1*flansmod:highexgunpowder"      :"2*quark:rune:1",
+"8*flansmod:highexgunpowder"      :"2*quark:rune:1",
+"64*flansmod:highexgunpowder"      :"2*quark:rune:1",
+"1*minecraft:tnt"                 :"5*quark:rune:1",
+"8*minecraft:tnt"                 :"5*quark:rune:1",
+"64*minecraft:tnt"                 :"5*quark:rune:1"
+
+
+
+
+0	dcs_lib:dcs.potion.freeze_res -- color: 5263615 -- is good effect -- PotionID: 0
+
+1	minecraft:speed -- color: 8171462 -- is good effect -- PotionID: 1
+2	minecraft:slowness -- color: 5926017 -- is bad effect -- PotionID: 2
+3	minecraft:haste -- color: 14270531 -- is good effect -- PotionID: 3
+4	minecraft:mining_fatigue -- color: 4866583 -- is bad effect -- PotionID: 4
+5	minecraft:strength -- color: 9643043 -- is good effect -- PotionID: 5
+6	minecraft:instant_health -- color: 16262179 -- is good effect -- PotionID: 6
+7	minecraft:instant_damage -- color: 4393481 -- is bad effect -- PotionID: 7
+8	minecraft:jump_boost -- color: 2293580 -- is good effect -- PotionID: 8
+9	minecraft:nausea -- color: 5578058 -- is bad effect -- PotionID: 9
+10	minecraft:regeneration -- color: 13458603 -- is good effect -- PotionID: 10
+11	minecraft:resistance -- color: 10044730 -- is good effect -- PotionID: 11
+12	minecraft:fire_resistance -- color: 14981690 -- is good effect -- PotionID: 12
+13	minecraft:water_breathing -- color: 3035801 -- is good effect -- PotionID: 13
+14	minecraft:invisibility -- color: 8356754 -- is good effect -- PotionID: 14
+15	minecraft:blindness -- color: 2039587 -- is bad effect -- PotionID: 15
+16	minecraft:night_vision -- color: 2039713 -- is good effect -- PotionID: 16
+17	minecraft:hunger -- color: 5797459 -- is bad effect -- PotionID: 17
+18	minecraft:weakness -- color: 4738376 -- is bad effect -- PotionID: 18
+19	minecraft:poison -- color: 5149489 -- is bad effect -- PotionID: 19
+20	minecraft:wither -- color: 3484199 -- is bad effect -- PotionID: 20
+21	minecraft:health_boost -- color: 16284963 -- is good effect -- PotionID: 21
+22	minecraft:absorption -- color: 2445989 -- is good effect -- PotionID: 22
+23	minecraft:saturation -- color: 16262179 -- is good effect -- PotionID: 23
+24	minecraft:glowing -- color: 9740385 -- is good effect -- PotionID: 24
+25	minecraft:levitation -- color: 13565951 -- is bad effect -- PotionID: 25
+26	minecraft:luck -- color: 3381504 -- is good effect -- PotionID: 26
+27	minecraft:unluck -- color: 12624973 -- is bad effect -- PotionID: 27
+
+28	dcs_climate:dcs.potion.gravity -- color: 5308240 -- is bad effect -- PotionID: 28
+29	dcs_climate:dcs.potion.bird -- color: 5304063 -- is good effect -- PotionID: 29
+30	dcs_climate:dcs.potion.ocean -- color: 5263615 -- is good effect -- PotionID: 30
+31	dcs_climate:dcs.potion.heavyboots -- color: 16772688 -- is good effect -- PotionID: 31
+32	dcs_climate:dcs.potion.nimble -- color: 16732240 -- is good effect -- PotionID: 32
+33	dcs_climate:dcs.potion.wide_mining -- color: 16719904 -- is good effect -- PotionID: 33
+34	dcs_climate:dcs.potion.digestive -- color: 16760880 -- is good effect -- PotionID: 34
+35	dcs_climate:dcs.potion.immunity -- color: 65504 -- is good effect -- PotionID: 35
+36	dcs_climate:dcs.potion.warp -- color: 14680288 -- is good effect -- PotionID: 36
+37	dcs_climate:dcs.potion.projectile_resistant -- color: 12648240 -- is good effect -- PotionID: 37
+38	dcs_climate:dcs.potion.reflexion -- color: 8438015 -- is good effect -- PotionID: 38
+39	dcs_climate:dcs.potion.absorption_exp -- color: 5308240 -- is good effect -- PotionID: 39
+40	dcs_climate:dcs.potion.unrepair -- color: 5251072 -- is bad effect -- PotionID: 40
+41	dcs_climate:dcs.potion.clairvoyance -- color: 16777120 -- is good effect -- PotionID: 41
+
+42	biomesoplenty:curse -- color: 304618 -- is bad effect -- PotionID: 42
+
+43	cyberware:neuropozyne -- color: 4670781 -- is good effect -- PotionID: 43
+44	cyberware:rejection -- color: 16711680 -- is bad effect -- PotionID: 44
+
+45	randomthings:imbue_fire -- color: -14336 -- is good effect -- PotionID: 45
+46	randomthings:imbue_poison -- color: -16731648 -- is good effect -- PotionID: 46
+47	randomthings:imbue_experience -- color: -256 -- is good effect -- PotionID: 47
+48	randomthings:imbue_wither -- color: -16579837 -- is good effect -- PotionID: 48
+49	randomthings:imbue_collapse -- color: -20561 -- is good effect -- PotionID: 49
+50	randomthings:collapse -- color: -20561 -- is bad effect -- PotionID: 50
+
+51	quark:blue -- color: 255 -- is bad effect -- PotionID: 51
+52	quark:black -- color: 3158064 -- is bad effect -- PotionID: 52
+53	quark:white -- color: 13421772 -- is bad effect -- PotionID: 53
+54	quark:resilience -- color: 5970436 -- is good effect -- PotionID: 54
+55	quark:curse -- color: 0 -- is bad effect -- PotionID: 55
+56	quark:danger_sight -- color: 575715 -- is good effect -- PotionID: 56
+
+57	thaumcraft:fluxtaint -- color: 6697847 -- is bad effect -- PotionID: 57
+58	thaumcraft:visexhaust -- color: 6702199 -- is bad effect -- PotionID: 58
+59	thaumcraft:infectiousvisexhaust -- color: 6706551 -- is bad effect -- PotionID: 59
+60	thaumcraft:unnaturalhunger -- color: 4482611 -- is bad effect -- PotionID: 60
+61	thaumcraft:warpward -- color: 14742263 -- is good effect -- PotionID: 61
+62	thaumcraft:deathgaze -- color: 6702131 -- is bad effect -- PotionID: 62
+63	thaumcraft:blurredvision -- color: 8421504 -- is bad effect -- PotionID: 63
+64	thaumcraft:sunscorned -- color: 16308330 -- is bad effect -- PotionID: 64
+65	thaumcraft:thaumarhia -- color: 6702199 -- is bad effect -- PotionID: 65
+
+66	twilightforest:frosted -- color: 5688317 -- is bad effect -- PotionID: 66
+
+67	tconstruct:carry -- color: 16777215 -- is good effect -- PotionID: 67
+68	tconstruct:enderference -- color: 2201695 -- is bad effect -- PotionID: 68
+69	tconstruct:insatiable -- color: 16777215 -- is bad effect -- PotionID: 69
+70	tconstruct:magnetic -- color: 16777215 -- is good effect -- PotionID: 70
+71	tconstruct:momentum -- color: 16777215 -- is good effect -- PotionID: 71
+72	tconstruct:dot -- color: 16777215 -- is bad effect -- PotionID: 72
+73	tconstruct:splinter -- color: 16777215 -- is bad effect -- PotionID: 73
+
+74	botania:soulcross -- color: 4670781 -- is good effect -- PotionID: 74
+75	botania:featherfeet -- color: 2534911 -- is good effect -- PotionID: 75
+76	botania:emptiness -- color: 16437247 -- is good effect -- PotionID: 76
+77	botania:bloodthirst -- color: 12779520 -- is good effect -- PotionID: 77
+78	botania:allure -- color: 13540 -- is good effect -- PotionID: 78
+79	botania:clear -- color: 16777215 -- is good effect -- PotionID: 79
+
+80	tektopia:village_bless -- color: -256 -- is good effect -- PotionID: 80
+
+81	totemexpansion:spelunking -- color: 16046402 -- is good effect -- PotionID: 81
+
+82	cyclicmagic:potion.magnet -- color: 2247599 -- is good effect -- PotionID: 82
+83	cyclicmagic:potion.ender -- color: 740674 -- is good effect -- PotionID: 83
+84	cyclicmagic:potion.waterwalk -- color: 8370340 -- is good effect -- PotionID: 84
+85	cyclicmagic:potion.slowfall -- color: 16019232 -- is good effect -- PotionID: 85
+86	cyclicmagic:potion.snow -- color: 9355263 -- is good effect -- PotionID: 86
+87	cyclicmagic:potion.swimspeed -- color: 11827199 -- is good effect -- PotionID: 87
+88	cyclicmagic:potion.bounce -- color: 9561177 -- is good effect -- PotionID: 88
+89	cyclicmagic:potion.frostwalker -- color: 4388055 -- is good effect -- PotionID: 89
+90	cyclicmagic:potion.butter -- color: 15066368 -- is good effect -- PotionID: 90
+91	cyclicmagic:potion.stunned -- color: 12764407 -- is good effect -- PotionID: 91
+92	cyclicmagic:potion.saturation -- color: 6111283 -- is good effect -- PotionID: 92
+
+93	nutrition:toughness -- color: 0 -- is good effect -- PotionID: 93
+94	nutrition:nourished -- color: 0 -- is good effect -- PotionID: 94
+95	nutrition:malnourished -- color: 0 -- is good effect -- PotionID: 95
+
+96	scp:black_shuck_curse -- color: -16777216 -- is bad effect -- PotionID: 96
+97	scp:sleep_deprivation -- color: -16777216 -- is bad effect -- PotionID: 97
+98	scp:aggression -- color: -9961472 -- is bad effect -- PotionID: 98
+99	scp:anxiety -- color: -9467094 -- is bad effect -- PotionID: 99
+100	scp:guilt -- color: -16750592 -- is bad effect -- PotionID: 100
+101	scp:paranoia -- color: -724670 -- is bad effect -- PotionID: 101
+102	scp:long_damage -- color: -20561 -- is bad effect -- PotionID: 102
+103	scp:eyeball_infested -- color: -65536 -- is bad effect -- PotionID: 103
+104	scp:tranquilizer -- color: 0 -- is bad effect -- PotionID: 104
+105	scp:zombie_virus -- color: -16711936 -- is good effect -- PotionID: 105
+106	scp:shadow_infest -- color: -16777216 -- is good effect -- PotionID: 106
+
+115	extraalchemy:effect.recall -- color: 16773632 -- is good effect -- PotionID: 115
+116	extraalchemy:effect.leech -- color: 4079166 -- is good effect -- PotionID: 116
+117	extraalchemy:effect.hurry -- color: 9291327 -- is good effect -- PotionID: 117
+118	extraalchemy:effect.magnetism -- color: 13092807 -- is good effect -- PotionID: 118
+119	extraalchemy:effect.pacifism -- color: 16711655 -- is good effect -- PotionID: 119
+120	extraalchemy:effect.push -- color: 2348745 -- is bad effect -- PotionID: 120
+121	extraalchemy:effect.dislocation -- color: 9658805 -- is good effect -- PotionID: 121
+122	extraalchemy:effect.cheatdeath_active -- color: -11796225 -- is bad effect -- PotionID: 122
+123	extraalchemy:effect.learning -- color: 14024505 -- is good effect -- PotionID: 123
+124	extraalchemy:effect.sails -- color: 10213631 -- is good effect -- PotionID: 124
+125	extraalchemy:effect.pain -- color: 5063187 -- is bad effect -- PotionID: 125
+126	extraalchemy:effect.piper -- color: 16768927 -- is good effect -- PotionID: 126
+127	extraalchemy:effect.return -- color: 13653381 -- is good effect -- PotionID: 127
+128	extraalchemy:effect.fuse -- color: 16711680 -- is bad effect -- PotionID: 128
+129	extraalchemy:effect.crumbling -- color: 10587992 -- is good effect -- PotionID: 129
+130	extraalchemy:effect.concentration -- color: 13157861 -- is good effect -- PotionID: 130
+131	extraalchemy:effect.freezing -- color: 12640752 -- is bad effect -- PotionID: 131
+132	extraalchemy:effect.reincarnation -- color: 13893582 -- is good effect -- PotionID: 132
+133	extraalchemy:effect.pull -- color: 2348656 -- is bad effect -- PotionID: 133
+134	extraalchemy:effect.charged -- color: 7667860 -- is good effect -- PotionID: 134
+135	extraalchemy:effect.dispel -- color: 1071445 -- is bad effect -- PotionID: 135
+
+
+140	extraalchemy:effect.charged2 -- color: 16711899 -- is good effect -- PotionID: 140
+
+
+147	extraalchemy:effect.gravity -- color: 8477961 -- is bad effect -- PotionID: 147
+148	extraalchemy:effect.sinking -- color: 49061 -- is bad effect -- PotionID: 148
+149	extraalchemy:effect.photosynthesis -- color: 47872 -- is good effect -- PotionID: 149
+150	extraalchemy:effect.beheading -- color: 9264903 -- is bad effect -- PotionID: 150
+
+153	extraalchemy:effect.cheatdeath_quiescent -- color: -11796225 -- is good effect -- PotionID: 153
+154	extraalchemy:effect.combustion -- color: 16344321 -- is bad effect -- PotionID: 154
+
+
+
+Potions:
+0	dcs_lib:dcs.potion.freeze_res -- color: 5263615 -- is good effect -- PotionID: 0
+1	minecraft:speed -- color: 8171462 -- is good effect -- PotionID: 1
+2	minecraft:slowness -- color: 5926017 -- is bad effect -- PotionID: 2
+3	minecraft:haste -- color: 14270531 -- is good effect -- PotionID: 3
+4	minecraft:mining_fatigue -- color: 4866583 -- is bad effect -- PotionID: 4
+5	minecraft:strength -- color: 9643043 -- is good effect -- PotionID: 5
+6	minecraft:instant_health -- color: 16262179 -- is good effect -- PotionID: 6
+7	minecraft:instant_damage -- color: 4393481 -- is bad effect -- PotionID: 7
+8	minecraft:jump_boost -- color: 2293580 -- is good effect -- PotionID: 8
+9	minecraft:nausea -- color: 5578058 -- is bad effect -- PotionID: 9
+10	minecraft:regeneration -- color: 13458603 -- is good effect -- PotionID: 10
+11	minecraft:resistance -- color: 10044730 -- is good effect -- PotionID: 11
+12	minecraft:fire_resistance -- color: 14981690 -- is good effect -- PotionID: 12
+13	minecraft:water_breathing -- color: 3035801 -- is good effect -- PotionID: 13
+14	minecraft:invisibility -- color: 8356754 -- is good effect -- PotionID: 14
+15	minecraft:blindness -- color: 2039587 -- is bad effect -- PotionID: 15
+16	minecraft:night_vision -- color: 2039713 -- is good effect -- PotionID: 16
+17	minecraft:hunger -- color: 5797459 -- is bad effect -- PotionID: 17
+18	minecraft:weakness -- color: 4738376 -- is bad effect -- PotionID: 18
+19	minecraft:poison -- color: 5149489 -- is bad effect -- PotionID: 19
+20	minecraft:wither -- color: 3484199 -- is bad effect -- PotionID: 20
+21	minecraft:health_boost -- color: 16284963 -- is good effect -- PotionID: 21
+22	minecraft:absorption -- color: 2445989 -- is good effect -- PotionID: 22
+23	minecraft:saturation -- color: 16262179 -- is good effect -- PotionID: 23
+24	minecraft:glowing -- color: 9740385 -- is good effect -- PotionID: 24
+25	minecraft:levitation -- color: 13565951 -- is bad effect -- PotionID: 25
+26	minecraft:luck -- color: 3381504 -- is good effect -- PotionID: 26
+27	minecraft:unluck -- color: 12624973 -- is bad effect -- PotionID: 27
+28	dcs_climate:dcs.potion.gravity -- color: 5308240 -- is bad effect -- PotionID: 28
+29	dcs_climate:dcs.potion.bird -- color: 5304063 -- is good effect -- PotionID: 29
+30	dcs_climate:dcs.potion.ocean -- color: 5263615 -- is good effect -- PotionID: 30
+31	dcs_climate:dcs.potion.heavyboots -- color: 16772688 -- is good effect -- PotionID: 31
+32	dcs_climate:dcs.potion.nimble -- color: 16732240 -- is good effect -- PotionID: 32
+33	dcs_climate:dcs.potion.wide_mining -- color: 16719904 -- is good effect -- PotionID: 33
+34	dcs_climate:dcs.potion.digestive -- color: 16760880 -- is good effect -- PotionID: 34
+35	dcs_climate:dcs.potion.immunity -- color: 65504 -- is good effect -- PotionID: 35
+36	dcs_climate:dcs.potion.warp -- color: 14680288 -- is good effect -- PotionID: 36
+37	dcs_climate:dcs.potion.projectile_resistant -- color: 12648240 -- is good effect -- PotionID: 37
+38	dcs_climate:dcs.potion.reflexion -- color: 8438015 -- is good effect -- PotionID: 38
+39	dcs_climate:dcs.potion.absorption_exp -- color: 5308240 -- is good effect -- PotionID: 39
+40	dcs_climate:dcs.potion.unrepair -- color: 5251072 -- is bad effect -- PotionID: 40
+41	dcs_climate:dcs.potion.clairvoyance -- color: 16777120 -- is good effect -- PotionID: 41
+42	biomesoplenty:curse -- color: 304618 -- is bad effect -- PotionID: 42
+43	cyberware:neuropozyne -- color: 4670781 -- is good effect -- PotionID: 43
+44	cyberware:rejection -- color: 16711680 -- is bad effect -- PotionID: 44
+45	randomthings:imbue_fire -- color: -14336 -- is good effect -- PotionID: 45
+46	randomthings:imbue_poison -- color: -16731648 -- is good effect -- PotionID: 46
+47	randomthings:imbue_experience -- color: -256 -- is good effect -- PotionID: 47
+48	randomthings:imbue_wither -- color: -16579837 -- is good effect -- PotionID: 48
+49	randomthings:imbue_collapse -- color: -20561 -- is good effect -- PotionID: 49
+50	randomthings:collapse -- color: -20561 -- is bad effect -- PotionID: 50
+51	quark:blue -- color: 255 -- is bad effect -- PotionID: 51
+52	quark:black -- color: 3158064 -- is bad effect -- PotionID: 52
+53	quark:white -- color: 13421772 -- is bad effect -- PotionID: 53
+54	quark:resilience -- color: 5970436 -- is good effect -- PotionID: 54
+55	quark:curse -- color: 0 -- is bad effect -- PotionID: 55
+56	quark:danger_sight -- color: 575715 -- is good effect -- PotionID: 56
+57	thaumcraft:fluxtaint -- color: 6697847 -- is bad effect -- PotionID: 57
+58	thaumcraft:visexhaust -- color: 6702199 -- is bad effect -- PotionID: 58
+59	thaumcraft:infectiousvisexhaust -- color: 6706551 -- is bad effect -- PotionID: 59
+60	thaumcraft:unnaturalhunger -- color: 4482611 -- is bad effect -- PotionID: 60
+61	thaumcraft:warpward -- color: 14742263 -- is good effect -- PotionID: 61
+62	thaumcraft:deathgaze -- color: 6702131 -- is bad effect -- PotionID: 62
+63	thaumcraft:blurredvision -- color: 8421504 -- is bad effect -- PotionID: 63
+64	thaumcraft:sunscorned -- color: 16308330 -- is bad effect -- PotionID: 64
+65	thaumcraft:thaumarhia -- color: 6702199 -- is bad effect -- PotionID: 65
+66	twilightforest:frosted -- color: 5688317 -- is bad effect -- PotionID: 66
+67	tconstruct:carry -- color: 16777215 -- is good effect -- PotionID: 67
+68	tconstruct:enderference -- color: 2201695 -- is bad effect -- PotionID: 68
+69	tconstruct:insatiable -- color: 16777215 -- is bad effect -- PotionID: 69
+70	tconstruct:magnetic -- color: 16777215 -- is good effect -- PotionID: 70
+71	tconstruct:momentum -- color: 16777215 -- is good effect -- PotionID: 71
+72	tconstruct:dot -- color: 16777215 -- is bad effect -- PotionID: 72
+73	tconstruct:splinter -- color: 16777215 -- is bad effect -- PotionID: 73
+74	botania:soulcross -- color: 4670781 -- is good effect -- PotionID: 74
+75	botania:featherfeet -- color: 2534911 -- is good effect -- PotionID: 75
+76	botania:emptiness -- color: 16437247 -- is good effect -- PotionID: 76
+77	botania:bloodthirst -- color: 12779520 -- is good effect -- PotionID: 77
+78	botania:allure -- color: 13540 -- is good effect -- PotionID: 78
+79	botania:clear -- color: 16777215 -- is good effect -- PotionID: 79
+123	tektopia:village_bless -- color: -256 -- is good effect -- PotionID: 123
+124	totemexpansion:spelunking -- color: 16046402 -- is good effect -- PotionID: 124
+125	cyclicmagic:potion.magnet -- color: 2247599 -- is good effect -- PotionID: 125
+126	cyclicmagic:potion.ender -- color: 740674 -- is good effect -- PotionID: 126
+127	cyclicmagic:potion.waterwalk -- color: 8370340 -- is good effect -- PotionID: 127
+128	cyclicmagic:potion.slowfall -- color: 16019232 -- is good effect -- PotionID: 128
+129	cyclicmagic:potion.snow -- color: 9355263 -- is good effect -- PotionID: 129
+130	cyclicmagic:potion.swimspeed -- color: 11827199 -- is good effect -- PotionID: 130
+131	cyclicmagic:potion.bounce -- color: 9561177 -- is good effect -- PotionID: 131
+132	cyclicmagic:potion.frostwalker -- color: 4388055 -- is good effect -- PotionID: 132
+133	cyclicmagic:potion.butter -- color: 15066368 -- is good effect -- PotionID: 133
+134	cyclicmagic:potion.stunned -- color: 12764407 -- is good effect -- PotionID: 134
+135	cyclicmagic:potion.saturation -- color: 6111283 -- is good effect -- PotionID: 135
+136	nutrition:toughness -- color: 0 -- is good effect -- PotionID: 136
+137	nutrition:nourished -- color: 0 -- is good effect -- PotionID: 137
+138	nutrition:malnourished -- color: 0 -- is good effect -- PotionID: 138
+139	scp:black_shuck_curse -- color: -16777216 -- is bad effect -- PotionID: 139
+140	scp:sleep_deprivation -- color: -16777216 -- is bad effect -- PotionID: 140
+141	scp:aggression -- color: -9961472 -- is bad effect -- PotionID: 141
+142	scp:anxiety -- color: -9467094 -- is bad effect -- PotionID: 142
+143	scp:guilt -- color: -16750592 -- is bad effect -- PotionID: 143
+144	scp:paranoia -- color: -724670 -- is bad effect -- PotionID: 144
+145	scp:long_damage -- color: -20561 -- is bad effect -- PotionID: 145
+146	scp:eyeball_infested -- color: -65536 -- is bad effect -- PotionID: 146
+147	scp:tranquilizer -- color: 0 -- is bad effect -- PotionID: 147
+148	scp:zombie_virus -- color: -16711936 -- is good effect -- PotionID: 148
+149	scp:shadow_infest -- color: -16777216 -- is good effect -- PotionID: 149
+
+158	extraalchemy:effect.recall -- color: 16773632 -- is good effect -- PotionID: 158
+159	extraalchemy:effect.leech -- color: 4079166 -- is good effect -- PotionID: 159
+162	extraalchemy:effect.hurry -- color: 9291327 -- is good effect -- PotionID: 162
+163	extraalchemy:effect.magnetism -- color: 13092807 -- is good effect -- PotionID: 163
+164	extraalchemy:effect.pacifism -- color: 16711655 -- is good effect -- PotionID: 164
+165	extraalchemy:effect.push -- color: 2348745 -- is bad effect -- PotionID: 165
+166	extraalchemy:effect.dislocation -- color: 9658805 -- is good effect -- PotionID: 166
+167	extraalchemy:effect.cheatdeath_active -- color: -28416 -- is bad effect -- PotionID: 167
+
+169	extraalchemy:effect.learning -- color: 14024505 -- is good effect -- PotionID: 169
+170	extraalchemy:effect.sails -- color: 10213631 -- is good effect -- PotionID: 170
+171	extraalchemy:effect.pain -- color: 5063187 -- is bad effect -- PotionID: 171
+172	extraalchemy:effect.piper -- color: 16768927 -- is good effect -- PotionID: 172
+173	extraalchemy:effect.return -- color: 13653381 -- is good effect -- PotionID: 173
+
+175	extraalchemy:effect.fuse -- color: 16711680 -- is bad effect -- PotionID: 175
+176	extraalchemy:effect.crumbling -- color: 10587992 -- is good effect -- PotionID: 176
+177	extraalchemy:effect.concentration -- color: 13157861 -- is good effect -- PotionID: 177
+
+180	extraalchemy:effect.freezing -- color: 12640752 -- is bad effect -- PotionID: 180
+181	extraalchemy:effect.reincarnation -- color: 13893582 -- is good effect -- PotionID: 181
+182	extraalchemy:effect.pull -- color: 2348656 -- is bad effect -- PotionID: 182
+
+185	extraalchemy:effect.charged -- color: 7667860 -- is good effect -- PotionID: 185
+
+187	extraalchemy:effect.dispel -- color: 1071445 -- is bad effect -- PotionID: 187
+188	extraalchemy:effect.charged2 -- color: 16711899 -- is good effect -- PotionID: 188
+
+190	extraalchemy:effect.gravity -- color: 8477961 -- is bad effect -- PotionID: 190
+191	extraalchemy:effect.sinking -- color: 49061 -- is bad effect -- PotionID: 191
+192	extraalchemy:effect.photosynthesis -- color: 47872 -- is good effect -- PotionID: 192
+193	extraalchemy:effect.beheading -- color: 9264903 -- is bad effect -- PotionID: 193
+
+196	extraalchemy:effect.cheatdeath_quiescent -- color: -28416 -- is good effect -- PotionID: 196
+197	extraalchemy:effect.combustion -- color: 16344321 -- is bad effect -- PotionID: 197
+
+
+
+
+
+
+0	dcs_lib:dcs.potion.freeze_res -- color: 5263615 -- is good effect -- PotionID: 0
+
+1	minecraft:speed -- color: 8171462 -- is good effect -- PotionID: 1
+2	minecraft:slowness -- color: 5926017 -- is bad effect -- PotionID: 2
+3	minecraft:haste -- color: 14270531 -- is good effect -- PotionID: 3
+4	minecraft:mining_fatigue -- color: 4866583 -- is bad effect -- PotionID: 4
+5	minecraft:strength -- color: 9643043 -- is good effect -- PotionID: 5
+6	minecraft:instant_health -- color: 16262179 -- is good effect -- PotionID: 6
+7	minecraft:instant_damage -- color: 4393481 -- is bad effect -- PotionID: 7
+8	minecraft:jump_boost -- color: 2293580 -- is good effect -- PotionID: 8
+9	minecraft:nausea -- color: 5578058 -- is bad effect -- PotionID: 9
+10	minecraft:regeneration -- color: 13458603 -- is good effect -- PotionID: 10
+11	minecraft:resistance -- color: 10044730 -- is good effect -- PotionID: 11
+12	minecraft:fire_resistance -- color: 14981690 -- is good effect -- PotionID: 12
+13	minecraft:water_breathing -- color: 3035801 -- is good effect -- PotionID: 13
+14	minecraft:invisibility -- color: 8356754 -- is good effect -- PotionID: 14
+15	minecraft:blindness -- color: 2039587 -- is bad effect -- PotionID: 15
+16	minecraft:night_vision -- color: 2039713 -- is good effect -- PotionID: 16
+17	minecraft:hunger -- color: 5797459 -- is bad effect -- PotionID: 17
+18	minecraft:weakness -- color: 4738376 -- is bad effect -- PotionID: 18
+19	minecraft:poison -- color: 5149489 -- is bad effect -- PotionID: 19
+20	minecraft:wither -- color: 3484199 -- is bad effect -- PotionID: 20
+21	minecraft:health_boost -- color: 16284963 -- is good effect -- PotionID: 21
+22	minecraft:absorption -- color: 2445989 -- is good effect -- PotionID: 22
+23	minecraft:saturation -- color: 16262179 -- is good effect -- PotionID: 23
+24	minecraft:glowing -- color: 9740385 -- is good effect -- PotionID: 24
+25	minecraft:levitation -- color: 13565951 -- is bad effect -- PotionID: 25
+26	minecraft:luck -- color: 3381504 -- is good effect -- PotionID: 26
+27	minecraft:unluck -- color: 12624973 -- is bad effect -- PotionID: 27
+
+28	dcs_climate:dcs.potion.gravity -- color: 5308240 -- is bad effect -- PotionID: 28
+29	dcs_climate:dcs.potion.bird -- color: 5304063 -- is good effect -- PotionID: 29
+30	dcs_climate:dcs.potion.ocean -- color: 5263615 -- is good effect -- PotionID: 30
+31	dcs_climate:dcs.potion.heavyboots -- color: 16772688 -- is good effect -- PotionID: 31
+32	dcs_climate:dcs.potion.nimble -- color: 16732240 -- is good effect -- PotionID: 32
+33	dcs_climate:dcs.potion.wide_mining -- color: 16719904 -- is good effect -- PotionID: 33
+34	dcs_climate:dcs.potion.digestive -- color: 16760880 -- is good effect -- PotionID: 34
+35	dcs_climate:dcs.potion.immunity -- color: 65504 -- is good effect -- PotionID: 35
+36	dcs_climate:dcs.potion.warp -- color: 14680288 -- is good effect -- PotionID: 36
+37	dcs_climate:dcs.potion.projectile_resistant -- color: 12648240 -- is good effect -- PotionID: 37
+38	dcs_climate:dcs.potion.reflexion -- color: 8438015 -- is good effect -- PotionID: 38
+39	dcs_climate:dcs.potion.absorption_exp -- color: 5308240 -- is good effect -- PotionID: 39
+40	dcs_climate:dcs.potion.unrepair -- color: 5251072 -- is bad effect -- PotionID: 40
+41	dcs_climate:dcs.potion.clairvoyance -- color: 16777120 -- is good effect -- PotionID: 41
+
+42	biomesoplenty:curse -- color: 304618 -- is bad effect -- PotionID: 42
+
+43	cyberware:neuropozyne -- color: 4670781 -- is good effect -- PotionID: 43
+44	cyberware:rejection -- color: 16711680 -- is bad effect -- PotionID: 44
+
+45	randomthings:imbue_fire -- color: -14336 -- is good effect -- PotionID: 45
+46	randomthings:imbue_poison -- color: -16731648 -- is good effect -- PotionID: 46
+47	randomthings:imbue_experience -- color: -256 -- is good effect -- PotionID: 47
+48	randomthings:imbue_wither -- color: -16579837 -- is good effect -- PotionID: 48
+49	randomthings:imbue_collapse -- color: -20561 -- is good effect -- PotionID: 49
+50	randomthings:collapse -- color: -20561 -- is bad effect -- PotionID: 50
+
+51	quark:blue -- color: 255 -- is bad effect -- PotionID: 51
+52	quark:black -- color: 3158064 -- is bad effect -- PotionID: 52
+53	quark:white -- color: 13421772 -- is bad effect -- PotionID: 53
+54	quark:resilience -- color: 5970436 -- is good effect -- PotionID: 54
+55	quark:curse -- color: 0 -- is bad effect -- PotionID: 55
+56	quark:danger_sight -- color: 575715 -- is good effect -- PotionID: 56
+
+57	thaumcraft:fluxtaint -- color: 6697847 -- is bad effect -- PotionID: 57
+58	thaumcraft:visexhaust -- color: 6702199 -- is bad effect -- PotionID: 58
+59	thaumcraft:infectiousvisexhaust -- color: 6706551 -- is bad effect -- PotionID: 59
+60	thaumcraft:unnaturalhunger -- color: 4482611 -- is bad effect -- PotionID: 60
+61	thaumcraft:warpward -- color: 14742263 -- is good effect -- PotionID: 61
+62	thaumcraft:deathgaze -- color: 6702131 -- is bad effect -- PotionID: 62
+63	thaumcraft:blurredvision -- color: 8421504 -- is bad effect -- PotionID: 63
+64	thaumcraft:sunscorned -- color: 16308330 -- is bad effect -- PotionID: 64
+65	thaumcraft:thaumarhia -- color: 6702199 -- is bad effect -- PotionID: 65
+
+66	twilightforest:frosted -- color: 5688317 -- is bad effect -- PotionID: 66
+
+67	tconstruct:carry -- color: 16777215 -- is good effect -- PotionID: 67
+68	tconstruct:enderference -- color: 2201695 -- is bad effect -- PotionID: 68
+69	tconstruct:insatiable -- color: 16777215 -- is bad effect -- PotionID: 69
+70	tconstruct:magnetic -- color: 16777215 -- is good effect -- PotionID: 70
+71	tconstruct:momentum -- color: 16777215 -- is good effect -- PotionID: 71
+72	tconstruct:dot -- color: 16777215 -- is bad effect -- PotionID: 72
+73	tconstruct:splinter -- color: 16777215 -- is bad effect -- PotionID: 73
+
+74	botania:soulcross -- color: 4670781 -- is good effect -- PotionID: 74
+75	botania:featherfeet -- color: 2534911 -- is good effect -- PotionID: 75
+76	botania:emptiness -- color: 16437247 -- is good effect -- PotionID: 76
+77	botania:bloodthirst -- color: 12779520 -- is good effect -- PotionID: 77
+78	botania:allure -- color: 13540 -- is good effect -- PotionID: 78
+79	botania:clear -- color: 16777215 -- is good effect -- PotionID: 79
+
+123	tektopia:village_bless -- color: -256 -- is good effect -- PotionID: 123
+
+124	totemexpansion:spelunking -- color: 16046402 -- is good effect -- PotionID: 124
+
+125	cyclicmagic:potion.magnet -- color: 2247599 -- is good effect -- PotionID: 125
+126	cyclicmagic:potion.ender -- color: 740674 -- is good effect -- PotionID: 126
+127	cyclicmagic:potion.waterwalk -- color: 8370340 -- is good effect -- PotionID: 127
+128	cyclicmagic:potion.slowfall -- color: 16019232 -- is good effect -- PotionID: 128
+129	cyclicmagic:potion.snow -- color: 9355263 -- is good effect -- PotionID: 129
+130	cyclicmagic:potion.swimspeed -- color: 11827199 -- is good effect -- PotionID: 130
+131	cyclicmagic:potion.bounce -- color: 9561177 -- is good effect -- PotionID: 131
+132	cyclicmagic:potion.frostwalker -- color: 4388055 -- is good effect -- PotionID: 132
+133	cyclicmagic:potion.butter -- color: 15066368 -- is good effect -- PotionID: 133
+134	cyclicmagic:potion.stunned -- color: 12764407 -- is good effect -- PotionID: 134
+135	cyclicmagic:potion.saturation -- color: 6111283 -- is good effect -- PotionID: 135
+
+136	nutrition:toughness -- color: 0 -- is good effect -- PotionID: 136
+137	nutrition:nourished -- color: 0 -- is good effect -- PotionID: 137
+138	nutrition:malnourished -- color: 0 -- is good effect -- PotionID: 138
+
+139	scp:black_shuck_curse -- color: -16777216 -- is bad effect -- PotionID: 139
+140	scp:sleep_deprivation -- color: -16777216 -- is bad effect -- PotionID: 140
+141	scp:aggression -- color: -9961472 -- is bad effect -- PotionID: 141
+142	scp:anxiety -- color: -9467094 -- is bad effect -- PotionID: 142
+143	scp:guilt -- color: -16750592 -- is bad effect -- PotionID: 143
+144	scp:paranoia -- color: -724670 -- is bad effect -- PotionID: 144
+145	scp:long_damage -- color: -20561 -- is bad effect -- PotionID: 145
+146	scp:eyeball_infested -- color: -65536 -- is bad effect -- PotionID: 146
+147	scp:tranquilizer -- color: 0 -- is bad effect -- PotionID: 147
+148	scp:zombie_virus -- color: -16711936 -- is good effect -- PotionID: 148
+149	scp:shadow_infest -- color: -16777216 -- is good effect -- PotionID: 149
+
+158	extraalchemy:effect.recall -- color: 16773632 -- is good effect -- PotionID: 158
+159	extraalchemy:effect.leech -- color: 4079166 -- is good effect -- PotionID: 159
+
+162	extraalchemy:effect.hurry -- color: 9291327 -- is good effect -- PotionID: 162
+163	extraalchemy:effect.magnetism -- color: 13092807 -- is good effect -- PotionID: 163
+164	extraalchemy:effect.pacifism -- color: 16711655 -- is good effect -- PotionID: 164
+165	extraalchemy:effect.push -- color: 2348745 -- is bad effect -- PotionID: 165
+166	extraalchemy:effect.dislocation -- color: 9658805 -- is good effect -- PotionID: 166
+167	extraalchemy:effect.cheatdeath_active -- color: -58880 -- is bad effect -- PotionID: 167
+
+169	extraalchemy:effect.learning -- color: 14024505 -- is good effect -- PotionID: 169
+170	extraalchemy:effect.sails -- color: 10213631 -- is good effect -- PotionID: 170
+171	extraalchemy:effect.pain -- color: 5063187 -- is bad effect -- PotionID: 171
+172	extraalchemy:effect.piper -- color: 16768927 -- is good effect -- PotionID: 172
+173	extraalchemy:effect.return -- color: 13653381 -- is good effect -- PotionID: 173
+
+175	extraalchemy:effect.fuse -- color: 16711680 -- is bad effect -- PotionID: 175
+176	extraalchemy:effect.crumbling -- color: 10587992 -- is good effect -- PotionID: 176
+177	extraalchemy:effect.concentration -- color: 13157861 -- is good effect -- PotionID: 177
+
+180	extraalchemy:effect.freezing -- color: 12640752 -- is bad effect -- PotionID: 180
+181	extraalchemy:effect.reincarnation -- color: 13893582 -- is good effect -- PotionID: 181
+182	extraalchemy:effect.pull -- color: 2348656 -- is bad effect -- PotionID: 182
+
+185	extraalchemy:effect.charged -- color: 7667860 -- is good effect -- PotionID: 185
+
+187	extraalchemy:effect.dispel -- color: 1071445 -- is bad effect -- PotionID: 187
+
+188	extraalchemy:effect.charged2 -- color: 16711899 -- is good effect -- PotionID: 188
+
+190	extraalchemy:effect.gravity -- color: 8477961 -- is bad effect -- PotionID: 190
+191	extraalchemy:effect.sinking -- color: 49061 -- is bad effect -- PotionID: 191
+192	extraalchemy:effect.photosynthesis -- color: 47872 -- is good effect -- PotionID: 192
+193	extraalchemy:effect.beheading -- color: 9264903 -- is bad effect -- PotionID: 193
+
+196	extraalchemy:effect.cheatdeath_quiescent -- color: -58880 -- is good effect -- PotionID: 196
+197	extraalchemy:effect.combustion -- color: 16344321 -- is bad effect -- PotionID: 197
+
+
+
+
+
+
+0	dcs_lib:dcs.potion.freeze_res -- color: 5263615 -- is good effect -- PotionID: 0
+
+1	minecraft:speed -- color: 8171462 -- is good effect -- PotionID: 1
+2	minecraft:slowness -- color: 5926017 -- is bad effect -- PotionID: 2
+3	minecraft:haste -- color: 14270531 -- is good effect -- PotionID: 3
+4	minecraft:mining_fatigue -- color: 4866583 -- is bad effect -- PotionID: 4
+5	minecraft:strength -- color: 9643043 -- is good effect -- PotionID: 5
+6	minecraft:instant_health -- color: 16262179 -- is good effect -- PotionID: 6
+7	minecraft:instant_damage -- color: 4393481 -- is bad effect -- PotionID: 7
+8	minecraft:jump_boost -- color: 2293580 -- is good effect -- PotionID: 8
+9	minecraft:nausea -- color: 5578058 -- is bad effect -- PotionID: 9
+10	minecraft:regeneration -- color: 13458603 -- is good effect -- PotionID: 10
+11	minecraft:resistance -- color: 10044730 -- is good effect -- PotionID: 11
+12	minecraft:fire_resistance -- color: 14981690 -- is good effect -- PotionID: 12
+13	minecraft:water_breathing -- color: 3035801 -- is good effect -- PotionID: 13
+14	minecraft:invisibility -- color: 8356754 -- is good effect -- PotionID: 14
+15	minecraft:blindness -- color: 2039587 -- is bad effect -- PotionID: 15
+16	minecraft:night_vision -- color: 2039713 -- is good effect -- PotionID: 16
+17	minecraft:hunger -- color: 5797459 -- is bad effect -- PotionID: 17
+18	minecraft:weakness -- color: 4738376 -- is bad effect -- PotionID: 18
+19	minecraft:poison -- color: 5149489 -- is bad effect -- PotionID: 19
+20	minecraft:wither -- color: 3484199 -- is bad effect -- PotionID: 20
+21	minecraft:health_boost -- color: 16284963 -- is good effect -- PotionID: 21
+22	minecraft:absorption -- color: 2445989 -- is good effect -- PotionID: 22
+23	minecraft:saturation -- color: 16262179 -- is good effect -- PotionID: 23
+24	minecraft:glowing -- color: 9740385 -- is good effect -- PotionID: 24
+25	minecraft:levitation -- color: 13565951 -- is bad effect -- PotionID: 25
+26	minecraft:luck -- color: 3381504 -- is good effect -- PotionID: 26
+27	minecraft:unluck -- color: 12624973 -- is bad effect -- PotionID: 27
+
+28	dcs_climate:dcs.potion.gravity -- color: 5308240 -- is bad effect -- PotionID: 28
+29	dcs_climate:dcs.potion.bird -- color: 5304063 -- is good effect -- PotionID: 29
+30	dcs_climate:dcs.potion.ocean -- color: 5263615 -- is good effect -- PotionID: 30
+31	dcs_climate:dcs.potion.heavyboots -- color: 16772688 -- is good effect -- PotionID: 31
+32	dcs_climate:dcs.potion.nimble -- color: 16732240 -- is good effect -- PotionID: 32
+33	dcs_climate:dcs.potion.wide_mining -- color: 16719904 -- is good effect -- PotionID: 33
+34	dcs_climate:dcs.potion.digestive -- color: 16760880 -- is good effect -- PotionID: 34
+35	dcs_climate:dcs.potion.immunity -- color: 65504 -- is good effect -- PotionID: 35
+36	dcs_climate:dcs.potion.warp -- color: 14680288 -- is good effect -- PotionID: 36
+37	dcs_climate:dcs.potion.projectile_resistant -- color: 12648240 -- is good effect -- PotionID: 37
+38	dcs_climate:dcs.potion.reflexion -- color: 8438015 -- is good effect -- PotionID: 38
+39	dcs_climate:dcs.potion.absorption_exp -- color: 5308240 -- is good effect -- PotionID: 39
+40	dcs_climate:dcs.potion.unrepair -- color: 5251072 -- is bad effect -- PotionID: 40
+41	dcs_climate:dcs.potion.clairvoyance -- color: 16777120 -- is good effect -- PotionID: 41
+
+42	biomesoplenty:curse -- color: 304618 -- is bad effect -- PotionID: 42
+
+43	cyberware:neuropozyne -- color: 4670781 -- is good effect -- PotionID: 43
+44	cyberware:rejection -- color: 16711680 -- is bad effect -- PotionID: 44
+
+45	randomthings:imbue_fire -- color: -14336 -- is good effect -- PotionID: 45
+46	randomthings:imbue_poison -- color: -16731648 -- is good effect -- PotionID: 46
+47	randomthings:imbue_experience -- color: -256 -- is good effect -- PotionID: 47
+48	randomthings:imbue_wither -- color: -16579837 -- is good effect -- PotionID: 48
+49	randomthings:imbue_collapse -- color: -20561 -- is good effect -- PotionID: 49
+50	randomthings:collapse -- color: -20561 -- is bad effect -- PotionID: 50
+
+51	quark:blue -- color: 255 -- is bad effect -- PotionID: 51
+52	quark:black -- color: 3158064 -- is bad effect -- PotionID: 52
+53	quark:white -- color: 13421772 -- is bad effect -- PotionID: 53
+54	quark:resilience -- color: 5970436 -- is good effect -- PotionID: 54
+55	quark:curse -- color: 0 -- is bad effect -- PotionID: 55
+56	quark:danger_sight -- color: 575715 -- is good effect -- PotionID: 56
+
+57	thaumcraft:fluxtaint -- color: 6697847 -- is bad effect -- PotionID: 57
+58	thaumcraft:visexhaust -- color: 6702199 -- is bad effect -- PotionID: 58
+59	thaumcraft:infectiousvisexhaust -- color: 6706551 -- is bad effect -- PotionID: 59
+60	thaumcraft:unnaturalhunger -- color: 4482611 -- is bad effect -- PotionID: 60
+61	thaumcraft:warpward -- color: 14742263 -- is good effect -- PotionID: 61
+62	thaumcraft:deathgaze -- color: 6702131 -- is bad effect -- PotionID: 62
+63	thaumcraft:blurredvision -- color: 8421504 -- is bad effect -- PotionID: 63
+64	thaumcraft:sunscorned -- color: 16308330 -- is bad effect -- PotionID: 64
+65	thaumcraft:thaumarhia -- color: 6702199 -- is bad effect -- PotionID: 65
+
+66	twilightforest:frosted -- color: 5688317 -- is bad effect -- PotionID: 66
+
+67	tconstruct:carry -- color: 16777215 -- is good effect -- PotionID: 67
+68	tconstruct:enderference -- color: 2201695 -- is bad effect -- PotionID: 68
+69	tconstruct:insatiable -- color: 16777215 -- is bad effect -- PotionID: 69
+70	tconstruct:magnetic -- color: 16777215 -- is good effect -- PotionID: 70
+71	tconstruct:momentum -- color: 16777215 -- is good effect -- PotionID: 71
+72	tconstruct:dot -- color: 16777215 -- is bad effect -- PotionID: 72
+73	tconstruct:splinter -- color: 16777215 -- is bad effect -- PotionID: 73
+
+74	botania:soulcross -- color: 4670781 -- is good effect -- PotionID: 74
+75	botania:featherfeet -- color: 2534911 -- is good effect -- PotionID: 75
+76	botania:emptiness -- color: 16437247 -- is good effect -- PotionID: 76
+77	botania:bloodthirst -- color: 12779520 -- is good effect -- PotionID: 77
+78	botania:allure -- color: 13540 -- is good effect -- PotionID: 78
+79	botania:clear -- color: 16777215 -- is good effect -- PotionID: 79
+
+123	tektopia:village_bless -- color: -256 -- is good effect -- PotionID: 123
+
+124	totemexpansion:spelunking -- color: 16046402 -- is good effect -- PotionID: 124
+
+125	cyclicmagic:potion.magnet -- color: 2247599 -- is good effect -- PotionID: 125
+126	cyclicmagic:potion.ender -- color: 740674 -- is good effect -- PotionID: 126
+127	cyclicmagic:potion.waterwalk -- color: 8370340 -- is good effect -- PotionID: 127
+128	cyclicmagic:potion.slowfall -- color: 16019232 -- is good effect -- PotionID: 128
+129	cyclicmagic:potion.snow -- color: 9355263 -- is good effect -- PotionID: 129
+130	cyclicmagic:potion.swimspeed -- color: 11827199 -- is good effect -- PotionID: 130
+131	cyclicmagic:potion.bounce -- color: 9561177 -- is good effect -- PotionID: 131
+132	cyclicmagic:potion.frostwalker -- color: 4388055 -- is good effect -- PotionID: 132
+133	cyclicmagic:potion.butter -- color: 15066368 -- is good effect -- PotionID: 133
+134	cyclicmagic:potion.stunned -- color: 12764407 -- is good effect -- PotionID: 134
+135	cyclicmagic:potion.saturation -- color: 6111283 -- is good effect -- PotionID: 135
+
+136	nutrition:toughness -- color: 0 -- is good effect -- PotionID: 136
+137	nutrition:nourished -- color: 0 -- is good effect -- PotionID: 137
+138	nutrition:malnourished -- color: 0 -- is good effect -- PotionID: 138
+
+139	scp:black_shuck_curse -- color: -16777216 -- is bad effect -- PotionID: 139
+140	scp:sleep_deprivation -- color: -16777216 -- is bad effect -- PotionID: 140
+141	scp:aggression -- color: -9961472 -- is bad effect -- PotionID: 141
+142	scp:anxiety -- color: -9467094 -- is bad effect -- PotionID: 142
+143	scp:guilt -- color: -16750592 -- is bad effect -- PotionID: 143
+144	scp:paranoia -- color: -724670 -- is bad effect -- PotionID: 144
+145	scp:long_damage -- color: -20561 -- is bad effect -- PotionID: 145
+146	scp:eyeball_infested -- color: -65536 -- is bad effect -- PotionID: 146
+147	scp:tranquilizer -- color: 0 -- is bad effect -- PotionID: 147
+148	scp:zombie_virus -- color: -16711936 -- is good effect -- PotionID: 148
+149	scp:shadow_infest -- color: -16777216 -- is good effect -- PotionID: 149
+
+158	extraalchemy:effect.recall -- color: 16773632 -- is good effect -- PotionID: 158
+159	extraalchemy:effect.leech -- color: 4079166 -- is good effect -- PotionID: 159
+
+162	extraalchemy:effect.hurry -- color: 9291327 -- is good effect -- PotionID: 162
+163	extraalchemy:effect.magnetism -- color: 13092807 -- is good effect -- PotionID: 163
+164	extraalchemy:effect.pacifism -- color: 16711655 -- is good effect -- PotionID: 164
+165	extraalchemy:effect.push -- color: 2348745 -- is bad effect -- PotionID: 165
+166	extraalchemy:effect.dislocation -- color: 9658805 -- is good effect -- PotionID: 166
+167	extraalchemy:effect.cheatdeath_active -- color: -6225665 -- is bad effect -- PotionID: 167
+
+169	extraalchemy:effect.learning -- color: 14024505 -- is good effect -- PotionID: 169
+170	extraalchemy:effect.sails -- color: 10213631 -- is good effect -- PotionID: 170
+171	extraalchemy:effect.pain -- color: 5063187 -- is bad effect -- PotionID: 171
+172	extraalchemy:effect.piper -- color: 16768927 -- is good effect -- PotionID: 172
+173	extraalchemy:effect.return -- color: 13653381 -- is good effect -- PotionID: 173
+
+175	extraalchemy:effect.fuse -- color: 16711680 -- is bad effect -- PotionID: 175
+176	extraalchemy:effect.crumbling -- color: 10587992 -- is good effect -- PotionID: 176
+177	extraalchemy:effect.concentration -- color: 13157861 -- is good effect -- PotionID: 177
+
+180	extraalchemy:effect.freezing -- color: 12640752 -- is bad effect -- PotionID: 180
+181	extraalchemy:effect.reincarnation -- color: 13893582 -- is good effect -- PotionID: 181
+182	extraalchemy:effect.pull -- color: 2348656 -- is bad effect -- PotionID: 182
+
+185	extraalchemy:effect.charged -- color: 7667860 -- is good effect -- PotionID: 185
+
+187	extraalchemy:effect.dispel -- color: 1071445 -- is bad effect -- PotionID: 187
+188	extraalchemy:effect.charged2 -- color: 16711899 -- is good effect -- PotionID: 188
+
+190	extraalchemy:effect.gravity -- color: 8477961 -- is bad effect -- PotionID: 190
+191	extraalchemy:effect.sinking -- color: 49061 -- is bad effect -- PotionID: 191
+192	extraalchemy:effect.photosynthesis -- color: 47872 -- is good effect -- PotionID: 192
+193	extraalchemy:effect.beheading -- color: 9264903 -- is bad effect -- PotionID: 193
+
+196	extraalchemy:effect.cheatdeath_quiescent -- color: -6225665 -- is good effect -- PotionID: 196
+197	extraalchemy:effect.combustion -- color: 16344321 -- is bad effect -- PotionID: 197

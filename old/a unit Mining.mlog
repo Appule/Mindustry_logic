@@ -1,0 +1,43 @@
+#作品番号3「採掘兵」
+#指定した鉱石を採掘し、指定したブロックへ搬入する。
+op rand rand 999999999 0                                    #           ↓↓初期値↓↓
+set ore @ORE                                                #                   ore = 目的鉱石 as string
+set container container1                                    #                   container = 収納先 as int
+set UNIT @mono                                              #           ↑↑初期値↑↑ UNIT = 対象ユニット as string
+ubind UNIT                                                  ##A         ↓↓フラグ指定↓↓
+sensor preflag @unit @flag                                  #
+jump 4 lessThan preflag 0                                   ##goto A
+op add preflag preflag rand                                 #
+op mul preflag preflag -1                                   #
+ucontrol flag preflag 0 0 0 0                               #           ↑↑フラグ指定↑↑
+sensor postflag @unit @flag                                 ##C         ↓↓フラグ確認↓↓
+jump 4 notEqual postflag preflag                            ##goto A    ↑↑フラグ確認↑↑
+sensor xc container @x                                      #           ↓↓収納先の空き確認↓↓ xc = 収納先のx座標 as int
+sensor yc container @y                                      #                   yc = 収納先のy座標 as int
+sensor cmax container @itemCapacity                         #                   cmax = 収納先の容量 as int
+sensor current container ore                                #                   current = 収納先の目的鉱石の数 as int
+jump 19 notEqual cmax current                               ##goto B
+ucontrol idle 0 0 0 0 0                                     #               収納先の空きがない場合　⇒　!!待機!!
+jump 10 always 0 0                                          ##goto C    ↑↑収納先の空き確認↑↑
+sensor current @unit @totalItems                            ##B         ↓↓採掘・収納作業↓↓ current = ユニットの所持アイテム数 as int
+sensor max @unit @itemCapacity                              #                   max = ユニットの積載量 as int
+sensor itemtype @unit @firstItem                            #                   itemtype = ユニットの所持アイテム as string
+jump 32 equal current 0                                     ##goto D
+jump 25 equal current max                                   ##goto E
+jump 32 equal itemtype ore                                  ##goto D
+ucontrol within xc yc 6 w 0                                 ##E
+jump 30 equal w false                                       ##goto F
+ucontrol itemDrop container max 0 0 0                       #               !!収納先にアイテムを収納!!
+ucontrol idle 0 0 0 0 0                                     #
+jump 10 always 0 0                                          ##goto C
+ucontrol approach xc yc 5 0 0                               ##F             !!収納先に向かう!!
+jump 10 always 0 0                                          ##goto C
+ulocate ore 0 0 ore xo yo found 0                           ##D                 xo, yo = 鉱石のx,y座標
+jump 10 equal found false                                   ##goto C
+ucontrol within xo yo 6 w 0                                 #
+jump 39 equal w false                                       ##goto G
+ucontrol mine xo yo 0 0 0                                   #               !!鉱石を採掘する!!
+ucontrol idle 0 0 0 0 0                                     #
+jump 10 always 0 0                                          ##goto C
+ucontrol approach xo yo 5 0 0                               ##G             !!鉱石に向かう!!
+jump 10 always 0 0                                          ##goto C    ↑↑採掘・収納作業↑↑

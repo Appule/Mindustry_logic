@@ -1,0 +1,30 @@
+ubind @mono
+sensor flag @unit @flag
+jump 26 equal flag -1
+jump 11 equal flag 0
+jump 9 equal flag 1
+jump 7 equal flag 2
+end
+set ore @scrap
+jump 12 always flag_type 1
+set ore @lead
+jump 12 always flag_type 1
+set ore @copper
+ulocate building core false @copper core_x core_y found? core
+sensor unit_current_items @unit @totalItems
+jump 22 equal unit_current_items 20
+jump 18 equal unit_current_items 0
+sensor unit_current_item_type @unit @firstItem
+jump 22 notEqual unit_current_item_type ore
+ulocate ore core true ore ore_x ore_y found? building
+ucontrol approach ore_x ore_y 8 0 0
+ucontrol mine ore_x ore_y 0 0 0
+end
+ucontrol stop core 20 0 0 0
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemDrop core 20 0 0 0
+end
+sensor unit_current_items @unit @totalItems
+ulocate building core false @copper core_x core_y found? core
+jump 22 notEqual unit_current_items 0
+ucontrol approach core_x core_y 16 0 0

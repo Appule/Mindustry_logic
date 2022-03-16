@@ -1,0 +1,96 @@
+#作品番号5「熟練輸送兵」
+#最寄りのコアから指定したアイテムを指定したブロックに輸送する。
+#輸送先のブロック内で最少のアイテムを優先的に運ぶ。
+#指定ブロックに指定アイテムがある程度溜まるとフリーになる。
+#指定アイテムがある程度減ると再雇用が行われる。
+
+
+
+
+op rand rand 999999999 0                                    #           ↓↓初期値↓↓
+set con container1                                          ##A2                   con = 輸送先ブロック as string
+set item1 @null                                             #                   item1 = 輸送アイテム1 as int
+set item2 @null                                             #                   item2 = 輸送アイテム2 as int
+set item3 @null                                             #                   item3 = 輸送アイテム3 as int
+set masslabor false                                         #                   masslabor = 1ブロックに対して複数人が運搬するか as boolean
+set UNIT @flare                                             #                   UNIT = 対象ユニット as string
+set Uthreshold 0.75                                         #                   Uthreshold = 溜めおき作業の上限
+set Lthreshold 0.25                                         #                   Lthreshold = 溜めおき作業の下限
+set delay 5                                                 #           ↑↑初期値↑↑ delay = 再雇用までの待ち時間
+jump 1 strictEqual con null                                 ##goto A2#M  ↓↓雇用・休暇判定↓↓
+sensor concap con @itemCapacity                             #
+op mul concap concap Lthreshold                             #
+jump 19 equal item2 @null                                   ##goto N
+jump 17 equal item3 @null                                   ##goto O
+sensor conitem con item3                                    #
+jump 23 lessThan conitem concap                             ##goto A
+sensor conitem con item2                                    ##O
+jump 23 lessThan conitem concap                             ##goto A
+sensor conitem con item1                                    ##N
+jump 23 lessThan conitem concap                             ##goto A
+wait delay                                                  #
+jump 10 always 0 0                                          ##goto M    ↑↑雇用・休暇判定↑↑
+ubind UNIT                                                  ##A         ↓↓フラグ指定↓↓
+sensor preflag @unit @flag                                  #
+jump 23 lessThan preflag 0                                  ##goto A
+op add preflag preflag rand                                 #
+op mul preflag preflag -1                                   #
+ucontrol flag preflag 0 0 0 0                               #           ↑↑フラグ指定↑↑
+sensor postflag @unit @flag                                 ##H         ↓↓フラグ確認↓↓
+jump 23 notEqual postflag preflag                           ##goto A    ↑↑フラグ確認↑↑
+jump 43 equal item2 @null                                   ##goto B    ↓↓搬送先の最不足アイテム選定↓↓
+sensor item1cap con item1                                   #
+sensor item2cap con item2                                   #
+op min minitem item1cap item2cap                            #
+jump 40 equal item3 @null                                   ##goto C
+sensor item3cap con item3                                   #
+op min minitem minitem item3cap                             #
+jump 40 notEqual minitem item3cap                           ##goto C
+set minitemtype item3                                       #
+jump 42 notEqual minitem item2cap                           ##goto D#C
+set minitemtype item2                                       #
+jump 44 notEqual minitem item1cap                           ##goto E#D
+set minitemtype item1                                       ##B         ↑↑搬送先の最不足アイテム選定↑↑
+sensor current @unit @totalItems                            ##E         ↓↓最不足アイテムの搬出・搬入判定↓↓
+sensor max @unit @itemCapacity                              #
+sensor itemtype @unit @firstItem                            #
+jump 66 equal current 0                                     ##goto F
+jump 51 equal masslabor true                                ##goto P
+jump 55 equal itemtype minitemtype                          ##goto G
+jump 66 always 0 0                                          ##goto F
+jump 55 equal itemtype item1                                ##goto G#P
+jump 55 equal itemtype item2                                ##goto G
+jump 55 equal itemtype item3                                ##goto G
+jump 66 always 0 0                                          ##goto F    ↑↑最不足アイテムの搬出・搬入判定↑↑
+jump 29 strictEqual con null                                ##goto H#G  ↓↓搬送先へ搬入↓↓
+sensor xc con @x                                            #
+sensor yc con @y                                            #
+ucontrol within xc yc 6 w 0                                 #
+jump 64 equal w false                                       ##goto I
+ucontrol itemDrop con max 0 0 0                             #
+sensor cmax con @itemCapacity                               #
+sensor citem con itemtype                                   #
+jump 66 equal cmax citem                                    ##goto F
+ucontrol approach xc yc 5 0 0                               ##I
+jump 29 always 0 0                                          ##goto H    ↑↑搬送先へ搬入↑↑
+ulocate building core false 0 xc yc found core1             ##F         ↓↓搬送元（コア）から搬出↓↓
+jump 29 equal found false                                   ##goto H
+sensor m @unit @mining                                      #
+jump 71 equal m false                                       ##goto J
+ucontrol stop 0 0 0 0 0                                     #
+sensor corecap core1 @itemCapacity                          ##J
+sensor coreitem core1 itemtype                              #
+jump 76 notEqual corecap coreitem                           ##goto K
+ucontrol idle 0 0 0 0 0                                     #
+jump 29 always 0 0                                          ##goto H
+ucontrol within xc yc 6 w 0                                 ##K
+jump 80 equal w true                                        ##goto L
+ucontrol approach xc yc 5 0 0                               #
+jump 29 always 0 0                                          ##goto H
+ucontrol itemDrop core1 current max 0 0                     ##L
+sensor cmax con @itemCapacity                               #           ↓↓解雇判定↓↓
+op mul cmax cmax Uthreshold                                 #
+sensor conitem con minitemtype                              #
+jump 10 greaterThan conitem cmax                            ##goto M    ↑↑解雇判定↑↑
+ucontrol itemTake core1 minitemtype max 0 0                 #
+jump 29 always 0 0                                          ##goto H    ↑↑搬送元（コア）から搬出↑↑

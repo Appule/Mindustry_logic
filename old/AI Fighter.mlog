@@ -1,0 +1,53 @@
+#試作品番号3「一般部隊」
+#指定した種類のユニットを指揮できるようにする。
+#ブロックを指定して集合地点にすることができる。
+#hpが減ると回復施設、無ければコアへ避難する。
+#コアに避難してたら回復施設を作ってあげてね。
+
+
+
+
+set node wall1                                              ##B         ↓↓初期値↓↓  node = 集合地点 as string
+set fleerate 0.9                                            #           ↑↑初期値↑↑  fleerate = 避難を始める残りhpの割合　as float
+ubind @flare                                                #           ↓↓フラグ指定↓↓
+sensor isworking? @unit @controlled                         #
+sensor flag @unit @flag                                     #
+jump 7 equal isworking? 0                                   ##goto A
+jump 0 lessThan flag 0                                      ##goto B
+op abs flag flag 1                                          ##A
+op mod flag flag 999999999                                  #
+ucontrol flag flag yc 5 0 0                                 #           ↑↑フラグ指定↑↑
+uradar enemy any any distance 0 1 unit                      #           ↓↓攻撃↓↓
+jump 17 strictEqual unit null                               ##goto C
+sensor unitX unit @x                                        #
+sensor unitY unit @y                                        #
+sensor range @range @unit                                   #
+ucontrol approach unitX unitY range 0 0                     #
+ucontrol targetp unit true 0 0 0                            #           ↑↑攻撃↑↑
+sensor maxhp @maxHealth @unit                               ##C         ↓↓行動選択判定↓↓
+sensor hp @health @unit                                     #
+op mul maxhp maxhp fleerate                                 #
+jump 34 lessThan hp maxhp                                   ##goto D
+sensor current @unit @totalItems                            #
+jump 40 notEqual current 0                                  ##goto E    ↑↑行動選択判定↑↑
+jump 30 strictEqual node null                               ##goto F    ↓↓集合↓↓
+sensor nodeX node @x                                        #
+sensor nodeY node @y                                        #
+ucontrol within nodeX nodeY 12 w 0                          #
+jump 31 equal w false                                       ##goto G
+ucontrol boost false 0 0 0 0                                #
+ucontrol targetp null true 0 0 0                            #
+end                                                         ##F
+ucontrol boost true 0 0 0 0                                 ##G
+ucontrol approach nodeX nodeY 5 0 0                         #
+end                                                         #           ↑↑集合↑↑
+ulocate building repair false 0 apX apY found 0             ##D         ↓↓避難↓↓
+jump 37 equal found true                                    ##goto H
+ulocate building core false 0 apX apY found 0               #
+ucontrol boost true 0 0 0 0                                 ##H
+ucontrol approach apX apY 8 0 0                             #
+end                                                         #           ↑↑避難↑↑
+ulocate building core false minore coreX coreY found b      ##E         ↓↓片付け↓↓
+ucontrol itemDrop b current 0 0 0                           #
+ucontrol approach coreX coreY 5 0 0                         #
+end                                                         #           ↑↑片付け↑↑

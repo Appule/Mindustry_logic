@@ -1,0 +1,84 @@
+#作品番号4「熟練回収兵」
+#指定したブロックから指定したアイテムを回収する。
+#回収したアイテムは最寄りのコアへ搬送する。
+#コアの指定アイテムをある程度満たした後はフリーになる。
+#コアの指定アイテムがある程度減ると再雇用が行われる。
+
+
+
+
+op rand rand 999999999 0                                    #           ↓↓初期値↓↓
+set con container1                                          ##A                container = 回収元ブロック as string
+set item1 @null                                             #                   item1 = 回収アイテム1 as string
+set item2 @null                                             #                   item2 = 回収アイテム2 as string
+set item3 @null                                             #                   item3 = 回収アイテム3 as string
+set item4 @null                                             #                   item4 = 回収アイテム4 as string
+set UNIT @flare                                             #                   UNIT = 対象ユニット as string
+set Uthreshold 0.95                                         #                   Uthreshold = 溜めおき作業の上限
+set Lthreshold 0.75                                         #                   Lthreshold = 溜めおき作業の下限
+set delay 5                                                 #           ↑↑初期値↑↑ delay = 再雇用までの待ち時間
+ulocate building core false 0 coreX coreY found core1       #           ↓↓雇用・休暇判定↓↓
+jump 1 strictEqual con null                                 ##goto A
+jump 28 strictEqual core1 null                              ##goto C
+sensor corecap core1 @itemCapacity                          #
+op mul corecap corecap Lthreshold                           #
+sensor coreitem core1 item1                                 #
+jump 28 lessThan coreitem corecap                           ##goto C
+jump 26 equal item2 @null                                   ##goto D
+sensor coreitem core1 item2                                 #
+jump 28 lessThan coreitem corecap                           ##goto C
+jump 26 equal item3 @null                                   ##goto D
+sensor coreitem core1 item3                                 #
+jump 28 lessThan coreitem corecap                           ##goto C
+jump 26 equal item4 @null                                   ##goto D
+sensor coreitem core1 item4                                 #
+jump 28 lessThan coreitem corecap                           ##goto C
+wait delay                                                  ##D
+jump 10 always 0 0                                          ##goto B    ↑↑雇用・休暇判定↑↑
+ubind UNIT                                                  ##C         ↓↓フラグ指定↓↓
+sensor preflag @unit @flag                                  #
+jump 28 lessThan preflag 0                                  ##goto C
+op add preflag preflag rand                                 #
+op mul preflag preflag -1                                   #
+ucontrol flag preflag 0 0 0 0                               #           ↑↑フラグ指定↑↑
+sensor postflag @unit @flag                                 ##E         ↓↓フラグ確認↓↓
+jump 28 notEqual postflag preflag                           ##goto C    ↑↑フラグ確認↑↑
+ulocate building core false 0 coreX coreY found core1       #           ↓↓最少コアアイテム選定↓↓
+jump 54 equal item2 @null                                   ##goto F
+sensor coreitem1 core1 item1                                #
+sensor coreitem2 core1 item2                                #
+op min minitem coreitem1 coreitem2                          #
+jump 51 equal item3 @null                                   ##goto G
+sensor coreitem3 core1 item3                                #
+op min minitem minitem coreitem3                            #
+jump 49 equal item4 @null                                   ##goto H
+sensor coreitem4 core1 item4                                #
+op min minitem minitem coreitem4                            #
+jump 49 notEqual minitem coreitem4                          ##goto H
+set minitem item4                                           #
+jump 51 notEqual minitem coreitem3                          ##goto G#H
+set minitem item3                                           #
+jump 53 notEqual minitem coreitem2                          ##goto I#G
+set minitem item2                                           #
+jump 55 notEqual minitem coreitem1                          ##goto J#I
+set minitem item1                                           ##F         ↑↑最少コアアイテム選定↑↑ minitem = コアの最少アイテム as string
+sensor current @unit @totalItems                            ##J         ↓↓回収・搬入・解雇判定↓↓
+sensor max @unit @itemCapacity                              #
+jump 68 equal current 0                                     ##goto K
+ulocate building core false 0 coreX coreY found core1       #
+jump 34 equal found false                                   ##goto E
+sensor corecap core1 @itemCapacity                          #
+sensor coreitem core1 minitem                               #
+op mul corecap corecap Uthreshold                           #
+jump 10 greaterThan coreitem corecap                        ##goto B    ↑↑回収・搬入・解雇判定↑↑
+ucontrol boost true 0 0 0 0                                 #           ↓↓コアへ搬入↓↓
+ucontrol approach coreX coreY 5 0 0                         #
+ucontrol itemDrop core1 current 0 0 0                       #
+jump 34 always 0 0                                          ##goto E    ↑↑コアへ搬入↑↑
+jump 10 strictEqual con null                                ##goto B#K  ↓↓回収元から回収↓↓
+sensor conX con @x                                          #
+sensor conY con @y                                          #
+ucontrol boost true 0 0 0 0                                 #
+ucontrol approach conX conY 5 0 0                           #
+ucontrol itemTake con minitem max 0 0                       #
+jump 34 always 0 0                                          ##goto E    ↑↑回収元から回収↑↑

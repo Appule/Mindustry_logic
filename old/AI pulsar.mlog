@@ -1,0 +1,86 @@
+#試作品番号2「ポリ隊」
+#ポリを一般作業員として雇えるようにする。
+#平和なときは採掘をやってくれます。
+#傷ついたブロックがあれば、修理をしてくれます。
+#よって試作品。
+
+
+
+
+set ore1 @coal                                              #               ore1 = 採掘対象鉱石1 as string
+set ore2 @sand                                              #               ore2 = 採掘対象鉱石2 as string
+set fillingrate 0.9                                         #               fillingrate = 収納先への充填率 as float
+set node wall1                                              #               node = 集合地点 as string
+set fleerate 0.9                                            #               fleerate = 避難を始める残りhpの割合 as float
+ubind @pulsar                                               ##b         ↓↓フラグ指定↓↓
+sensor working @unit @controlled                            #
+sensor flag @unit @flag                                     #
+jump 10 equal working 0                                     ##goto a
+jump 5 lessThan flag 0                                      ##goto b
+op abs flag flag -1                                         ##a
+op mod flag flag 999999999                                  #
+ucontrol flag flag 0 0 0 0                                  #           ↑↑フラグ指定↑↑
+sensor maxhp @unit @maxHealth                               #           ↓↓行動選択判定1↓↓
+sensor hp @unit @health                                     #
+op mul maxhp maxhp fleerate                                 #
+jump 25 lessThan hp maxhp                                   ##goto O1 flee
+uradar enemy any any distance 0 1 unit                      #
+jump 30 notEqual unit null                                  ##goto O2 attack
+ucontrol target null null false 0 0                         #
+ulocate building core false 0 coreX coreY found core1       #
+sensor current @unit @totalItems                            #
+sensor max @unit @itemCapacity                              #
+jump 72 equal current max                                   ##goto O3 collect
+jump 36 always 0 0                                          ##goto O4 minore ↑↑行動選択判定1↑↑
+ulocate building repair false 0 xc yc found 0               ##I1        ↓↓避難↓↓
+jump 28 equal found true                                    ##goto a
+ulocate building core false 0 xc yc found 0                 #
+ucontrol approach xc yc 8 0 0                               ##a
+end                                                         #           ↑↑避難↑↑
+ucontrol targetp unit true 0 0 0                            ##I2        ↓↓攻撃↓↓
+sensor range @unit @range                                   #
+sensor apX unit @x                                          #
+sensor apY unit @y                                          #
+ucontrol approach apX apY range 0 0                         #
+end                                                         #           ↑↑攻撃↑↑
+sensor corecap core1 @itemCapacity                          ##I4        ↓↓最少鉱石選定↓↓
+set coreore1 corecap                                        #
+ulocate ore core 0 ore1 0 0 found 0                         #
+jump 41 equal found false                                   ##goto a
+sensor coreore1 core1 ore1                                  #
+set coreore2 corecap                                        ##a
+ulocate ore core 0 ore2 0 0 found 0                         #
+jump 45 equal found false                                   ##goto b
+sensor coreore2 core1 ore2                                  #
+op min minore coreore1 coreore2                             ##b
+set minoretype ore2                                         #
+jump 49 notEqual minore coreore1                            ##goto O6
+set minoretype ore1                                         #           ↑↑最少鉱石選定↑↑
+sensor coreore core1 minoretype                             #I6         ↓↓行動選択判定2↓↓
+op mul corecap corecap fillingrate                          #
+jump 55 greaterThan coreore corecap                         ##goto a
+sensor itemtype @unit @firstItem                            #
+jump 67 equal itemtype minoretype                           ##goto O5 mine
+jump 67 equal current 0                                     ##goto O5 mine
+jump 72 notEqual current 0                                  ##goto O3 collect #a ↑↑行動選択判定2↑↑
+jump 63 strictEqual node null                               ##goto a    ↓↓集合↓↓
+sensor nodeX node @x                                        #
+sensor nodeY node @y                                        #
+ucontrol within nodeX nodeY 12 w 0                          #
+jump 64 equal w false                                       ##goto b
+ucontrol boost false 0 0 0 0                                #
+ucontrol stop 0 0 0 0 0                                     #
+end                                                         ##a
+ucontrol boost true 0 0 0 0                                 ##b
+ucontrol approach nodeX nodeY 5 0 0                         #
+end                                                         #           ↑↑集合↑↑
+ulocate ore core 0 minoretype oreX oreY found 0             ##I5        ↓↓鉱石採掘↓↓
+ucontrol boost true 0 0 0 0                                 #
+ucontrol approach oreX oreY 5 0 0                           #
+ucontrol mine oreX oreY 0 0 0                               #
+end                                                         #           ↑↑鉱石採掘↑↑
+ucontrol stop 0 0 0 0 0                                     ##I3        ↓↓片付け↓↓
+ucontrol boost true 0 0 0 0                                 #
+ucontrol itemDrop core1 current 0 0 0                       #
+ucontrol approach coreX coreY 5 0 0                         #
+end                                                         #           ↑↑片付け↑↑

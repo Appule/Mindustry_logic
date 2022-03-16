@@ -1,0 +1,30 @@
+set building_1 container1
+set item @coal
+jump 0 strictEqual building_1 null
+sensor item_amount building_1 item
+sensor building_capacity building_1 @itemCapacity
+op mul building_capacity building_capacity 0.5
+jump 0 greaterThan item_amount building_capacity
+ubind @flare
+sensor flag @unit @flag
+jump 7 lessThan flag 0
+ulocate building core false @copper core_x core_y found? core
+sensor core_item_amount core item
+jump 7 lessThan core_item_amount 100
+sensor current_items_amount @unit @totalItems
+op mul flag flag -1
+ucontrol flag flag building_y 5 0 0
+jump 7 notEqual current_items_amount 0
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemTake core item 20 0 0
+sensor current_items_amount @unit @totalItems
+jump 17 strictEqual current_items_amount 0
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+ucontrol approach building_x building_y 5 0 0
+ucontrol itemDrop building_1 20 20 0 0
+sensor current_items_amount @unit @totalItems
+jump 0 strictEqual building_1 null
+jump 23 greaterThan current_items_amount 0
+op mul flag flag -1
+ucontrol flag flag building_y 5 0 0

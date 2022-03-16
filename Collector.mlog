@@ -1,0 +1,25 @@
+set building_1 container1
+set item @titanium
+sensor item_amount building_1 item
+jump 0 lessThan item_amount 20
+ubind @flare
+ulocate building core false @copper core_x core_y found? core
+sensor core_capacity core @itemCapacity
+sensor core_item_amount core item
+op mul core_capacity core_capacity 0.2
+jump 6 greaterThan core_item_amount core_capacity
+sensor flag @unit @flag
+jump 4 lessThan flag 0
+sensor current_items_amount @unit @totalItems
+jump 4 notEqual current_items_amount 0
+op mul flag flag -1
+ucontrol flag flag building_y 5 0 0
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+ucontrol approach building_x building_y 5 0 0
+ucontrol itemTake building_1 item 20 0 0
+sensor current_items_amount @unit @totalItems
+jump 18 strictEqual current_items_amount 0
+ucontrol approach core_x core_y 5 0 0
+op mul flag flag -1
+ucontrol flag flag building_y 5 0 0

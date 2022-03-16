@@ -1,0 +1,78 @@
+#作品番号6「熟練採掘兵」
+#指定した鉱石を採掘し、指定したブロックへ搬入する。
+#複数種類指定でき、在庫が最少の物を優先的に採掘する。
+#boost対応（飛びっぱなし）
+
+
+
+
+
+op rand rand 999999999 0                                    #           ↓↓初期値↓↓
+set ore1 @null                                              ##I7                 ore1 = 採掘対象鉱石1 as string
+set ore2 @null                                              #                   ore2 = 採掘対象鉱石2 as string
+set ore3 @null                                              #                   ore3 = 採掘対象鉱石3 as string
+set container container1                                    #                   container = 収納先 as string
+set Uthreshold 0.75                                         #                   Uthreshold = 溜めおき作業の上限
+set Lthreshold 0.25                                         #                   Lthreshold = 溜めおき作業の下限
+set delay 5                                                 #                   delay = 再雇用までの待ち時間
+set UNIT @mono                                              #           ↑↑初期値↑↑ UNIT = 対象ユニット as string
+jump 1 strictEqual container null                           ##goto O7#c  ↓↓雇用・休暇判定↓↓
+sensor concap container @itemCapacity                       #
+op mul concap concap Lthreshold                             #
+jump 18 equal ore2 @null                                    ##goto a
+jump 16 equal ore3 @null                                    ##goto b
+sensor conitem container ore3                               #
+jump 22 lessThan conitem concap                             ##goto O1
+sensor conitem container ore2                               ##b
+jump 22 lessThan conitem concap                             ##goto O1
+sensor conitem container ore1                               ##a
+jump 22 lessThan conitem concap                             ##goto O1
+wait delay                                                  #
+jump 9 always 0 0                                           ##goto c    ↑↑雇用・休暇判定↑↑
+ubind UNIT                                                  ##I1        ↓↓フラグ指定↓↓
+sensor preflag @unit @flag                                  #
+jump 22 lessThan preflag 0                                  ##goto O1
+op add preflag preflag rand                                 #
+op mul preflag preflag -1                                   #
+ucontrol flag preflag 0 0 0 0                               #           ↑↑フラグ指定↑↑
+sensor max @unit @itemCapacity                              #           ↓↓行動選択判定1↓↓
+sensor current @unit @totalItems                            #
+jump 62 equal current max                                   ##goto O4 collect 
+sensor itemtype @unit @firstItem                            #
+jump 56 equal itemtype ore1                                 ##goto O6 mine
+jump 56 equal itemtype ore2                                 ##goto O6 mine
+jump 56 equal itemtype ore3                                 ##goto O6 mine↑↑行動選択判定1↑↑
+sensor postflag @unit @flag                                 ##I2         ↓↓フラグ確認↓↓
+jump 22 notEqual postflag preflag                           ##goto O1    ↑↑フラグ確認↑↑
+jump 49 equal ore2 @null                                    ##goto a   ↓↓最少鉱石選定↓↓
+sensor conore1 container ore1                               #
+sensor conore2 container ore2                               #
+op min minore conore1 conore2                               #
+jump 46 equal ore3 @null                                    ##goto b
+sensor conore3 container ore3                               #
+op min minore minore conore3                                #
+jump 46 notEqual minore conore3                             ##goto b
+set minoretype ore3                                         #
+jump 48 notEqual minore conore2                             ##goto c#b
+set minoretype ore2                                         #
+jump 50 notEqual minore conore1                             ##goto O3#c
+set minoretype ore1                                         ##a        ↑↑最少鉱石選定↑↑
+sensor conore container minoretype                          #I3         ↓↓行動選択判定2↓↓
+sensor concap container @itemCapacity                       #
+op mul concap concap fillingrate                            #
+jump 55 greaterThan conore concap                           ##goto a
+jump 57 equal current 0                                     ##goto O5 mine
+jump 62 notEqual current 0                                  ##goto O4 collect #a ↑↑行動選択判定2↑↑
+set minoretype itemtype                                     ##I6        ↓↓鉱石採掘↓↓
+ulocate ore core 0 minoretype oreX oreY found 0             ##I5
+ucontrol boost true 0 0 0 0                                 #
+ucontrol approach oreX oreY 5 0 0                           #
+ucontrol mine oreX oreY 0 0 0                               #
+jump 28 always 0 0                                          ##goto O2   ↑↑鉱石採掘↑↑
+sensor conX container @x                                    ##I4        ↓↓collect↓↓
+sensor conY container @y                                    #
+ucontrol stop 0 0 0 0 0                                     #
+ucontrol boost true 0 0 0 0                                 #
+ucontrol itemDrop container current 0 0 0                   #
+ucontrol approach conX conY 5 0 0                           #
+jump 28 always 0 0                                          ##goto O2   ↑↑collect↑↑

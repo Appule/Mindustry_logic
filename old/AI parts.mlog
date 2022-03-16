@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+
+set node wall1                                              #           ↓↓初期値↓↓  node = 集合地点 as string
+set doRepair                                                #                       doRepair = 修理を行うか as boolean
+set fleerate 0.9                                            #           ↑↑初期値↑↑  fleerate = 避難を始める残りhpの割合 as float
+
+ubind @nova                                                 #           ↓↓フラグ指定↓↓
+sensor working @unit @controlled                            #
+sensor flag @unit @flag                                     #
+jump 8 equal working 0                                      ##goto A
+jump 0 lessThan flag 0                                      ##goto end
+op abs flag flag -1                                         ##A
+op mod flag flag 999999999                                  #
+ucontrol flag flag yc 5 0 0                                 #           ↑↑フラグ指定↑↑
+
+sensor maxhp @maxHealth @unit                               ##I1        ↓↓行動選択判定↓↓
+sensor hp @health @unit                                     #
+op mul maxhp maxhp fleerate                                 #
+jump 30 lessThan hp maxhp                                   ##goto O1
+ulocate damaged core false 0 dgX dgY found 0                #
+jump 36 equal found true                                    ##goto O2
+sensor current @unit @totalItems                            #
+jump 45 notEqual current 0                                  ##goto O3   ↑↑行動選択判定↑↑
+
+jump 26 strictEqual node null                               ##goto A#I1 ↓↓集合↓↓
+sensor nodeX node @x                                        #
+sensor nodeY node @y                                        #
+ucontrol within nodeX nodeY 12 w 0                          #
+jump 27 equal w false                                       ##goto B
+ucontrol boost false 0 0 0 0                                #
+ucontrol stop 0 0 0 0 0                                     #
+end                                                         ##A
+ucontrol boost true 0 0 0 0                                 ##B
+ucontrol approach nodeX nodeY 5 0 0                         #
+end                                                         #           ↑↑集合↑↑
+
+ulocate building repair false 0 apX apY found 0             ##I1        ↓↓避難↓↓
+jump 33 equal found true                                    ##goto A
+ulocate building core false 0 apX apY found 0               #
+ucontrol boost true 0 0 0 0                                 ##A
+ucontrol approach apX apY 8 0 0                             #
+end                                                         #           ↑↑避難↑↑
+
+jump 26 equal doRepair true                                 ##I1        ↓↓修理↓↓
+ucontrol target dgX dgY true 0 0                            #
+ucontrol approach dgX dgY 12 0 0                            #
+ucontrol within dgX dgY 12 w 0                              #
+jump 43 equal w true                                        ##goto A
+ucontrol boost true 0 0 0 0                                 #
+end                                                         #
+ucontrol boost false 0 0 0 0                                ##A
+end                                                         #           ↑↑修理↑↑
+
+ulocate building core false minore coreX coreY found b      ##I1         ↓↓片付け↓↓
+ucontrol itemDrop b current 0 0 0                           #
+ucontrol approach coreX coreY 5 0 0                         #
+end                                                         #           ↑↑片付け↑↑

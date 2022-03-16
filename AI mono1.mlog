@@ -1,0 +1,34 @@
+set mine_scrap? true
+ubind @mono
+ulocate building core false @copper core_x core_y found? core
+sensor copper_amount core @copper
+sensor lead_amount core @lead
+sensor scrap_amount core @scrap
+sensor core_item_capacity core @itemCapacity
+jump 9 equal mine_scrap? true
+set scrap_amount core_item_capacity
+op min min_ore_amount copper_amount lead_amount
+op min min_ore_amount min_ore_amount scrap_amount
+op mul core_item_capacity core_item_capacity 0.1
+set i 0
+op add i i 1
+ubind @mono
+sensor flag @unit @flag
+jump 29 lessThan flag -1
+jump 31 greaterThan min_ore_amount core_item_capacity
+jump 26 equal min_ore_amount copper_amount
+jump 23 equal min_ore_amount lead_amount
+ucontrol flag 2 0 0 0 0
+jump 13 lessThan i 10
+end
+ucontrol flag 1 0 0 0 0
+jump 13 lessThan i 10
+end
+ucontrol flag 0 0 0 0 0
+jump 13 lessThan i 10
+end
+sensor isworking? @unit @controlled
+jump 13 notEqual isworking? 0
+ucontrol flag -1 0 0 0 0
+jump 13 lessThan i 10
+end

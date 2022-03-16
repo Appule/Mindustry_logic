@@ -1,0 +1,40 @@
+#作品番号1「回収兵」
+#指定したブロックから指定したアイテムを回収する。
+#回収したアイテムは最寄りのコアへ搬送する。
+op rand rand 999999999 0                                    #           ↓↓初期値↓↓
+set container container1                                    #                   container = 回収元ブロック as string
+set item @null                                              #                   item = 回収アイテム as string
+set UNIT @flare                                             #           ↑↑初期値↑↑ UNIT = 対象ユニット as string
+ubind UNIT                                                  ##A         ↓↓フラグ指定↓↓
+sensor preflag @unit @flag                                  #
+jump 4 lessThan preflag 0                                   ##goto A
+op add preflag preflag rand                                 #
+op mul preflag preflag -1                                   #
+ucontrol flag preflag 0 0 0 0                               #           ↑↑フラグ指定↑↑
+sensor postflag @unit @flag                                 ##C         ↓↓フラグ確認↓↓
+jump 4 notEqual postflag preflag                            ##goto A    ↑↑フラグ確認↑↑
+sensor current @unit @totalItems                            #           ↓↓回収・搬入判定↓↓
+sensor max @unit @itemCapacity                              #
+jump 28 equal current 0                                     ##goto B    ↑↑回収・搬入判定↑↑
+ulocate building core false 0 xc yc found core1             #           ↓↓コアへ搬入↓↓
+jump 10 equal found false                                   ##goto C
+sensor corecap core1 @itemCapacity                          #
+sensor coreitem core1 item                                  #
+jump 24 equal corecap coreitem                              ##goto D
+ucontrol within xc yc 6 w 0                                 #
+jump 26 equal w false                                       ##goto E
+ucontrol itemDrop core1 current 0 0 0                       #
+ucontrol idle 0 0 0 0 0                                     ##D
+jump 10 always 0 0                                          ##goto C
+ucontrol approach xc yc 5 0 0                               ##E
+jump 10 always 0 0                                          ##goto C    ↑↑コアへ搬入↑↑
+jump 10 strictEqual container null                          ##goto C#B  ↓↓回収元から回収↓↓
+sensor xc container @x                                      #
+sensor yc container @y                                      #
+ucontrol within xc yc 6 w 0                                 #
+jump 36 equal w false                                       ##goto F
+ucontrol itemTake container item max 0 0                    #
+ucontrol idle 0 0 0 0 0                                     #
+jump 10 always 0 0                                          ##goto C
+ucontrol approach xc yc 5 0 0                               ##F
+jump 10 always 0 0                                          ##goto C    ↑↑回収元から回収↑↑

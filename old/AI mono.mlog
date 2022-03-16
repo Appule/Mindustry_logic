@@ -1,0 +1,94 @@
+#試作品番号1「モノ隊」
+#モノを一般作業員として雇えるようにする。
+#暇なときは採掘します。
+#全ての作業が完了した時、プロセッサの近くに集合させることができます。
+
+
+
+
+
+set ore1 @copper                                            #           ↓↓初期値↓↓ ore1 = 採掘対象鉱石1 as string
+set ore2 @lead                                              #                   ore2 = 採掘対象鉱石2 as string
+set ore3 @sand                                              #                   ore3 = 採掘対象鉱石3 as string
+set ore4 @null                                              #                   ore4 = 採掘対象鉱石4 as string
+set node wall1                                              #                   node = 集合地点 as string
+set fillingrate 0.9                                         #                   fillingrate = 収納先への充填率 as float
+set fleerate 0.9                                            #           ↑↑初期値↑↑ fleerate = 避難を始める残りhpの割合 as float
+ubind @mono                                                 ##B         ↓↓フラグ指定↓↓
+sensor working @unit @controlled                            #
+sensor flag @unit @flag                                     #
+jump 12 equal working 0                                     ##goto A
+jump 7 lessThan flag 0                                      ##goto B
+op abs flag flag -1                                         ##A
+op mod flag flag 999999999                                  #
+ucontrol flag flag 0 0 0 0                                  #           ↑↑フラグ指定↑↑
+sensor maxhp @unit @maxHealth                               #           ↓↓行動選択判定1↓↓
+sensor hp @unit @health                                     #
+op mul maxhp maxhp fleerate                                 #
+jump 25 lessThan hp maxhp                                   ##goto O1 flee
+ucontrol target null null false 0 0                         #
+ulocate building core false 0 coreX coreY found core1       #
+sensor current @unit @totalItems                            #
+sensor max @unit @itemCapacity                              #
+jump 81 equal current max                                   ##goto O3 collect
+jump 30 always 0 0                                          ##goto O4 minore ↑↑行動選択判定1↑↑
+ulocate building repair false 0 xc yc found 0               ##I1        ↓↓避難↓↓
+jump 31 equal found true                                    ##goto a
+ulocate building core false 0 xc yc found 0                 #
+ucontrol approach xc yc 8 0 0                               ##a
+end                                                         #           ↑↑避難↑↑
+ulocate building core false 0 coreX coreY found core1       #           ↓↓最少鉱石選定↓↓
+sensor corecap core1 @itemCapacity                          #
+jump 58 equal ore2 @null                                    ##goto a
+set coreore1 corecap                                        #
+ulocate ore core 0 ore1 0 0 found 0                         #
+jump 37 equal found false                                   ##goto b
+sensor coreore1 core1 ore1                                  #
+set coreore2 corecap                                        ##b
+ulocate ore core 0 ore2 0 0 found 0                         #
+jump 41 equal found false                                   ##goto c
+sensor coreore2 core1 ore2                                  #
+set coreore3 corecap                                        ##c
+ulocate ore core 0 ore3 0 0 found 0                         #
+jump 45 equal found false                                   ##goto d
+sensor coreore3 core1 ore3                                  #
+set coreore4 corecap                                        ##d
+ulocate ore core 0 ore4 0 0 found 0                         #
+jump 49 equal found false                                   ##goto e
+sensor coreore4 core1 ore4                                  #
+op min minore coreore1 coreore2                             ##e
+op min minore minore coreore3                               #
+op min minore minore coreore4                               #
+set minoretype ore4                                         #
+jump 55 notEqual minore coreore3                            ##goto f
+set minoretype ore3                                         #
+jump 57 notEqual minore coreore2                            ##goto g#f
+set minoretype ore2                                         #
+jump 59 notEqual minore coreore1                            ##goto O6#g
+set minoretype ore1                                         ##a         ↑↑最少鉱石選定↑↑
+sensor coreore core1 minoretype                             #I6         ↓↓行動選択判定2↓↓
+op mul corecap corecap fillingrate                          #
+jump 65 greaterThan coreore corecap                         ##goto a
+sensor itemtype @unit @firstItem                            #
+jump 77 equal itemtype minoretype                           ##goto O5 mine
+jump 77 equal current 0                                     ##goto O5 mine
+jump 81 notEqual current 0                                  ##goto O3 collect #a ↑↑行動選択判定2↑↑
+jump 73 strictEqual node null                               ##goto a    ↓↓集合↓↓
+sensor nodeX node @x                                        #
+sensor nodeY node @y                                        #
+ucontrol within nodeX nodeY 12 w 0                          #
+jump 74 equal w false                                       ##goto b
+ucontrol boost false 0 0 0 0                                #
+ucontrol stop 0 0 0 0 0                                     #
+end                                                         ##a
+ucontrol boost true 0 0 0 0                                 ##b
+ucontrol approach nodeX nodeY 5 0 0                         #
+end                                                         #           ↑↑集合↑↑
+ulocate ore core 0 minoretype oreX oreY found 0             ##I5        ↓↓鉱石採掘↓↓
+ucontrol approach oreX oreY 5 0 0                           #
+ucontrol mine oreX oreY 0 0 0                               #
+end                                                         #           ↑↑鉱石採掘↑↑
+ucontrol stop 0 0 0 0 0                                     ##I3        ↓↓片付け↓↓
+ucontrol itemDrop core1 current 0 0 0                       #
+ucontrol approach coreX coreY 5 0 0                         #
+end                                                         #           ↑↑片付け↑↑
