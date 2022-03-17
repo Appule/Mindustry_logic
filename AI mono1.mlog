@@ -9,7 +9,7 @@ jump 9 equal mine_scrap? true
 set scrap_amount core_item_capacity
 op min min_ore_amount copper_amount lead_amount
 op min min_ore_amount min_ore_amount scrap_amount
-op mul core_item_capacity core_item_capacity 0.1
+op mul core_item_capacity core_item_capacity 0.2
 set i 0
 op add i i 1
 ubind @mono

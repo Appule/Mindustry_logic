@@ -20,7 +20,7 @@ ulocate ore core true ore ore_x ore_y found? building
 ucontrol approach ore_x ore_y 8 0 0
 ucontrol mine ore_x ore_y 0 0 0
 end
-ucontrol stop core 20 0 0 0
+ucontrol stop 0 0 0 0 0
 ucontrol approach core_x core_y 5 0 0
 ucontrol itemDrop core 20 0 0 0
 end
