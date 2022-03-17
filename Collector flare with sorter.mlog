@@ -1,0 +1,31 @@
+op rand id -999999999 0
+sensor item sorter1 @config
+jump 1 strictEqual item null
+set building_1 container1
+jump 3 strictEqual building_1 null
+sensor item_amount building_1 item
+jump 4 lessThan item_amount 20
+ubind @flare
+ulocate building core false @copper core_x core_y found? core
+sensor core_capacity core @itemCapacity
+sensor core_item_amount core item
+op mul core_capacity core_capacity 0.2
+jump 9 greaterThan core_item_amount core_capacity
+sensor current_items_amount @unit @totalItems
+jump 7 notEqual current_items_amount 0
+sensor flag @unit @flag
+jump 7 lessThan flag 0
+ucontrol flag id 0 0 0 0
+ucontrol stop 0 0 0 0 0
+sensor flag @unit @flag
+jump 7 notEqual flag id
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+jump 4 strictEqual building_1 null
+ucontrol approach building_x building_y 5 0 0
+ucontrol itemTake building_1 item 20 0 0
+sensor current_items_amount @unit @totalItems
+jump 23 strictEqual current_items_amount 0
+ucontrol approach core_x core_y 5 0 0
+ucontrol flag 1 0 0 0 0
+jump 4 always 0 0

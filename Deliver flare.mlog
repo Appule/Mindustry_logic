@@ -9,7 +9,7 @@ jump 3 greaterThan item_amount building_capacity
 ubind @flare
 ulocate building core false @copper core_x core_y found? core
 sensor core_item_amount core item
-jump 8 lessThan core_item_amount 100
+jump 8 lessThan core_item_amount 200
 sensor current_items_amount @unit @totalItems
 jump 8 notEqual current_items_amount 0
 sensor flag @unit @flag
