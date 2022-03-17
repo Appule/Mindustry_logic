@@ -1,0 +1,16 @@
+set ore @coal
+ubind @poly
+sensor flag @unit @flag
+jump 11 lessThan flag 0
+ulocate building core false @copper core_x core_y found? core
+sensor core_items_amount core ore
+sensor core_item_capacity core @itemCapacity
+op mul core_item_capacity core_item_capacity 0.2
+jump 14 greaterThan core_items_amount core_item_capacity
+ucontrol flag 1 0 0 0 0
+end
+sensor isworking? @unit @controlled
+jump 14 equal isworking? 0
+end
+ucontrol flag 0 0 0 0 0
+end

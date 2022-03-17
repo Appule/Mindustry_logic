@@ -1,19 +1,17 @@
 ubind @flare
-sensor flag @unit @flag
 sensor isworking? @unit @controlled
-print isworking?
-printflush message1
-jump 8 equal isworking? 0
+jump 6 equal isworking? 0
+sensor flag @unit @flag
 jump 0 lessThan flag 0
-jump 9 notEqual flag 0
+jump 7 notEqual flag 0
 ucontrol flag 1 yc 5 0 0
 sensor current_hp @unit @health
-jump 13 greaterThan current_hp 70
+jump 11 greaterThan current_hp 70
 ulocate building repair false 0 ap_x ap_y found? repair_building
-jump 19 equal found? true
+jump 17 equal found? true
 ulocate building core false minore ap_x ap_y found core
 sensor current_items_amount @unit @totalItems
-jump 18 notEqual current_items_amount 0
+jump 16 notEqual current_items_amount 0
 ucontrol approach ap_x ap_y 12 0 0
 end
 ucontrol itemDrop core 20 0 0 0
