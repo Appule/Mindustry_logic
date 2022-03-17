@@ -1,30 +1,27 @@
 set repair_building? switch1
 ubind @poly
 sensor health @unit @health
-jump 36 lessThan health 390
+jump 8 greaterThan health 390
+ulocate building repair false @copper ap_x ap_y found? building
+jump 8 equal found? false
+ucontrol approach ap_x ap_y 8 0 0
+end
 sensor flag @unit @flag
-jump 18 equal flag 0
-jump 8 equal flag 1
+jump 33 equal flag 2
+sensor unit_current_items @unit @totalItems
+jump 14 equal flag 1
+jump 23 equal flag 0
 end
 set ore @coal
-sensor unit_current_items @unit @totalItems
-jump 27 equal unit_current_items 30
-jump 14 equal unit_current_items 0
+jump 24 equal unit_current_items 30
+jump 19 equal unit_current_items 0
 sensor unit_current_item_type @unit @firstItem
-jump 18 notEqual unit_current_item_type ore
+jump 24 notEqual unit_current_item_type ore
 ulocate ore core true ore ore_x ore_y found? building
 ucontrol approach ore_x ore_y 8 0 0
 ucontrol mine ore_x ore_y 0 0 0
 end
-sensor unit_current_items @unit @totalItems
-jump 27 notEqual unit_current_items 0
-sensor repair_building? repair_building? @enabled
-jump 32 notEqual repair_building? true
-ulocate damaged repair false @copper ap_x ap_y found? building
-jump 32 equal found? false
-ucontrol approach ap_x ap_y 2 0 0
-ucontrol target ap_x ap_y true 0 0
-end
+jump 29 equal unit_current_items 0
 ucontrol stop 0 0 0 0 0
 ulocate building core false @copper core_x core_y found? core
 ucontrol approach core_x core_y 5 0 0
@@ -34,6 +31,7 @@ ucontrol target null null 0 0 0
 ulocate building core false @copper core_x core_y found? core
 ucontrol approach core_x core_y 18 0 0
 end
-ulocate building repair false @copper ap_x ap_y found? building
-jump 18 equal found? false
-ucontrol approach ap_x ap_y 16 0 0
+ulocate damaged repair false @copper ap_x ap_y found? building
+jump 32 equal found? false
+ucontrol approach ap_x ap_y 2 0 0
+ucontrol target ap_x ap_y true 0 0
