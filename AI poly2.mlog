@@ -25,7 +25,7 @@ jump 29 equal unit_current_items 0
 ucontrol stop 0 0 0 0 0
 ulocate building core false @copper core_x core_y found? core
 ucontrol approach core_x core_y 5 0 0
-ucontrol itemDrop core 20 0 0 0
+ucontrol itemDrop core 30 0 0 0
 end
 ucontrol target null null 0 0 0
 ulocate building core false @copper core_x core_y found? core
