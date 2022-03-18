@@ -1,6 +1,6 @@
 ubind @horizon
 sensor isworking? @unit @controlled
-jump 6 equal isworking? @ctrlPlayer
+jump 6 notEqual isworking? 0
 sensor flag @unit @flag
 jump 0 lessThan flag 0
 jump 7 notEqual flag 0

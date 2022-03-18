@@ -1,6 +1,6 @@
 ubind @flare
 sensor isworking? @unit @controlled
-jump 6 equal isworking? @ctrlPlayer
+jump 6 notEqual isworking? 0
 sensor flag @unit @flag
 jump 0 lessThan flag 0
 jump 7 notEqual flag 0
@@ -16,3 +16,4 @@ ucontrol approach ap_x ap_y 12 0 0  ## idle radius
 end
 ucontrol itemDrop core 20 0 0 0  ## item capacity
 ucontrol approach ap_x ap_y 5 0 0
+

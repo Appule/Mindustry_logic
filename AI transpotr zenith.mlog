@@ -1,6 +1,6 @@
 ubind @zenith
 sensor isworking? @unit @controlled
-jump 6 equal isworking? @ctrlPlayer
+jump 6 equal isworking? 0
 sensor flag @unit @flag
 jump 0 lessThan flag 0
 jump 7 notEqual flag 0
@@ -12,7 +12,7 @@ jump 17 equal found? true
 ulocate building core false minore ap_x ap_y found core
 sensor current_items_amount @unit @totalItems
 jump 16 notEqual current_items_amount 0
-ucontrol approach ap_x ap_y 8 0 0
+ucontrol approach ap_x ap_y 26 0 0
 end
 ucontrol itemDrop core 80 0 0 0
 ucontrol approach ap_x ap_y 5 0 0
