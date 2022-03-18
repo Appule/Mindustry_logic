@@ -6,7 +6,7 @@ sensor item_amount building_1 item
 sensor building_capacity building_1 @itemCapacity
 op mul building_capacity building_capacity 0.5
 jump 3 greaterThanEq item_amount building_capacity
-ubind @flare
+ubind @horizon
 ulocate building core false @copper core_x core_y found? core
 sensor core_item_amount core item
 jump 8 lessThan core_item_amount 200
@@ -20,13 +20,13 @@ ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
 jump 34 notEqual flag id
 ucontrol approach core_x core_y 5 0 0
-ucontrol itemTake core item 20 0 0
+ucontrol itemTake core item 30 0 0
 sensor current_items_amount @unit @totalItems
 jump 21 strictEqual current_items_amount 0
 sensor building_x building_1 @x
 sensor building_y building_1 @y
 ucontrol approach building_x building_y 5 0 0
-ucontrol itemDrop building_1 20 0 0 0
+ucontrol itemDrop building_1 30 0 0 0
 jump 34 strictEqual building_1 null
 sensor current_item_type @unit @firstItem
 jump 34 notEqual current_item_type item
