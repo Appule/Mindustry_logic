@@ -1,5 +1,5 @@
 op rand id -999999999 0
-set item @titanium
+set item @scrap
 set building_1 container1
 jump 2 strictEqual building_1 null
 sensor item_amount building_1 item
@@ -16,15 +16,16 @@ sensor flag @unit @flag
 jump 6 lessThan flag 0
 ucontrol flag id 0 0 0 0
 ucontrol stop 0 0 0 0 0
+ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
-jump 6 notEqual flag id
+jump 29 notEqual flag id
 sensor building_x building_1 @x
 sensor building_y building_1 @y
 jump 3 strictEqual building_1 null
 ucontrol approach building_x building_y 5 0 0
 ucontrol itemTake building_1 item 20 0 0
 sensor current_items_amount @unit @totalItems
-jump 22 strictEqual current_items_amount 0
+jump 23 strictEqual current_items_amount 0
 ucontrol approach core_x core_y 5 0 0
 ucontrol flag 1 0 0 0 0
 jump 3 always 0 0
