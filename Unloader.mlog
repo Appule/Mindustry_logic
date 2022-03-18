@@ -1,0 +1,26 @@
+set building container1
+set unloader unloader1
+set item1 @thorium
+set item2 @graphite
+set item3 @titanium
+set item4 @sand
+sensor item1_amount building item1
+jump 16 greaterThan item1_amount 20
+sensor item2_amount building item2
+jump 18 greaterThan item2_amount 20
+sensor item3_amount building item3
+jump 20 greaterThan item3_amount 20
+sensor item4_amount building item4
+jump 22 greaterThan item4_amount 20
+control enabled unlorder false 0 0 0
+jump 6 always x false
+set sort_item item1
+jump 23 always x false
+set sort_item item2
+jump 23 always x false
+set sort_item item3
+jump 23 always x false
+set sort_item item4
+control configure unloader sort_item 0 0 0
+control enabled unlorder true 0 0 0
+jump -1 always x false

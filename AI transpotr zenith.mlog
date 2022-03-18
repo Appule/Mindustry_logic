@@ -1,4 +1,4 @@
-ubind @flare
+ubind @zenith
 sensor isworking? @unit @controlled
 jump 6 equal isworking? @ctrlPlayer
 sensor flag @unit @flag
@@ -6,13 +6,13 @@ jump 0 lessThan flag 0
 jump 7 notEqual flag 0
 ucontrol flag 1 yc 5 0 0
 sensor current_hp @unit @health
-jump 11 greaterThan current_hp 70  ## 90% health
+jump 11 greaterThan current_hp 690
 ulocate building repair false 0 ap_x ap_y found? repair_building
 jump 17 equal found? true
 ulocate building core false minore ap_x ap_y found core
 sensor current_items_amount @unit @totalItems
 jump 16 notEqual current_items_amount 0
-ucontrol approach ap_x ap_y 12 0 0  ## idle radius
+ucontrol approach ap_x ap_y 8 0 0
 end
-ucontrol itemDrop core 20 0 0 0  ## item capacity
+ucontrol itemDrop core 80 0 0 0
 ucontrol approach ap_x ap_y 5 0 0

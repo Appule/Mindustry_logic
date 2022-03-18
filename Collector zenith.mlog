@@ -3,8 +3,8 @@ set item @silicon
 set building_1 container1
 jump 2 strictEqual building_1 null
 sensor item_amount building_1 item
-jump 3 lessThan item_amount 30
-ubind @poly
+jump 3 lessThan item_amount 80
+ubind @zenith
 ulocate building core false @copper core_x core_y found? core
 sensor core_capacity core @itemCapacity
 sensor core_item_amount core item
@@ -23,7 +23,7 @@ sensor building_x building_1 @x
 sensor building_y building_1 @y
 jump 3 strictEqual building_1 null
 ucontrol approach building_x building_y 5 0 0
-ucontrol itemTake building_1 item 30 0 0
+ucontrol itemTake building_1 item 80 0 0
 sensor current_items_amount @unit @totalItems
 jump 23 strictEqual current_items_amount 0
 ucontrol approach core_x core_y 5 0 0
