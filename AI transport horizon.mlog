@@ -1,4 +1,4 @@
-ubind @flare
+ubind @horizon
 sensor isworking? @unit @controlled
 jump 6 equal isworking? @ctrlPlayer
 sensor flag @unit @flag
@@ -6,13 +6,13 @@ jump 0 lessThan flag 0
 jump 7 notEqual flag 0
 ucontrol flag 1 yc 5 0 0
 sensor current_hp @unit @health
-jump 11 greaterThan current_hp 70
+jump 11 greaterThan current_hp 330
 ulocate building repair false 0 ap_x ap_y found? repair_building
 jump 17 equal found? true
 ulocate building core false minore ap_x ap_y found core
 sensor current_items_amount @unit @totalItems
 jump 16 notEqual current_items_amount 0
-ucontrol approach ap_x ap_y 12 0 0
+ucontrol approach ap_x ap_y 8 0 0
 end
-ucontrol itemDrop core 20 0 0 0
+ucontrol itemDrop core 30 0 0 0
 ucontrol approach ap_x ap_y 5 0 0
