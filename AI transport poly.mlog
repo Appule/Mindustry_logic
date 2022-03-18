@@ -1,0 +1,63 @@
+set ore @coal
+set repair_building? switch1
+ubind @poly
+sensor flag @unit @flag
+jump 12 lessThan flag 0
+ulocate building core false @copper core_x core_y found? core
+sensor core_items_amount core ore
+sensor core_item_capacity core @itemCapacity
+op mul core_item_capacity core_item_capacity 0.2
+jump 15 greaterThan core_items_amount core_item_capacity
+ucontrol flag 1 0 0 0 0
+end
+sensor isworking? @unit @controlled
+jump 15 equal isworking? 0
+end
+sensor repair_building? repair_building? @enabled
+jump 21 equal repair_building? false
+ulocate damaged core false @copper x y found? building
+jump 21 equal found? false
+ucontrol flag 2 0 0 0 0
+end
+ucontrol flag 0 0 0 0 0
+
+################################################################################################
+################################################################################################
+################################################################################################
+
+ubind @poly
+sensor health @unit @health
+jump 7 greaterThan health 390
+ulocate building repair false @copper ap_x ap_y found? building
+jump 7 equal found? false
+ucontrol approach ap_x ap_y 8 0 0
+end
+sensor flag @unit @flag
+jump 32 equal flag 2
+sensor unit_current_items @unit @totalItems
+jump 13 equal flag 1
+jump 22 equal flag 0
+end
+set ore @coal
+jump 23 equal unit_current_items 30
+jump 18 equal unit_current_items 0
+sensor unit_current_item_type @unit @firstItem
+jump 23 notEqual unit_current_item_type ore
+ulocate ore core true ore ore_x ore_y found? building
+ucontrol approach ore_x ore_y 8 0 0
+ucontrol mine ore_x ore_y 0 0 0
+end
+jump 28 equal unit_current_items 0
+ucontrol stop 0 0 0 0 0
+ulocate building core false @copper core_x core_y found? core
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemDrop core 30 0 0 0
+end
+ucontrol target null null 0 0 0
+ulocate building core false @copper core_x core_y found? core
+ucontrol approach core_x core_y 18 0 0
+end
+ulocate damaged repair false @copper ap_x ap_y found? building
+jump 31 equal found? false
+ucontrol approach ap_x ap_y 2 0 0
+ucontrol target ap_x ap_y true 0 0

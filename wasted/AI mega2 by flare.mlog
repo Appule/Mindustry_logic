@@ -28,9 +28,9 @@ ucontrol itemDrop core 60 0 0 0
 end
 ucontrol target null null 0 0 0
 ulocate building core false @copper core_x core_y found? core
-ucontrol approach core_x core_y 18 0 0
+ucontrol approach core_x core_y 24 0 0
 end
 ulocate damaged repair false @copper ap_x ap_y found? building
 jump 31 equal found? false
-ucontrol approach ap_x ap_y 20 0 0
+ucontrol approach ap_x ap_y 24 0 0
 ucontrol target ap_x ap_y true 0 0

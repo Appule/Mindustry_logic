@@ -1,0 +1,69 @@
+set mine_scrap? true
+ubind @mono
+ulocate building core false @copper core_x core_y found? core
+sensor copper_amount core @copper
+sensor lead_amount core @lead
+sensor scrap_amount core @scrap
+sensor core_item_capacity core @itemCapacity
+jump 9 equal mine_scrap? true
+set scrap_amount core_item_capacity
+op min min_ore_amount copper_amount lead_amount
+op min min_ore_amount min_ore_amount scrap_amount
+op mul core_item_capacity core_item_capacity 0.25
+set i 0
+op add i i 1
+ubind @mono
+sensor flag @unit @flag
+jump 29 lessThan flag 0
+jump 31 greaterThan min_ore_amount core_item_capacity
+jump 26 equal min_ore_amount copper_amount
+jump 23 equal min_ore_amount lead_amount
+ucontrol flag 3 0 0 0 0
+jump 13 lessThan i 10
+end
+ucontrol flag 2 0 0 0 0
+jump 13 lessThan i 10
+end
+ucontrol flag 1 0 0 0 0
+jump 13 lessThan i 10
+end
+sensor isworking? @unit @controlled
+jump 13 notEqual isworking? 0
+ucontrol flag 0 0 0 0 0
+jump 13 lessThan i 10
+end
+
+################################################################################################
+################################################################################################
+################################################################################################
+
+ubind @mono
+sensor flag @unit @flag
+jump 26 equal flag 0
+jump 11 equal flag 1
+jump 9 equal flag 2
+jump 7 equal flag 3
+end
+set ore @scrap
+jump 12 always 0 0
+set ore @lead
+jump 12 always 0 0
+set ore @copper
+ulocate building core false @copper core_x core_y found? core
+sensor unit_current_items @unit @totalItems
+jump 22 equal unit_current_items 20
+jump 18 equal unit_current_items 0
+sensor unit_current_item_type @unit @firstItem
+jump 22 notEqual unit_current_item_type ore
+ulocate ore core true ore ore_x ore_y found? building
+ucontrol approach ore_x ore_y 8 0 0
+ucontrol mine ore_x ore_y 0 0 0
+end
+ucontrol stop 0 0 0 0 0
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemDrop core 20 0 0 0
+end
+sensor unit_current_items @unit @totalItems
+ulocate building core false @copper core_x core_y found? core
+jump 22 notEqual unit_current_items 0
+ucontrol approach core_x core_y 14 0 0
