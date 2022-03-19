@@ -25,7 +25,7 @@ sensor now_y @unit @y
 op sub dx now_x pre_x
 op sub dy now_y pre_y
 op len current_speed dx dy
-op div current_speed current_speed @ipt
+op mul current_speed current_speed @ipt
 jump 30 lessThan current_speed 0.001
 end
 sensor ismining? @unit @mining
