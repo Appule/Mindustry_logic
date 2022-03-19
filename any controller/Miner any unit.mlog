@@ -23,7 +23,7 @@ ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
 jump 41 notEqual flag id
 ulocate ore core 0 ore ap_x ap_y found? building
-ucontrol approach ap_x ap_y 8 0 0
+ucontrol approach ap_x ap_y 5 0 0
 ucontrol mine ap_x ap_y 0 0 0
 jump 14 strictEqual @unit null
 sensor current_unit_item_type @unit @firstItem

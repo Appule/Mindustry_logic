@@ -64,7 +64,7 @@ jump 29 equal unit_current_items 0
 sensor unit_current_item_type @unit @firstItem
 jump 33 notEqual unit_current_item_type ore
 ulocate ore core true ore ore_x ore_y found? building
-ucontrol approach ore_x ore_y 8 0 0
+ucontrol approach ore_x ore_y 5 0 0
 ucontrol mine ore_x ore_y 0 0 0
 jump 8 always 0 0
 ucontrol stop 0 0 0 0 0

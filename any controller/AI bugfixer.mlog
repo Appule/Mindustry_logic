@@ -25,16 +25,17 @@ sensor now_y @unit @y
 op sub dx now_x pre_x
 op sub dy now_y pre_y
 op len current_speed dx dy
-jump 29 lessThan current_speed 0.01
+op div current_speed current_speed @ipt
+jump 30 lessThan current_speed 0.001
 end
 sensor ismining? @unit @mining
-jump 32 equal ismining? false
+jump 33 equal ismining? false
 end
 sensor isshooting? @unit @shooting
-jump 35 equal isshooting? false
+jump 36 equal isshooting? false
 end
 sensor flag @unit @flag
-jump 38 greaterThanEq flag 0
+jump 39 greaterThanEq flag 0
 op add n n 1
 print n
 printflush message1
