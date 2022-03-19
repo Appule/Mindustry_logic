@@ -1,4 +1,4 @@
-set unit @mono
+set unit @mega
 set ore @scrap
 getlink container 0
 jump 2 strictEqual container null
@@ -21,20 +21,23 @@ ucontrol flag id 0 0 0 0
 ucontrol stop 0 0 0 0 0
 ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
-jump 38 notEqual flag id
+jump 41 notEqual flag id
 ulocate ore core 0 ore ap_x ap_y found? building
 ucontrol approach ap_x ap_y 8 0 0
 ucontrol mine ap_x ap_y 0 0 0
-sensor current_unit_items @unit ore
-sensor current_unit_item_type @unit @firstItem
 jump 14 strictEqual @unit null
-jump 38 notEqual current_unit_item_type ore
+sensor current_unit_item_type @unit @firstItem
+jump 31 strictEqual current_unit_item_type null
+jump 41 notEqual current_unit_item_type ore
+sensor current_unit_items @unit ore
 jump 24 notEqual current_unit_items unit_capacity
 ucontrol stop 0 0 0 0 0
 ucontrol approach container_x container_y 5 0 0
 ucontrol itemDrop container unit_capacity 0 0 0
 sensor current_unit_items @unit ore
 jump 14 strictEqual @unit null
-jump 33 notEqual current_unit_items 0
+jump 34 notEqual current_unit_items 0
+sensor current_container_items container ore
+jump 22 lessThan current_container_items container_capacity
 ucontrol flag 0 0 0 0 0
 jump 12 always 0 0

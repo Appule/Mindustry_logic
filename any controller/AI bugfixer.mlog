@@ -1,0 +1,41 @@
+op add i i 1
+op mod case i 6
+jump 9 equal case 0
+jump 11 equal case 1
+jump 13 equal case 2
+jump 15 equal case 3
+jump 17 equal case 4
+set unit_type @zenith
+jump 18 always 0 0
+set unit_type @flare
+jump 18 always 0 0
+set unit_type @horizon
+jump 18 always 0 0
+set unit_type @mono
+jump 18 always 0 0
+set unit_type @poly
+jump 18 always 0 0
+set unit_type @mega
+ubind unit_type
+jump 0 strictEqual @unit null
+sensor pre_x @unit @x
+sensor pre_y @unit @y
+sensor now_x @unit @x
+sensor now_y @unit @y
+op sub dx now_x pre_x
+op sub dy now_y pre_y
+op len current_speed dx dy
+jump 29 lessThan current_speed 0.01
+end
+sensor ismining? @unit @mining
+jump 32 equal ismining? false
+end
+sensor isshooting? @unit @shooting
+jump 35 equal isshooting? false
+end
+sensor flag @unit @flag
+jump 38 greaterThanEq flag 0
+op add n n 1
+print n
+printflush message1
+ucontrol flag 0 0 0 0 0
