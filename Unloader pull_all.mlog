@@ -1,0 +1,25 @@
+getlink unloader 0
+getlink building 1
+set item1 @sand
+set item2 @graphite
+set item3 @titanium
+set item4 @thorium
+sensor item1_amount building item1
+sensor item2_amount building item2
+sensor item3_amount building item3
+sensor item4_amount building item4
+op max max_item_amount item1_amount item2_amount
+op max max_item_amount max_item_amount item3_amount
+op max max_item_amount max_item_amount item4_amount
+jump 18 equal max_item_amount item1_amount
+jump 20 equal max_item_amount item2_amount
+jump 22 equal max_item_amount item3_amount
+set select_item item4
+jump 23 always x false
+set select_item item1
+jump 23 always x false
+set select_item item2
+jump 23 always x false
+set select_item item3
+control configure unloader select_item 0 0 0
+jump 6 always x false

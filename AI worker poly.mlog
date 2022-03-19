@@ -34,37 +34,52 @@ end
 ################################################################################################
 ################################################################################################
 
-ubind @poly
+set unit @poly
+ubind unit
+sensor damaged @unit @maxHealth
+op mul damaged damaged 0.95
+sensor item_capacity @unit @itemCapacity
+sensor min_radius @unit @range
+op mul max_radius min_radius 2
+op mul base_radius min_radius 1.5
+ubind unit
 sensor flag @unit @flag
-jump 0 lessThan flag 0
+jump 8 lessThan flag 0
 sensor health @unit @health
-jump 9 greaterThan health 390
+jump 17 greaterThan health damaged
 ulocate building repair false @copper ap_x ap_y found? building
-jump 9 equal found? false
+jump 17 equal found? false
 ucontrol approach ap_x ap_y 8 0 0
-end
-jump 30 equal flag 0
-jump 15 equal flag 1
-jump 13 equal flag 2
-end
+jump 8 always 0 0
+jump 38 equal flag 0
+jump 23 equal flag 1
+jump 21 equal flag 2
+jump 8 always 0 0
 set ore @coal
-jump 16 always 0 0
+jump 24 always 0 0
 set ore @scrap
 sensor unit_current_items @unit @totalItems
-jump 25 equal unit_current_items 30
-jump 21 equal unit_current_items 0
+jump 33 equal unit_current_items item_capacity
+jump 29 equal unit_current_items 0
 sensor unit_current_item_type @unit @firstItem
-jump 25 notEqual unit_current_item_type ore
+jump 33 notEqual unit_current_item_type ore
 ulocate ore core true ore ore_x ore_y found? building
 ucontrol approach ore_x ore_y 8 0 0
 ucontrol mine ore_x ore_y 0 0 0
-end
+jump 8 always 0 0
 ucontrol stop 0 0 0 0 0
 ulocate building core false @copper core_x core_y found? core
 ucontrol approach core_x core_y 5 0 0
-ucontrol itemDrop core 30 0 0 0
-end
+ucontrol itemDrop core item_capacity 0 0 0
+jump 8 always 0 0
 sensor unit_current_items @unit @totalItems
 ulocate building core false @copper core_x core_y found? core
-jump 25 notEqual unit_current_items 0
-ucontrol approach core_x core_y 18 0 0
+jump 33 notEqual unit_current_items 0
+ucontrol within core_x core_y max_radius within? 0
+jump 47 equal within? false
+ucontrol within core_x core_y min_radius within? 0
+jump 47 equal within? true
+ucontrol stop 0 0 0 0 0
+jump 8 always 0 0
+ucontrol approach core_x core_y base_radius 0 0
+jump 8 always 0 0

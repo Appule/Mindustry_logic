@@ -1,0 +1,34 @@
+op rand id -999999999 0
+set item @silicon
+set unit @horizon
+ubind unit
+sensor item_capacity @unit @itemCapacity
+getlink building_1 0
+jump 5 strictEqual building_1 null
+sensor item_amount building_1 item
+jump 6 lessThan item_amount 30
+ubind unit
+ulocate building core false @copper core_x core_y found? core
+sensor core_capacity core @itemCapacity
+sensor core_item_amount core item
+op mul core_capacity core_capacity 0.2
+jump 11 greaterThan core_item_amount core_capacity
+sensor current_items_amount @unit @totalItems
+jump 9 notEqual current_items_amount 0
+sensor flag @unit @flag
+jump 9 lessThan flag 0
+ucontrol flag id 0 0 0 0
+ucontrol stop 0 0 0 0 0
+ucontrol stop 0 0 0 0 0
+sensor flag @unit @flag
+jump 32 notEqual flag id
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+jump 6 strictEqual building_1 null
+ucontrol approach building_x building_y 5 0 0
+ucontrol itemTake building_1 item item_capacity 0 0
+sensor current_items_amount @unit @totalItems
+jump 26 strictEqual current_items_amount 0
+ucontrol approach core_x core_y 5 0 0
+ucontrol flag 1 0 0 0 0
+jump 6 always 0 0

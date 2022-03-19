@@ -1,0 +1,40 @@
+op rand id -999999999 0
+set item @sand
+set unit @flare
+ubind unit
+sensor item_capacity @unit @itemCapacity
+getlink building_1 0
+jump 5 strictEqual building_1 null
+sensor item_amount building_1 item
+sensor building_capacity building_1 @itemCapacity
+op mul building_capacity building_capacity 0.5
+jump 6 greaterThanEq item_amount building_capacity
+ubind unit
+ulocate building core false @copper core_x core_y found? core
+sensor core_item_amount core item
+jump 11 lessThan core_item_amount 200
+sensor current_items_amount @unit @totalItems
+jump 11 notEqual current_items_amount 0
+sensor flag @unit @flag
+jump 11 lessThan flag 0
+ucontrol flag id 0 0 0 0
+ucontrol stop 0 0 0 0 0
+ucontrol stop 0 0 0 0 0
+sensor flag @unit @flag
+jump 37 notEqual flag id
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemTake core item item_capacity 0 0
+sensor current_items_amount @unit @totalItems
+jump 24 strictEqual current_items_amount 0
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+ucontrol approach building_x building_y 5 0 0
+ucontrol itemDrop building_1 item_capacity 0 0 0
+jump 37 strictEqual building_1 null
+sensor current_item_type @unit @firstItem
+jump 37 notEqual current_item_type item
+sensor current_items_amount @unit @totalItems
+jump 30 greaterThan current_items_amount 0
+ucontrol stop 0 0 0 0 0
+ucontrol flag 1 building_y 5 0 0
+jump 6 always 0 0
