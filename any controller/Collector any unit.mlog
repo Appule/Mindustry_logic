@@ -6,7 +6,7 @@ sensor item_capacity @unit @itemCapacity
 getlink building_1 0
 jump 5 strictEqual building_1 null
 sensor item_amount building_1 item
-jump 6 lessThan item_amount 30
+jump 6 lessThan item_amount item_capacity
 ubind unit
 ulocate building core false @copper core_x core_y found? core
 sensor core_capacity core @itemCapacity
@@ -30,5 +30,5 @@ ucontrol itemTake building_1 item item_capacity 0 0
 sensor current_items_amount @unit @totalItems
 jump 26 strictEqual current_items_amount 0
 ucontrol approach core_x core_y 5 0 0
-ucontrol flag 1 0 0 0 0
+ucontrol flag 0 0 0 0 0
 jump 6 always 0 0

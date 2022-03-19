@@ -36,5 +36,5 @@ jump 37 notEqual current_item_type item
 sensor current_items_amount @unit @totalItems
 jump 30 greaterThan current_items_amount 0
 ucontrol stop 0 0 0 0 0
-ucontrol flag 1 building_y 5 0 0
+ucontrol flag 0 0 0 0 0
 jump 6 always 0 0

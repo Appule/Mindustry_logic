@@ -4,26 +4,25 @@ sensor damaged @unit @maxHealth
 op mul damaged damaged 0.95
 sensor min_radius @unit @range
 op mul max_radius min_radius 2.0
-op mul base_radius min_radius 1.75
+op mul base_radius min_radius 1.5
 sensor item_capacity @unit @itemCapacity
 ubind unit
 sensor isworking? @unit @controlled
-jump 14 notEqual isworking? 0
+jump 12 notEqual isworking? 0
+ucontrol flag 0 yc 5 0 0
 sensor flag @unit @flag
 jump 8 lessThan flag 0
-jump 15 notEqual flag 0
-ucontrol flag 1 yc 5 0 0
 sensor current_hp @unit @health
-jump 19 greaterThan current_hp damaged
+jump 18 greaterThan current_hp damaged
 ulocate building repair false 0 ap_x ap_y found? repair_building
-jump 31 equal found? true
+jump 30 equal found? true
 ulocate building core false 0 ap_x ap_y found core
 sensor current_items_amount @unit @totalItems
-jump 30 notEqual current_items_amount 0
+jump 29 notEqual current_items_amount 0
 ucontrol within ap_x ap_y max_radius within? 0
-jump 28 equal within? false
+jump 27 equal within? false
 ucontrol within ap_x ap_y min_radius within? 0
-jump 28 equal within? true
+jump 27 equal within? true
 ucontrol stop 0 0 0 0 0
 jump 8 always 0 0
 ucontrol approach ap_x ap_y base_radius 0 0
