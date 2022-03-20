@@ -1,0 +1,12 @@
+set item_type @thorium
+getlink core 0
+jump 1 strictEqual core null
+getlink conv 1
+jump 3 strictEqual conv null
+sensor item_amount core item_type
+sensor cap core @itemCapacity
+op mul cap cap 0.9
+jump 11 greaterThan item_amount cap
+control enabled conv true 0 0 0
+end
+control enabled conv false 0 0 0
