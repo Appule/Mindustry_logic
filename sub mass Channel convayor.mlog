@@ -2,9 +2,9 @@ set item1 @sand
 set item2 @graphite
 set item3 @titanium
 set item4 @thorium
-getlink core 0
+getlink core 1
 jump 4 strictEqual core null
-getlink conv 1
+getlink conv 0
 jump 6 strictEqual conv null
 sensor item1_am core item1
 sensor item2_am core item2

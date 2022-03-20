@@ -1,7 +1,7 @@
 set item_type @thorium
-getlink core 0
+getlink core 1
 jump 1 strictEqual core null
-getlink conv 1
+getlink conv 0
 jump 3 strictEqual conv null
 sensor item_amount core item_type
 sensor cap core @itemCapacity
