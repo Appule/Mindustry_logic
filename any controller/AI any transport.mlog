@@ -5,7 +5,7 @@ sensor damaged @unit @maxHealth
 op mul damaged damaged 0.95
 sensor min_radius @unit @range
 op mul max_radius min_radius 2.0
-op mul base_radius min_radius 1.75
+op mul base_radius min_radius 1.85
 sensor item_capacity @unit @itemCapacity
 ubind unit
 sensor isworking? @unit @controlled

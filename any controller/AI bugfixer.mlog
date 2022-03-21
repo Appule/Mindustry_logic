@@ -1,41 +1,54 @@
-op add i i 1
-op mod case i 6
-jump 9 equal case 0
-jump 11 equal case 1
-jump 13 equal case 2
-jump 15 equal case 3
-jump 17 equal case 4
-set unit_type @zenith
-jump 18 always 0 0
-set unit_type @flare
-jump 18 always 0 0
-set unit_type @horizon
-jump 18 always 0 0
 set unit_type @mono
-jump 18 always 0 0
-set unit_type @poly
-jump 18 always 0 0
-set unit_type @mega
+set speed_val 1.5
+op mul idle_speed speed_val 0.05
 ubind unit_type
-jump 0 strictEqual @unit null
+jump 3 strictEqual @unit null
+sensor unit_name @unit @type
+sensor unit_hp @unit @maxHealth
+sensor unit_size @unit @size
+sensor unit_range @unit @range
+op ceil unit_range unit_range 0
+ubind unit_type
+jump 10 strictEqual @unit null
+op add m m 1
+op mod m m 100
+jump 26 notEqual m 0
+print unit_name
+print "\nHP : "
+print unit_hp
+print "\nsize : "
+print unit_size
+print "\nrange : "
+print unit_range
+print "\nidle rate : "
+print n
+set n 0
+printflush message1
+set i 0
+set top_speed 0
 sensor pre_x @unit @x
 sensor pre_y @unit @y
 set base_tick @tick
 op sub dt @tick base_tick
-jump 23 equal dt 0
+jump 31 equal dt 0
 sensor now_x @unit @x
 sensor now_y @unit @y
 op sub dx now_x pre_x
 op sub dy now_y pre_y
 op len dl dx dy
 op div speed dl dt
-jump 33 lessThan speed 0.01
-end
-sensor ismining? @unit @mining
-jump 36 equal ismining? false
-end
-sensor isshooting? @unit @shooting
-jump 39 equal isshooting? false
-end
+op max top_speed top_speed speed
+op add i i 1
+jump 28 lessThanEq i 1
+jump 44 lessThan top_speed idle_speed
+jump 10 always 0 0
+sensor mining? @unit @mining
+jump 47 equal mining? false
+jump 10 always 0 0
+sensor shooting? @unit @shooting
+jump 50 equal shooting? false
+jump 10 always 0 0
 sensor flag @unit @flag
 ucontrol flag 0 0 0 0 0
+op add n n 1
+jump 10 always 0 0

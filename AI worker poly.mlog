@@ -42,7 +42,7 @@ op mul damaged damaged 0.95
 sensor item_capacity @unit @itemCapacity
 sensor min_radius @unit @range
 op mul max_radius min_radius 2
-op mul base_radius min_radius 1.75
+op mul base_radius min_radius 1.85
 ubind unit
 sensor flag @unit @flag
 jump 9 lessThan flag 0
