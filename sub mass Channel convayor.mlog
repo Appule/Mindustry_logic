@@ -2,10 +2,17 @@ set item1 @sand
 set item2 @graphite
 set item3 @titanium
 set item4 @thorium
-getlink core 1
-jump 4 strictEqual core null
-getlink conv 0
-jump 6 strictEqual conv null
+getlink link0 0
+jump 4 strictEqual link0 null
+getlink link1 1
+jump 6 strictEqual link1 null
+sensor item_cap link0 @itemCapacity
+jump 13 lessThan item_cap 20
+set core link0
+set conv link1
+jump 15 always 0 0
+set conv link0
+set core link1
 sensor item1_am core item1
 sensor item2_am core item2
 sensor item3_am core item3
@@ -13,21 +20,21 @@ sensor item4_am core item4
 op min min_item_am item1_am item2_am
 op min min_item_am min_item_am item3_am
 op min min_item_am min_item_am item4_am
-jump 20 equal min_item_am item1_am
-jump 22 equal min_item_am item2_am
-jump 24 equal min_item_am item3_am
+jump 27 equal min_item_am item1_am
+jump 29 equal min_item_am item2_am
+jump 31 equal min_item_am item3_am
 set item_type item4
-jump 25 always 0 0
+jump 32 always 0 0
 set item_type item1
-jump 25 always 0 0
+jump 32 always 0 0
 set item_type item2
-jump 25 always 0 0
+jump 32 always 0 0
 set item_type item3
 sensor item_amount core item_type
 sensor cap core @itemCapacity
 op mul cap cap 0.9
-jump 31 greaterThan item_amount cap
+jump 38 greaterThan item_amount cap
 control enabled conv true 0 0 0
-jump 8 always 0 0
+jump 15 always 0 0
 control enabled conv false 0 0 0
-jump 8 always 0 0
+jump 15 always 0 0
