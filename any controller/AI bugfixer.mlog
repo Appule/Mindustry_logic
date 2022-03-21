@@ -20,23 +20,22 @@ ubind unit_type
 jump 0 strictEqual @unit null
 sensor pre_x @unit @x
 sensor pre_y @unit @y
+set base_tick @tick
+op sub dt @tick base_tick
+jump 23 equal dt 0
 sensor now_x @unit @x
 sensor now_y @unit @y
 op sub dx now_x pre_x
 op sub dy now_y pre_y
-op len current_speed dx dy
-op mul current_speed current_speed @ipt
-jump 30 lessThan current_speed 0.001
+op len dl dx dy
+op div speed dl dt
+jump 33 lessThan speed 0.01
 end
 sensor ismining? @unit @mining
-jump 33 equal ismining? false
+jump 36 equal ismining? false
 end
 sensor isshooting? @unit @shooting
-jump 36 equal isshooting? false
+jump 39 equal isshooting? false
 end
 sensor flag @unit @flag
-jump 39 greaterThanEq flag 0
-op add n n 1
-print n
-printflush message1
 ucontrol flag 0 0 0 0 0

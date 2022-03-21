@@ -1,6 +1,6 @@
 op rand id -999999999 0
 set item @SENDITEM
-set unit @UNITTYPE
+set unit @UNIT
 set cap_rate 0.5
 set save_amount 300
 ubind unit

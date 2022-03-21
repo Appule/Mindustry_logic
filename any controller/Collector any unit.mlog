@@ -1,6 +1,6 @@
 op rand id -999999999 0
 set item @COLLECTITEM
-set unit @UNITTYPE
+set unit @UNIT
 set cap_rate 0.2
 ubind unit
 sensor item_capacity @unit @itemCapacity
