@@ -23,20 +23,24 @@ ucontrol flag id 0 0 0 0
 ucontrol stop 0 0 0 0 0
 ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
-jump 39 notEqual flag id
+jump 43 notEqual flag id
 ucontrol approach core_x core_y 5 0 0
 ucontrol itemTake core item item_capacity 0 0
+sensor controlled? @unit @controlled
+jump 43 notEqual controlled? @ctrlProcessor
 sensor current_items_amount @unit @totalItems
 jump 26 strictEqual current_items_amount 0
 sensor building_x building_1 @x
 sensor building_y building_1 @y
 ucontrol approach building_x building_y 5 0 0
 ucontrol itemDrop building_1 item_capacity 0 0 0
-jump 39 strictEqual building_1 null
+sensor controlled? @unit @controlled
+jump 43 notEqual controlled? @ctrlProcessor
+jump 43 strictEqual building_1 null
 sensor current_item_type @unit @firstItem
-jump 39 notEqual current_item_type item
+jump 43 notEqual current_item_type item
 sensor current_items_amount @unit @totalItems
-jump 32 greaterThan current_items_amount 0
+jump 34 greaterThan current_items_amount 0
 ucontrol stop 0 0 0 0 0
 ucontrol flag 0 0 0 0 0
 jump 8 always 0 0
