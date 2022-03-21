@@ -1,6 +1,6 @@
 set unit @flare
 ubind unit
-jump 1 strictEqual unit null
+jump 1 strictEqual @unit null
 sensor damaged @unit @maxHealth
 op mul damaged damaged 0.95
 sensor min_radius @unit @range
