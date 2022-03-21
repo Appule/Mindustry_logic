@@ -1,9 +1,11 @@
-getlink unloader 0
-getlink building 1
 set item1 @copper
 set item2 @lead
 set item3 @titanium
 set item4 @silicon
+getlink unloader 0
+jump 4 strictEqual unloader null
+getlink building 1
+jump 6 strictEqual building null
 sensor item1_amount building item1
 sensor item2_amount building item2
 sensor item3_amount building item3
@@ -11,15 +13,15 @@ sensor item4_amount building item4
 op min min_item_amount item1_amount item2_amount
 op min min_item_amount min_item_amount item3_amount
 op min min_item_amount min_item_amount item4_amount
-jump 18 equal min_item_amount item1_amount
-jump 20 equal min_item_amount item2_amount
-jump 22 equal min_item_amount item3_amount
+jump 20 equal min_item_amount item1_amount
+jump 22 equal min_item_amount item2_amount
+jump 24 equal min_item_amount item3_amount
 set select_item item4
-jump 23 always x false
+jump 25 always x false
 set select_item item1
-jump 23 always x false
+jump 25 always x false
 set select_item item2
-jump 23 always x false
+jump 25 always x false
 set select_item item3
 control configure unloader select_item 0 0 0
-jump 6 always x false
+jump 8 always x false
