@@ -1,0 +1,12 @@
+set i 0
+getlink generator i
+jump 0 strictEqual generator null
+op add i i 1
+sensor bat_cap generator @powerNetCapacity
+sensor bat_am generator @powerNetStored
+op mul bat_cap bat_cap 0.99
+jump 10 greaterThan bat_am bat_cap
+control enabled generator true 0 0 0
+jump 1 always 0 0
+control enabled generator false 0 0 0
+jump 1 always 0 0
