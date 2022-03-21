@@ -1,9 +1,12 @@
 getlink turret 0
 jump 0 equal turret null
+radar enemy any any health turret 1 boss
+sensor boss_hp boss @health
+jump 11 greaterThan boss_hp 1000
 sensor controlled? turret @controlled
-jump 6 equal controlled? false
+jump 9 equal controlled? false
 sensor shooting? turret @shooting
-jump 8 equal shooting? true
+jump 11 equal shooting? true
 control enabled turret false 0 0 0
 end
 control enabled turret true 0 0 0
