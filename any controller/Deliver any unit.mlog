@@ -1,6 +1,6 @@
 op rand id -999999999 0
-set item @sand
-set unit @flare
+set item @SENDITEM
+set unit @UNITTYPE
 set cap_rate 0.5
 set save_amount 300
 ubind unit
@@ -23,7 +23,7 @@ ucontrol flag id 0 0 0 0
 ucontrol stop 0 0 0 0 0
 ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
-jump 43 notEqual flag id
+jump 8 notEqual flag id
 ucontrol approach core_x core_y 5 0 0
 ucontrol itemTake core item item_capacity 0 0
 sensor controlled? @unit @controlled
