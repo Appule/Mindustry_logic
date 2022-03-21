@@ -40,7 +40,7 @@ jump 43 strictEqual building_1 null
 sensor current_item_type @unit @firstItem
 jump 43 notEqual current_item_type item
 sensor current_items_amount @unit @totalItems
-jump 34 greaterThan current_items_amount 0
+jump 34 equal current_items_amount item_capacity
 ucontrol stop 0 0 0 0 0
 ucontrol flag 0 0 0 0 0
 jump 8 always 0 0
