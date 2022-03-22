@@ -1,0 +1,79 @@
+ubind @flare
+jump 8 notEqual @unit null
+ubind @alpha
+jump 8 notEqual @unit null
+ubind @beta
+jump 8 notEqual @unit null
+ubind @gamma
+jump 0 strictEqual @unit null
+ulocate building core false @copper outx outy found? core
+op mod i i 16
+op add j i 16
+op add k i 32
+jump 28 greaterThanEq i 8
+jump 21 greaterThanEq i 4
+jump 18 greaterThanEq i 2
+jump 43 equal i 1
+set item @copper
+jump 58 always 0 0
+jump 45 equal i 3
+set item @metaglass
+jump 58 always 0 0
+jump 25 greaterThanEq i 6
+jump 47 equal i 5
+set item @sand
+jump 58 always 0 0
+jump 49 equal i 7
+set item @titanium
+jump 58 always 0 0
+jump 36 greaterThanEq i 12
+jump 33 greaterThanEq i 10
+jump 51 equal i 9
+set item @scrap
+jump 58 always 0 0
+jump 53 equal i 11
+set item @plastanium
+jump 58 always 0 0
+jump 40 greaterThanEq i 14
+jump 55 equal i 13
+set item @surge-alloy
+jump 58 always 0 0
+jump 57 equal i 15
+set item @blast-compound
+jump 58 always 0 0
+set item @lead
+jump 58 always 0 0
+set item @graphite
+jump 58 always 0 0
+set item @coal
+jump 58 always 0 0
+set item @thorium
+jump 58 always 0 0
+set item @silicon
+jump 58 always 0 0
+set item @phase-fabric
+jump 58 always 0 0
+set item @spore-pod
+jump 58 always 0 0
+set item @pyratite
+sensor item_am core item
+set tick @tick
+jump 63 notEqual i 0
+op add n n 1
+op mod n n 2
+jump 68 equal n 0
+write item_am cell1 j
+write tick cell1 k
+op add i i 1
+jump 9 always 0 0
+read pre_item cell1 j
+read pre_tick cell1 k
+sensor now_item core item
+op sub dt @tick pre_tick
+op sub di now_item pre_item
+op div di/dt di dt
+op mul items/sec di/dt 60
+write items/sec cell1 i
+op add i i 1
+jump 0 strictEqual core null
+jump 9 always 0 0

@@ -1,0 +1,74 @@
+ubind @flare
+jump 8 notEqual @unit null
+ubind @alpha
+jump 8 notEqual @unit null
+ubind @beta
+jump 8 notEqual @unit null
+ubind @gamma
+jump 0 strictEqual @unit null
+ulocate building core false @copper outx outy found? core
+op mod i i 16
+op add j i 16
+jump 27 greaterThanEq i 8
+jump 20 greaterThanEq i 4
+jump 17 greaterThanEq i 2
+jump 42 equal i 1
+set item @copper
+jump 57 always 0 0
+jump 44 equal i 3
+set item @metaglass
+jump 57 always 0 0
+jump 24 greaterThanEq i 6
+jump 46 equal i 5
+set item @sand
+jump 57 always 0 0
+jump 48 equal i 7
+set item @titanium
+jump 57 always 0 0
+jump 35 greaterThanEq i 12
+jump 32 greaterThanEq i 10
+jump 50 equal i 9
+set item @scrap
+jump 57 always 0 0
+jump 52 equal i 11
+set item @plastanium
+jump 57 always 0 0
+jump 39 greaterThanEq i 14
+jump 54 equal i 13
+set item @surge-alloy
+jump 57 always 0 0
+jump 56 equal i 15
+set item @blast-compound
+jump 57 always 0 0
+set item @lead
+jump 57 always 0 0
+set item @graphite
+jump 57 always 0 0
+set item @coal
+jump 57 always 0 0
+set item @thorium
+jump 57 always 0 0
+set item @silicon
+jump 57 always 0 0
+set item @phase-fabric
+jump 57 always 0 0
+set item @spore-pod
+jump 57 always 0 0
+set item @pyratite
+sensor item_am core item
+jump 61 notEqual i 0
+op add n n 1
+op mod n n 2
+jump 66 equal n 0
+write item_am cell1 j
+op add i i 1
+control enabled illuminator1 false 0 0 0
+jump 9 always 0 0
+read pre_item cell1 j
+sensor now_item core item
+op sub di/mesure now_item pre_item
+write di/mesure cell1 i
+op add i i 1
+control enabled illuminator1 true 0 0 0
+jump 0 strictEqual core null
+jump 9 always 0 0

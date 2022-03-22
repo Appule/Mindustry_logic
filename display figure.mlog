@@ -1,0 +1,68 @@
+set channel 0
+set maxscale 100
+draw clear 0 0 0 0 0 0
+draw color 255 255 255 255 0 0
+draw rect 20 0 20 80 0 0
+draw rect 60 0 20 80 0 0
+set x 10
+set dx 20
+set y 70
+jump 17 equal channel 0
+jump 22 equal channel 1
+jump 27 equal channel 2
+set item1 @surge-alloy
+set item2 @spore-pod
+set item3 @blast-compound
+set item4 @pyratite
+jump 31 always 0 0
+set item1 @copper
+set item2 @lead
+set item3 @metaglass
+set item4 @graphite
+jump 31 always 0 0
+set item1 @sand
+set item2 @coal
+set item3 @titanium
+set item4 @thorium
+jump 31 always 0 0
+set item1 @scrap
+set item2 @silicon
+set item3 @plastanium
+set item4 @phase-fabric
+draw image x y item1 dx 0 0
+op add x x dx
+draw image x y item2 dx 0 0
+op add x x dx
+draw image x y item3 dx 0 0
+op add x x dx
+draw image x y item4 dx 0 0
+op mul digit channel 4
+op div colordev 255 maxscale
+op div maxscale 30 maxscale
+drawflush display1
+op add i i 1
+op mod i i 4
+op mul x i 20
+op add j i digit
+read items/sec cell1 j
+op abs color items/sec 0
+op mul color color colordev
+op mul items/sec items/sec maxscale
+jump 55 greaterThan items/sec 30
+jump 58 greaterThanEq items/sec -30
+draw color 255 0 0 255 0 0
+draw rect x 30 20 -30 0 0
+jump 63 always 0 0
+draw color 255 0 255 255 0 0
+draw rect x 30 20 30 0 0
+jump 63 always 0 0
+jump 61 lessThan items/sec 0
+draw color 0 255 color 255 0 0
+jump 62 always 0 0
+draw color color 255 0 255 0 0
+draw rect x 30 20 items/sec 0 0
+draw color 0 0 0 32 0 0
+draw rect 0 0 80 60 0 0
+draw color 255 255 0 255 0 0
+draw rect 0 29 80 2 0 0
+jump 41 always 0 0
