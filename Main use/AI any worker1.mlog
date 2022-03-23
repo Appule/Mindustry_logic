@@ -1,0 +1,47 @@
+set UNIT @
+set mine_id 15
+set amount_id 15
+ubind UNIT
+jump 3 strictEqual @unit null
+ulocate building core false @copper core_x core_y found? core
+sensor core_cap core @itemCapacity
+set min_ore_am core_cap
+set i 0
+jump 15 equal i 0
+jump 17 equal i 1
+jump 19 equal i 2
+jump 21 equal i 3
+set ore @titanium
+jump 22 always 0 0
+set ore @scrap
+jump 22 always 0 0
+set ore @copper
+jump 22 always 0 0
+set ore @lead
+jump 22 always 0 0
+set ore @coal
+op pow bitwise 2 i
+op and mine? mine_id bitwise
+jump 26 notEqual mine? 0
+jump 35 always 0 0
+sensor ore_am core ore
+op and mo? amount_id bitwise
+jump 31 notEqual mo? 0
+op div ore_am ore_am 0.2
+jump 32 always 0 0
+op div ore_am ore_am 0.9
+jump 35 lessThanEq min_ore_am ore_am
+op sub mine_flag -1 i
+set min_ore_am ore_am
+op add i i 1
+jump 9 lessThan i 5
+jump 39 lessThan min_ore_am core_cap
+set mine_flag 0
+set i 0
+op add i i 1
+ubind UNIT
+sensor flag @unit @flag
+jump 45 lessThan flag -5
+ucontrol flag mine_flag 0 0 0 0
+jump 40 lessThan i 10
+jump 4 always 0 0

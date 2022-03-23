@@ -1,0 +1,59 @@
+set UNIT @poly
+set RAD_RATE 1.0
+ubind UNIT
+jump 2 strictEqual @unit null
+sensor damaged @unit @maxHealth
+op mul damaged damaged 0.95
+sensor unit_cap @unit @itemCapacity
+sensor min_radius @unit @range
+op mul min_radius min_radius RAD_RATE
+op mul max_radius min_radius 2
+op mul base_radius min_radius 1.85
+ubind UNIT
+sensor flag @unit @flag
+jump 11 lessThan flag -5
+sensor health @unit @health
+jump 20 greaterThan health damaged
+ulocate building repair false @copper ap_x ap_y found? building
+jump 20 equal found? false
+ucontrol approach ap_x ap_y 8 0 0
+jump 11 always 0 0
+sensor unit_items @unit @totalItems
+jump 43 equal unit_items unit_cap
+jump 48 equal flag 0
+jump 29 equal flag -1
+jump 31 equal flag -2
+jump 33 equal flag -3
+jump 35 equal flag -4
+set ore @titanium
+jump 36 always 0 0
+set ore @scrap
+jump 36 always 0 0
+set ore @copper
+jump 36 always 0 0
+set ore @lead
+jump 36 always 0 0
+set ore @coal
+jump 39 equal unit_items 0
+sensor unit_item @unit @firstItem
+jump 43 notEqual unit_item ore
+ulocate ore core true ore ore_x ore_y found? building
+ucontrol approach ore_x ore_y 5 0 0
+ucontrol mine ore_x ore_y 0 0 0
+jump 11 always 0 0
+ucontrol stop 0 0 0 0 0
+ulocate building core false @copper core_x core_y found? core
+ucontrol approach core_x core_y 5 0 0
+ucontrol itemDrop core unit_cap 0 0 0
+jump 11 always 0 0
+sensor unit_items @unit @totalItems
+jump 43 notEqual unit_items 0
+ulocate building core false @copper core_x core_y found? core
+ucontrol within core_x core_y max_radius within? 0
+jump 57 equal within? false
+ucontrol within core_x core_y min_radius within? 0
+jump 57 equal within? true
+ucontrol stop 0 0 0 0 0
+jump 11 always 0 0
+ucontrol approach core_x core_y base_radius 0 0
+jump 11 always 0 0
