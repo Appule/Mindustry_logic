@@ -1,0 +1,54 @@
+## Unloader -> Pull FROM -> Pull TO ##
+set item1 @copper
+set item2 @lead
+set item3 @titanium
+set item4 @graphite
+getlink unloader 0
+jump 4 strictEqual unloader null
+getlink building1 1
+jump 6 strictEqual building1 null
+getlink building2 2
+jump 8 strictEqual building2 null
+sensor cap building2 @itemCapacity
+op mul cap cap 0.9
+sensor item1_amount building1 item1
+sensor item2_amount building1 item2
+sensor item3_amount building1 item3
+sensor item4_amount building1 item4
+op max max_item_amount item1_amount item2_amount
+op max max_item_amount max_item_amount item3_amount
+op max max_item_amount max_item_amount item4_amount
+jump 24 equal max_item_amount item1_amount
+jump 26 equal max_item_amount item2_amount
+jump 28 equal max_item_amount item3_amount
+set select_item item4
+jump 29 always 0 0
+set select_item item1
+jump 29 always 0 0
+set select_item item2
+jump 29 always 0 0
+set select_item item3
+sensor item1_am building2 item1
+sensor item2_am building2 item2
+sensor item3_am building2 item3
+sensor item4_am building2 item4
+op min min_item_am item1_am item2_am
+op min min_item_am min_item_am item3_am
+op min min_item_am min_item_am item4_am
+jump 41 equal min_item_am item1_am
+jump 43 equal min_item_am item2_am
+jump 45 equal min_item_am item3_am
+set item_type item4
+jump 46 always 0 0
+set item_type item1
+jump 46 always 0 0
+set item_type item2
+jump 46 always 0 0
+set item_type item3
+sensor item_amount building2 item_type
+jump 51 greaterThan item_amount cap
+control enabled unloader true 0 0 0
+control configure unloader select_item 0 0 0
+jump 12 always 0 0
+control enabled unloader false 0 0 0
+jump 12 always 0 0
