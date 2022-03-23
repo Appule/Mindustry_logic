@@ -1,7 +1,5 @@
 op rand ID -999999999 0
 set UNIT @
-set CAP_RATE 0.2
-set SAVE_AMOUNT 300
 set ITEM1 @
 set ITEM2 @
 set ITEM3 @
@@ -10,6 +8,8 @@ set ITEM5 @
 set ITEM6 @
 set ITEM7 @
 set ITEM8 @
+set CAP_RATE 0.2
+set SAVE_AMOUNT 300
 ubind UNIT
 jump 12 strictEqual @unit null
 sensor unit_cap @unit @itemCapacity
