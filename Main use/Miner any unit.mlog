@@ -3,18 +3,18 @@ set ore @ORE
 getlink container 0
 jump 2 strictEqual container null
 op rand id -999999999 0
-sensor container_capacity container @itemCapacity
-op mul container_capacity container_capacity 0.5
+sensor container_cap container @itemCapacity
+op mul container_cap container_cap 0.5
 sensor container_x container @x
 sensor container_y container @y
 ubind unit
 jump 9 strictEqual @unit null
-sensor unit_capacity @unit @itemCapacity
-sensor current_container_items container ore
-jump 12 greaterThan current_container_items container_capacity
+sensor unit_cap @unit @itemCapacity
+sensor container_items container ore
+jump 12 greaterThan container_items container_cap
 ubind unit
-sensor current_unit_items @unit @totalItems
-jump 14 notEqual current_unit_items 0
+sensor unit_items @unit @totalItems
+jump 14 notEqual unit_items 0
 sensor flag @unit @flag
 jump 14 lessThan flag 0
 ucontrol flag id 0 0 0 0
@@ -27,20 +27,20 @@ ucontrol approach ap_x ap_y 5 0 0
 ucontrol mine ap_x ap_y 0 0 0
 sensor controlled? @unit @controlled
 jump 12 notEqual controlled? @ctrlProcessor
-sensor current_unit_item_type @unit @firstItem
-jump 32 strictEqual current_unit_item_type null
-jump 44 notEqual current_unit_item_type ore
-sensor current_unit_items @unit ore
-jump 24 notEqual current_unit_items unit_capacity
+sensor unit_item_type @unit @firstItem
+jump 32 strictEqual unit_item_type null
+jump 44 notEqual unit_item_type ore
+sensor unit_items @unit ore
+jump 24 notEqual unit_items unit_cap
 ucontrol stop 0 0 0 0 0
 ucontrol approach container_x container_y 5 0 0
-ucontrol itemDrop container unit_capacity 0 0 0
+ucontrol itemDrop container unit_cap 0 0 0
 sensor controlled? @unit @controlled
 jump 12 notEqual controlled? @ctrlProcessor
-sensor current_unit_items @unit ore
+sensor unit_items @unit ore
 jump 12 strictEqual @unit null
-jump 35 equal current_unit_items unit_capacity
-sensor current_container_items container ore
-jump 22 lessThan current_container_items container_capacity
+jump 35 equal unit_items unit_cap
+sensor container_items container ore
+jump 22 lessThan container_items container_cap
 ucontrol flag 0 0 0 0 0
 jump 12 always 0 0

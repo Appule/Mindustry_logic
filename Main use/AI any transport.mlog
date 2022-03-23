@@ -1,33 +1,35 @@
-set unit @flare
-ubind unit
-jump 1 strictEqual @unit null
+set UNIT @
+set RAD_RATE 1.0
+ubind UNIT
+jump 2 strictEqual @unit null
 sensor damaged @unit @maxHealth
 op mul damaged damaged 0.95
-sensor min_radius @unit @range
-op mul max_radius min_radius 2.0
-op mul base_radius min_radius 1.85
-sensor item_capacity @unit @itemCapacity
-ubind unit
-sensor isworking? @unit @controlled
-jump 13 notEqual isworking? 0
+sensor min_rad @unit @range
+op mul min_rad min_rad RAD_RATE
+op mul max_rad min_rad 2.0
+op mul base_rad min_rad 1.9
+sensor unit_cap @unit @itemCapacity
+ubind UNIT
+sensor working? @unit @controlled
+jump 15 notEqual working? 0
 ucontrol flag 0 yc 5 0 0
 sensor flag @unit @flag
-jump 9 lessThan flag 0
-sensor current_hp @unit @health
-jump 19 greaterThan current_hp damaged
+jump 11 lessThan flag 0
+sensor hp @unit @health
+jump 21 greaterThan hp damaged
 ulocate building repair false 0 ap_x ap_y found? repair_building
-jump 31 equal found? true
+jump 33 equal found? true
 ulocate building core false 0 ap_x ap_y found core
-sensor current_items_amount @unit @totalItems
-jump 30 notEqual current_items_amount 0
-ucontrol within ap_x ap_y max_radius within? 0
-jump 28 equal within? false
-ucontrol within ap_x ap_y min_radius within? 0
-jump 28 equal within? true
+sensor unit_items @unit @totalItems
+jump 32 notEqual unit_items 0
+ucontrol within ap_x ap_y max_rad within? 0
+jump 30 equal within? false
+ucontrol within ap_x ap_y min_rad within? 0
+jump 30 equal within? true
 ucontrol stop 0 0 0 0 0
-jump 9 always 0 0
-ucontrol approach ap_x ap_y base_radius 0 0
-jump 9 always 0 0
-ucontrol itemDrop core item_capacity 0 0 0
+jump 11 always 0 0
+ucontrol approach ap_x ap_y base_rad 0 0
+jump 11 always 0 0
+ucontrol itemDrop core unit_cap 0 0 0
 ucontrol approach ap_x ap_y 5 0 0
-jump 9 always 0 0
+jump 11 always 0 0

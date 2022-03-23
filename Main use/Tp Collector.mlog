@@ -1,20 +1,20 @@
 op rand ID -999999999 0
-set UNIT @oct
+set UNIT @
 set CAP_RATE 0.2
-set ITEM1 @copper
-set ITEM2 @lead
-set ITEM3 @titanium
-set ITEM4 @graphite
+set ITEM1 @
+set ITEM2 @
+set ITEM3 @
+set ITEM4 @
 set ITEM5 @
 set ITEM6 @
 set ITEM7 @
 set ITEM8 @
 ubind UNIT
 jump 11 strictEqual @unit null
-sensor unit_capacity @unit @itemCapacity
+sensor unit_cap @unit @itemCapacity
 ulocate building core false @copper core_x core_y found? core
-sensor core_capacity core @itemCapacity
-op mul core_capacity core_capacity CAP_RATE
+sensor core_cap core @itemCapacity
+op mul core_cap core_cap CAP_RATE
 getlink building_1 0
 jump 17 strictEqual building_1 null
 set i 0
@@ -43,13 +43,13 @@ set item ITEM7
 jump 19 strictEqual item null
 op add i i 1
 op mod i i 8
-sensor building_items_amount building_1 item
-jump 20 lessThan building_items_amount unit_capacity
-sensor core_items_amount core item
-jump 20 greaterThan core_items_amount core_capacity
+sensor building_items building_1 item
+jump 20 lessThan building_items unit_cap
+sensor core_items core item
+jump 20 greaterThan core_items core_cap
 ubind UNIT
-sensor unit_items_amount @unit @totalItems
-jump 49 notEqual unit_items_amount 0
+sensor unit_items @unit @totalItems
+jump 49 notEqual unit_items 0
 sensor flag @unit @flag
 jump 49 lessThan flag 0
 ucontrol flag ID 0 0 0 0
@@ -61,11 +61,13 @@ jump 17 strictEqual building_1 null
 sensor building_x building_1 @x
 sensor building_y building_1 @y
 sensor controlled? @unit @controlled
-jump 69 notEqual controlled? @ctrlProcessor
+jump 71 notEqual controlled? @ctrlProcessor
+sensor flag @unit @flag
+jump 49 notEqual flag ID
 ucontrol approach building_x building_y 5 0 0
-ucontrol itemTake building_1 item unit_capacity 0 0
-sensor unit_items_amount @unit @totalItems
-jump 62 strictEqual unit_items_amount 0
+ucontrol itemTake building_1 item unit_cap 0 0
+sensor unit_items @unit @totalItems
+jump 62 strictEqual unit_items 0
 ucontrol approach core_x core_y 5 0 0
 ucontrol flag 0 0 0 0 0
 jump 20 always 0 0

@@ -1,8 +1,8 @@
 op rand ID -999999999 0
-set UNIT @oct
+set UNIT @
 set CAP_RATE 0.2
 set SAVE_AMOUNT 300
-set ITEM1 @scrap
+set ITEM1 @
 set ITEM2 @
 set ITEM3 @
 set ITEM4 @
@@ -12,11 +12,11 @@ set ITEM7 @
 set ITEM8 @
 ubind UNIT
 jump 12 strictEqual @unit null
-sensor unit_capacity @unit @itemCapacity
+sensor unit_cap @unit @itemCapacity
 getlink building_1 0
 jump 15 strictEqual building_1 null
-sensor building_capacity building_1 @itemCapacity
-op mul building_capacity building_capacity CAP_RATE
+sensor building_cap building_1 @itemCapacity
+op mul building_cap building_cap CAP_RATE
 set i 0
 jump 29 equal i 0
 jump 31 equal i 1
@@ -43,14 +43,14 @@ set item ITEM7
 jump 19 strictEqual item null
 op add i i 1
 op mod i i 8
-sensor building_items_amount building_1 item
-jump 20 greaterThanEq building_items_amount building_capacity
+sensor building_items building_1 item
+jump 20 greaterThanEq building_items building_cap
 ulocate building core false @copper core_x core_y found? core
-sensor core_items_amount core item
-jump 20 lessThan core_items_amount SAVE_AMOUNT
+sensor core_items core item
+jump 20 lessThan core_items SAVE_AMOUNT
 ubind UNIT
-sensor unit_items_amount @unit @totalItems
-jump 50 notEqual unit_items_amount 0
+sensor unit_items @unit @totalItems
+jump 50 notEqual unit_items 0
 sensor flag @unit @flag
 jump 50 lessThan flag 0
 ucontrol flag ID 0 0 0 0
@@ -59,22 +59,22 @@ ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
 jump 50 notEqual flag ID
 ucontrol approach core_x core_y 5 0 0
-ucontrol itemTake core item unit_capacity 0 0
+ucontrol itemTake core item unit_cap 0 0
 sensor controlled? @unit @controlled
 jump 78 notEqual controlled? @ctrlProcessor
-sensor unit_items_amount @unit @totalItems
-jump 60 strictEqual unit_items_amount 0
+sensor unit_items @unit @totalItems
+jump 60 strictEqual unit_items 0
 sensor unit_item_type @unit @firstItem
 jump 77 notEqual unit_item_type item
 sensor building_x building_1 @x
 sensor building_y building_1 @y
 ucontrol approach building_x building_y 5 0 0
-ucontrol itemDrop building_1 unit_capacity 0 0 0
+ucontrol itemDrop building_1 unit_cap 0 0 0
 sensor controlled? @unit @controlled
 jump 78 notEqual controlled? @ctrlProcessor
 jump 80 strictEqual building_1 null
-sensor unit_items_amount @unit item
-jump 70 equal unit_items_amount unit_capacity
+sensor unit_items @unit item
+jump 70 equal unit_items unit_cap
 ucontrol stop 0 0 0 0 0
 ucontrol flag 0 0 0 0 0
 jump 20 always 0 0
