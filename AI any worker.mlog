@@ -1,0 +1,40 @@
+set UNIT @poly
+set mine_id 15
+set amount_id 15
+op and mine_scrap? mine_id 1
+op and mo_scrap? amount_id 1
+op and mine_copper? mine_id 2
+op and mo_copper? amount_id 2
+op and mine_lead? mine_id 4
+op and mo_lead? amount_id 4
+op and mine_coal? mine_id 8
+op and mo_coal? amount_id 8
+op and mine_titanium? mine_id 16
+op and mo_titanium? amount_id 16
+ubind UNIT
+ulocate building core false @copper core_x core_y found? core
+sensor scrap_amount core @scrap
+sensor coal_amount core @coal
+sensor core_item_capacity core @itemCapacity
+jump 20 equal mine_scrap? true
+set scrap_amount core_item_capacity
+jump 22 equal mine_coal? true
+set coal_amount core_item_capacity
+op min min_ore_amount scrap_amount coal_amount
+op mul core_item_capacity core_item_capacity 0.25
+set i 0
+op add i i 1
+ubind UNIT
+sensor flag @unit @flag
+jump 25 lessThan flag 0
+jump 37 greaterThan min_ore_amount core_item_capacity
+jump 34 equal min_ore_amount scrap_amount
+ucontrol flag 2 0 0 0 0
+jump 25 lessThan i 10
+end
+ucontrol flag 1 0 0 0 0
+jump 25 lessThan i 10
+end
+ucontrol flag 0 0 0 0 0
+jump 25 lessThan i 10
+end
