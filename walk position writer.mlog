@@ -1,0 +1,18 @@
+read pos_int cell1 i
+jump 5 lessThanEq @maph @mapw
+op mod x pos_int @maph
+op idiv y pos_int @maph
+jump 7 always 0 0
+op idiv x pos_int @mapw
+op mod y pos_int @mapw
+print i
+print "...x: "
+print x
+print ", "
+print "y: "
+print y
+print "\n"
+op add i i 1
+op mod i i 8
+jump 0 notEqual i 0
+printflush message1

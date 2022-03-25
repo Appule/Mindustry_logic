@@ -1,6 +1,6 @@
 set UNIT @
-set mine_id 15
-set amount_id 15
+set mine_id 7
+set amount_id 7
 ubind UNIT
 jump 3 strictEqual @unit null
 ulocate building core false @copper core_x core_y found? core

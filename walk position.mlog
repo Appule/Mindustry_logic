@@ -1,0 +1,41 @@
+set i 0
+set n 0
+radar player any any distance duo1 1 new_player
+jump 5 strictEqual new_player null
+set player new_player
+sensor name player @name
+print name
+printflush message2
+sensor reset? switch2 @enabled
+jump 33 equal reset? true
+sensor edit? switch1 @enabled
+jump 15 equal edit? false
+jump 2 strictEqual player null
+sensor shooting? player @shooting
+jump 18 lessThan pre_shooting? shooting?
+control enabled illuminator1 false 0 0 0
+set pre_shooting? shooting?
+jump 8 always 0 0
+sensor x player @shootX
+sensor y player @shootY
+op ceil x x 0
+op ceil y y 0
+jump 26 lessThanEq @maph @mapw
+op mul pos_int y @maph
+op add pos_int pos_int x
+jump 28 always 0 0
+op mul pos_int x @mapw
+op add pos_int pos_int y
+write pos_int cell1 n
+op add n n 1
+write -1 cell1 n
+control enabled illuminator1 true 0 0 0
+jump 16 always 0 0
+set n 0
+set i 0
+write -2 cell1 i
+op add i i 1
+op mod i i 64
+jump 35 notEqual i 0
+control enabled switch2 false 0 0 0
+jump 10 always 0 0

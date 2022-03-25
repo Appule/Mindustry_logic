@@ -1,0 +1,29 @@
+control enabled switch1 false 0 0 0
+set i 0
+set up/dw 1
+ubind @crawler
+jump 3 strictEqual @unit null
+op abs j i 0
+read pos_int cell1 j
+print i
+printflush message1
+jump 16 greaterThanEq pos_int 0
+jump 14 equal pos_int -2
+op mul up/dw up/dw -1
+op add i i up/dw
+jump 5 always 0 0
+set i 0
+jump 5 always 0 0
+jump 20 lessThanEq @maph @mapw
+op mod x pos_int @mapw
+op idiv y pos_int @maph
+jump 22 always 0 0
+op idiv x pos_int @mapw
+op mod y pos_int @maph
+ucontrol approach x y 0 0 0
+sensor reset? switch1 @enabled
+jump 0 equal reset? true
+ucontrol within x y 3 point_1 0
+jump 22 notEqual point_1 1
+op add i i up/dw
+jump 5 always 0 0
