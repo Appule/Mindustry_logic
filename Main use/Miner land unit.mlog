@@ -1,8 +1,8 @@
-set unit @UNIT
-set ore @ORE
-getlink container 0
-jump 2 strictEqual container null
 op rand id -999999999 0
+set unit @pulsar
+set ore @scrap
+getlink container 0
+jump 3 strictEqual container null
 sensor container_cap container @itemCapacity
 op mul container_cap container_cap 0.5
 sensor container_x container @x
@@ -21,25 +21,27 @@ ucontrol flag id 0 0 0 0
 ucontrol stop 0 0 0 0 0
 ucontrol stop 0 0 0 0 0
 sensor flag @unit @flag
-jump 44 notEqual flag id
+jump 46 notEqual flag id
 ulocate ore core 0 ore ap_x ap_y found? building
+ucontrol boost true 0 0 0 0
 ucontrol approach ap_x ap_y 5 0 0
 ucontrol mine ap_x ap_y 0 0 0
 sensor controlled? @unit @controlled
 jump 12 notEqual controlled? @ctrlProcessor
 sensor unit_item_type @unit @firstItem
-jump 32 strictEqual unit_item_type null
-jump 44 notEqual unit_item_type ore
+jump 33 strictEqual unit_item_type null
+jump 46 notEqual unit_item_type ore
 sensor unit_items @unit ore
 jump 24 notEqual unit_items unit_cap
 ucontrol stop 0 0 0 0 0
+ucontrol boost true 0 0 0 0
 ucontrol approach container_x container_y 5 0 0
 ucontrol itemDrop container unit_cap 0 0 0
 sensor controlled? @unit @controlled
 jump 12 notEqual controlled? @ctrlProcessor
 sensor unit_items @unit ore
 jump 12 strictEqual @unit null
-jump 35 equal unit_items unit_cap
+jump 36 equal unit_items unit_cap
 sensor container_items container ore
 jump 22 lessThan container_items container_cap
 ucontrol flag 0 0 0 0 0
