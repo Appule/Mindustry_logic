@@ -1,0 +1,19 @@
+set liquid_type @cryofluid
+getlink link0 0
+jump 1 strictEqual link0 null
+getlink link1 1
+jump 3 strictEqual link1 null
+sensor liquid_cap link0 @liquidCapacity
+jump 10 greaterThanEq liquid_cap 100
+set tank link1
+set pipe link0
+jump 12 always 0 0
+set tank link0
+set pipe link1
+sensor liquid_am tank liquid_type
+sensor cap tank @liquidCapacity
+op mul cap cap 0.9
+jump 18 lessThan liquid_am cap
+control enabled pipe true 0 0 0
+end
+control enabled pipe false 0 0 0
