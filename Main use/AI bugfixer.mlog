@@ -1,27 +1,27 @@
-set UNIT @
-op mul idle_speed speed_val 0.05
+set UNIT @zenith
 ubind UNIT
-jump 2 strictEqual @unit null
-jump 11 equal UNIT @flare
-jump 13 equal UNIT @horizon
-jump 15 equal UNIT @zenith
-jump 17 equal UNIT @mono
-jump 19 equal UNIT @poly
+jump 1 strictEqual @unit null
+jump 10 equal UNIT @flare
+jump 12 equal UNIT @horizon
+jump 14 equal UNIT @zenith
+jump 16 equal UNIT @mono
+jump 18 equal UNIT @poly
 set speed_val 2.5
-jump 20 always unit_type @flare
+jump 19 always unit_type @flare
 set speed_val 3.0
-jump 20 always unit_type @flare
+jump 19 always unit_type @flare
 set speed_val 1.7
-jump 20 always unit_type @flare
+jump 19 always unit_type @flare
 set speed_val 1.8
-jump 20 always unit_type @flare
+jump 19 always unit_type @flare
 set speed_val 1.5
-jump 20 always unit_type @flare
+jump 19 always unit_type @flare
 set speed_val 2.6
 sensor unit_name @unit @type
 sensor unit_hp @unit @maxHealth
 sensor unit_size @unit @size
 sensor unit_range @unit @range
+op mul idle_speed speed_val 0.05
 op ceil unit_range unit_range 0
 ubind UNIT
 jump 25 strictEqual @unit null
