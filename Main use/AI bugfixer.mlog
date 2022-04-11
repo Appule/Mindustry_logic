@@ -1,4 +1,4 @@
-set UNIT @zenith
+set UNIT @
 ubind UNIT
 jump 1 strictEqual @unit null
 jump 10 equal UNIT @flare

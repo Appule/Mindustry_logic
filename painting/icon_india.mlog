@@ -1,0 +1,27 @@
+set cx 130
+set cy 147
+draw color 0 0 255 255 0 0
+draw poly cx cy 255 16 0 0
+draw color 255 255 255 255 0 0
+draw poly cx cy 255 14 0 0
+draw color 0 0 255 255 0 0
+draw stroke 1 0 0 0 0 0
+set x 0
+set r 13
+op div degree x 24
+op mul degree degree 360
+op cos cos degree 0
+op mul cos cos r
+op sin sin degree 0
+op mul sin sin r
+op add x1 cx cos
+op sub x2 cx cos
+op add y1 cy sin
+op sub y2 cy sin
+draw color 0 0 255 255 0 0
+draw line x1 y1 x2 y2 0 0
+op add x x 1
+drawflush display1
+jump 10 lessThan x 12
+set end 0
+jump 25 always 0 0

@@ -1,0 +1,16 @@
+set UNIT @
+ubind UNIT
+sensor flag @unit @flag
+jump 1 lessThan flag 0
+uradar player any any distance 0 1 player
+sensor x player @x
+sensor y player @y
+ucontrol within x y 5 within? 0
+jump 1 equal within? false
+sensor thisx @unit @x
+sensor thisy @unit @y
+op sub dx thisx x
+op sub dy thisy y
+op add x thisx dx
+op add y thisy dy
+ucontrol approach x y 0 0 0

@@ -1,0 +1,33 @@
+set start_x -4
+set start_y 64
+set r 128
+set g 220
+set b 255
+set CLEAR_BY_BG_COLOR? false
+set bg_r 255
+set bg_g 0
+set bg_b 0
+jump 11 equal CLEAR_BY_BG_COLOR? false
+draw clear bg_r bg_g bg_b 0 0 0
+draw stroke 1 0 0 0 0 0
+set y 0
+read col_data cell1 y
+op mul add_y y 5
+op sub grad_g g add_y
+jump 29 equal col_data 0
+set x 0
+op add s start_x x
+op sub t start_y y
+op mod col_num col_data 2
+op shr col_data col_data 1
+jump 26 equal col_num 0
+draw color r grad_g b 255 0 0
+draw rect s t 1 1 0 0
+drawflush display1
+jump 29 equal col_data 0
+op add x x 1
+jump 18 lessThan x 48
+op add y y 1
+jump 13 lessThan y 48
+set end 0
+jump 31 always 0 0

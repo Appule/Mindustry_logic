@@ -1,0 +1,59 @@
+#nazi-germany
+draw clear 255 0 0 0 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 100 45 0 0
+draw rect 58 0 40 176 0 0
+draw rect 0 78 176 40 0 0
+draw color 0 0 0 255 0 0
+draw poly 78 98 100 38 0 0
+draw rect 64 0 28 176 0 0
+draw rect 0 84 176 28 0 0
+draw color 255 255 255 255 0 0
+draw rect 67 0 22 176 0 0
+draw rect 0 87 176 22 0 0
+draw color 0 0 0 255 0 0
+draw rect 71 0 14 176 0 0
+draw rect 0 91 176 14 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 100 35 0 0
+draw color 0 0 0 255 0 0
+draw poly 78 98 100 32 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 100 31 0 0
+draw color 0 0 0 255 0 0
+draw stroke 9 0 0 0 0 0
+set cx 78
+set cy 98
+set x1 52
+set x2 65
+set x3 91
+set x4 104
+set y1 72
+set y2 85
+set y3 111
+set y4 124
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+draw stroke 8 0 0 0 0 0
+draw color 255 255 255 255 0 0
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+draw stroke 6 0 0 0 0 0
+draw color 0 0 0 255 0 0
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+drawflush display1
+set end 0
+jump 56 always 0 0

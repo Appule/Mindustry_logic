@@ -1,0 +1,103 @@
+draw clear 255 0 0 0 0 0
+set cx 20
+set cy 40
+draw color 255 255 255 255 0 0
+set red_rate 30
+draw stroke 2 0 0 0 0 0
+set i 0
+op add n n 1
+op mod draw? n 44
+jump 11 lessThan draw? red_rate
+draw line cx cy i 0 0 0
+op add i i 1
+drawflush display1
+jump 7 lessThan i 78
+set i 0
+op add n n 1
+op mod draw? n 44
+jump 19 lessThan draw? red_rate
+draw line cx cy 78 i 0 0
+op add i i 1
+drawflush display1
+jump 15 lessThan i 98
+set i 78
+op add n n 1
+op mod draw? n 44
+jump 27 lessThan draw? red_rate
+draw line cx cy i 98 0 0
+op sub i i 1
+drawflush display1
+jump 23 greaterThanEq i 0
+set i 98
+op add n n 1
+op mod draw? n 44
+jump 35 lessThan draw? red_rate
+draw line cx cy 0 i 0 0
+op sub i i 1
+drawflush display1
+jump 31 greaterThanEq i 0
+draw color 255 0 0 255 0 0
+draw poly cx cy 255 14 0 0
+draw color 0 128 0 255 0 0
+draw rect 78 118 176 19 0 0
+draw color 255 255 255 255 0 0
+draw rect 78 137 176 19 0 0
+draw color 255 128 0 255 0 0
+draw rect 78 156 176 20 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 255 45 0 0
+draw rect 58 0 40 176 0 0
+draw rect 0 78 176 40 0 0
+draw color 0 0 0 255 0 0
+draw poly 78 98 255 38 0 0
+draw rect 64 0 28 176 0 0
+draw rect 0 84 176 28 0 0
+draw color 255 255 255 255 0 0
+draw rect 67 0 22 176 0 0
+draw rect 0 87 176 22 0 0
+draw color 0 0 0 255 0 0
+draw rect 71 0 14 176 0 0
+draw rect 0 91 176 14 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 255 35 0 0
+draw color 0 0 0 255 0 0
+draw poly 78 98 255 32 0 0
+draw color 255 255 255 255 0 0
+draw poly 78 98 255 31 0 0
+draw color 0 0 0 255 0 0
+draw stroke 9 0 0 0 0 0
+set cx 78
+set cy 98
+set x1 52
+set x2 65
+set x3 91
+set x4 104
+set y1 72
+set y2 85
+set y3 111
+set y4 124
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+draw stroke 8 0 0 0 0 0
+draw color 255 255 255 255 0 0
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+draw stroke 6 0 0 0 0 0
+draw color 0 0 0 255 0 0
+draw line cx y4 x2 y3 0 0
+draw line x2 y3 x3 y2 0 0
+draw line x3 y2 cx y1 0 0
+draw line x1 cy x2 y2 0 0
+draw line x2 y2 x3 y3 0 0
+draw line x3 y3 x4 cy 0 0
+drawflush display1
+set end 0
+jump 101 always 0 0

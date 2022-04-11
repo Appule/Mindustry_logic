@@ -1,0 +1,97 @@
+#apple
+set col_data0  0 
+set col_data1  0 
+set col_data2  0 
+set col_data3  1073741824 
+set col_data4  2013265920 
+set col_data5  2080374784 
+set col_data6  1040187392 
+set col_data7  1056964608 
+set col_data8  520093696 
+set col_data9  251658240 
+set col_data10 125829120 
+set col_data11 25165824 
+set col_data12 8456732672 
+set col_data13 34351341568 
+set col_data14 68719472640 
+set col_data15 137438951424 
+set col_data16 68719474688 
+set col_data17 34359737344 
+set col_data18 17179868160 
+set col_data19 17179868672 
+set col_data20 17179868672 
+set col_data21 8589934080 
+set col_data22 8589934080 
+set col_data23 8589934080 
+set col_data24 17179868672 
+set col_data25 17179868672 
+set col_data26 34359737856 
+set col_data27 34359737344 
+set col_data28 137438952448 
+set col_data29 274877905920 
+set col_data30 274877904896 
+set col_data31 137438951424 
+set col_data32 137438949376 
+set col_data33 68719472640 
+set col_data34 68719468544 
+set col_data35 34359730176 
+set col_data36 17179852800 
+set col_data37 8589901824 
+set col_data38 4028563456 
+set col_data39 0 
+set col_data40 0 
+set col_data41 0 
+set col_data42 0 
+set col_data43 0 
+set col_data44 0 
+set col_data45 0 
+set col_data46 0 
+set col_data47 0 
+write col_data0 cell1 0
+write col_data1 cell1 1
+write col_data2 cell1 2
+write col_data3 cell1 3
+write col_data4 cell1 4
+write col_data5 cell1 5
+write col_data6 cell1 6
+write col_data7 cell1 7
+write col_data8 cell1 8
+write col_data9 cell1 9
+write col_data10 cell1 10
+write col_data11 cell1 11
+write col_data12 cell1 12
+write col_data13 cell1 13
+write col_data14 cell1 14
+write col_data15 cell1 15
+write col_data16 cell1 16
+write col_data17 cell1 17
+write col_data18 cell1 18
+write col_data19 cell1 19
+write col_data20 cell1 20
+write col_data21 cell1 21
+write col_data22 cell1 22
+write col_data23 cell1 23
+write col_data24 cell1 24
+write col_data25 cell1 25
+write col_data26 cell1 26
+write col_data27 cell1 27
+write col_data28 cell1 28
+write col_data29 cell1 29
+write col_data30 cell1 30
+write col_data31 cell1 31
+write col_data32 cell1 32
+write col_data33 cell1 33
+write col_data34 cell1 34
+write col_data35 cell1 35
+write col_data36 cell1 36
+write col_data37 cell1 37
+write col_data38 cell1 38
+write col_data39 cell1 39
+write col_data40 cell1 40
+write col_data41 cell1 41
+write col_data42 cell1 42
+write col_data43 cell1 43
+write col_data44 cell1 44
+write col_data45 cell1 45
+write col_data46 cell1 46
+write col_data47 cell1 47
