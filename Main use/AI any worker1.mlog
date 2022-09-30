@@ -1,5 +1,5 @@
-set UNIT @
-set mine_id 7
+set UNIT @ # write unit's name
+set mine_id 7 # 1...scrap 2...copper 4...lead 8...coal 16...titanium
 set amount_id 7
 ubind UNIT
 jump 3 strictEqual @unit null

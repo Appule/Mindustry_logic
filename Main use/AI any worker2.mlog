@@ -1,4 +1,4 @@
-set UNIT @
+set UNIT @ # write unit's name
 set RAD_RATE 1.0
 ubind UNIT
 jump 2 strictEqual @unit null

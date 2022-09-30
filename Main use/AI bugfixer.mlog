@@ -1,4 +1,4 @@
-set UNIT @
+set UNIT @ # write unit's name
 ubind UNIT
 jump 1 strictEqual @unit null
 jump 10 equal UNIT @flare

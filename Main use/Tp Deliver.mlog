@@ -1,6 +1,6 @@
 op rand ID -999999999 0
-set UNIT @
-set ITEM1 @
+set UNIT @ # write unit's name
+set ITEM1 @ # write item name to deliver
 set ITEM2 @
 set ITEM3 @
 set ITEM4 @
@@ -8,8 +8,8 @@ set ITEM5 @
 set ITEM6 @
 set ITEM7 @
 set ITEM8 @
-set CAP_RATE 0.2
-set SAVE_AMOUNT 300
+set CAP_RATE 0.2 # stop to deliver when the item capacity reached the container capacity in this rate
+set SAVE_AMOUNT 300 # stop to deliver when the item in core was little than this value.
 ubind UNIT
 jump 12 strictEqual @unit null
 sensor unit_cap @unit @itemCapacity

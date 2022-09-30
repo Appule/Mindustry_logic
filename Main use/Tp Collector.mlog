@@ -1,6 +1,6 @@
 op rand ID -999999999 0
-set UNIT @
-set ITEM1 @
+set UNIT @ # write unit's name
+set ITEM1 @ # item name to collect
 set ITEM2 @
 set ITEM3 @
 set ITEM4 @
@@ -8,7 +8,7 @@ set ITEM5 @
 set ITEM6 @
 set ITEM7 @
 set ITEM8 @
-set CAP_RATE 0.2
+set CAP_RATE 0.2 # stop to collect when the item capacity reached the core capacity in this rate
 ubind UNIT
 jump 11 strictEqual @unit null
 sensor unit_cap @unit @itemCapacity
