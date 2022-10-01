@@ -1,0 +1,19 @@
+set RESTART_RATE 0.90
+set RECHARGE_RATE 0.20
+set ischarging? true
+set i 0
+getlink factory i
+jump 3 strictEqual factory null
+op add i i 1
+sensor bat_cap factory @powerNetCapacity
+sensor bat_am factory @powerNetStored
+op mul bat_cap bat_cap RESTART_RATE
+jump 12 equal ischarging? true
+op mul bat_cap bat_cap RECHARGE_RATE
+jump 16 greaterThan bat_am bat_cap
+control enabled factory false 0 0 0
+set ischarging? true
+jump 4 always 0 0
+control enabled factory true 0 0 0
+set ischarging? false
+jump 4 always 0 0

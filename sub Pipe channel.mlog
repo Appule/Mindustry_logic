@@ -1,4 +1,4 @@
-set liquid_type @cryofluid
+set liquid_type @cryofluid # select pipe and tank
 getlink link0 0
 jump 1 strictEqual link0 null
 getlink link1 1
