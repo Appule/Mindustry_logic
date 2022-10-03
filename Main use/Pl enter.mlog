@@ -1,0 +1,27 @@
+op rand ID -999999999 0
+set UNIT @ # write unit's name
+getlink building_1 0
+jump 2 strictEqual building_1 null
+sensor havepayload? building_1 @payloadCount
+jump 4 notEqual havepayload? 0
+ubind UNIT
+sensor unit_items @unit @totalItems
+jump 6 notEqual unit_items 0
+sensor flag @unit @flag
+jump 6 lessThan flag 0
+ucontrol flag ID 0 0 0 0
+ucontrol stop 0 0 0 0 0
+ucontrol stop 0 0 0 0 0
+sensor flag @unit @flag
+jump 6 notEqual flag ID
+sensor building_x building_1 @x
+sensor building_y building_1 @y
+ucontrol approach building_x building_y 0 0 0
+ucontrol payEnter 0 0 0 0 0
+wait 0.5
+sensor controlled? @unit @controlled
+jump 25 notEqual controlled? @ctrlProcessor
+jump 14 always 0 0
+ucontrol stop 0 0 0 0 0
+ucontrol flag 0 0 0 0 0
+jump 2 always 0 0
