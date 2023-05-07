@@ -12,7 +12,7 @@ set tank link0
 set pipe link1
 sensor liquid_am tank liquid_type
 sensor cap tank @liquidCapacity
-op mul cap cap 0.9
+op mul cap cap 0.5
 jump 18 lessThan liquid_am cap
 control enabled pipe true 0 0 0
 end
