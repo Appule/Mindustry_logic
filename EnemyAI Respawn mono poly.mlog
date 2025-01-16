@@ -1,0 +1,13 @@
+set unitType @mono
+ubind @mono
+jump 7 strictEqual @unit null
+set unitType @poly
+ubind @poly
+jump 7 strictEqual @unit null
+jump 0 always 0 0
+fetch core core @sharded 0 @conveyor
+sensor coreX core @x
+sensor coreY core @y
+spawn unitType coreX coreY 0 @sharded unit
+wait 0.1
+jump 0 always 0 0

@@ -1,0 +1,39 @@
+sensor thisTeam @this @team
+set i 0
+read t cell1 i
+lookup unit uType t
+ubind uType
+jump 34 strictEqual @unit null
+sensor flag @unit @flag
+jump 34 equal flag 0
+op mod ft flag 3
+op idiv f flag 3
+jump 28 notEqual ft 0
+ucontrol autoPathfind f 0 0 0 0
+ulocate building core true @copper x y found enemy
+jump 17 strictEqual found false
+sensor r @unit @range
+ucontrol within x y r within 0
+jump 24 equal within true
+uradar enemy attacker ground distance 0 1 enemy
+jump 26 strictEqual enemy null
+sensor x enemy @x
+sensor y enemy @y
+sensor r @unit @range
+ucontrol within x y r within 0
+jump 26 equal within false
+ucontrol unbind 0 0 0 0 0
+jump 34 always 0 0
+ucontrol targetp enemy false 0 0 0
+jump 34 always 0 0
+jump 31 notEqual ft 1
+ucontrol autoPathfind f 0 0 0 0
+jump 34 always 0 0
+jump 34 notEqual ft 2
+ucontrol autoPathfind f 0 0 0 0
+jump 34 always 0 0
+op add i i 1
+op mod i i 25
+jump 2 always 0 0
+jump 2 always 0 0
+jump 2 always 0 0

@@ -1,0 +1,58 @@
+set buyRate 1.05
+set interval 5000
+setrate 100
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @freelogic-cell-2
+jump 3 greaterThanEq j buildAm
+fetch build cell i j @freelogic-cell-2
+sensor x cell @x
+sensor y cell @y
+op add cx x 1
+getblock building micro cx y
+sensor cType micro @type
+jump 56 notEqual cType @freelogic-micro
+op add cy y 1
+getblock building sorter x cy
+sensor cType sorter @type
+jump 56 notEqual cType @sorter
+getblock building message cx cy
+sensor cType message @type
+jump 56 notEqual cType @freelogic-message-i
+sensor team cell @team
+read mp cell1 team
+read ptime cell 1
+op sub dtime @time ptime
+jump 52 lessThan dtime interval
+sensor mat sorter @config
+jump 52 strictEqual mat null
+sensor id mat @id
+read matAm cell 0
+jump 52 lessThanEq matAm 0
+sensor id mat @id
+read price cell2 id
+op add rid id 22
+read rate cell2 rid
+op mul price price rate
+op mul price price buyRate
+op mul totalPrice price matAm
+jump 52 lessThan mp totalPrice
+read pay cell3 team
+op add pay pay totalPrice
+write pay cell3 team
+op add t id 6
+read totalBuy cell3 t
+op add totalBuy totalBuy matAm
+write totalBuy cell3 t
+fetch core core team 0 @conveyor
+sensor coreMatAm core mat
+op add coreMatAm coreMatAm matAm
+setprop mat core coreMatAm
+write @time cell 1
+op floor mp mp 0
+print mp
+print " MP"
+printflush message
+op add j j 1
+jump 7 always 0 0

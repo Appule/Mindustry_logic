@@ -1,0 +1,194 @@
+set unitType @alpha
+sensor thisTeam @this @team
+fetch core core thisTeam 0 @conveyor
+sensor coreX core @x
+sensor coreY core @y
+ubind unitType
+jump 85 strictEqual @unit null
+sensor cu core @copper
+sensor pb core @lead
+fetch buildCount prog thisTeam 0 @mechanical-drill
+jump 24 equal prog 0
+fetch buildCount prog thisTeam 0 @power-node
+jump 26 equal prog 0
+fetch buildCount prog thisTeam 0 @battery
+jump 29 equal prog 0
+fetch buildCount prog thisTeam 0 @combustion-generator
+jump 32 equal prog 0
+fetch buildCount prog thisTeam 0 @pulverizer
+jump 35 equal prog 0
+fetch buildCount prog thisTeam 0 @silicon-smelter
+jump 38 equal prog 0
+fetch buildCount prog thisTeam 0 @graphite-press
+jump 41 equal prog 0
+jump 44 always 0 0
+jump 44 lessThan cu 12
+jump 89 always 0 0
+jump 44 lessThan cu 1
+jump 44 lessThan pb 3
+jump 106 always 0 0
+jump 44 lessThan cu 5
+jump 44 lessThan pb 20
+jump 112 always 0 0
+jump 44 lessThan cu 25
+jump 44 lessThan pb 15
+jump 118 always 0 0
+jump 44 lessThan cu 30
+jump 44 lessThan pb 25
+jump 124 always 0 0
+jump 44 lessThan cu 30
+jump 44 lessThan pb 25
+jump 130 always 0 0
+jump 44 lessThan cu 75
+jump 44 lessThan pb 30
+jump 136 always 0 0
+set mat @copper
+sensor coreMat core mat
+jump 69 lessThan coreMat 300
+set mat @lead
+sensor coreMat core mat
+jump 69 lessThan coreMat 300
+set mat @scrap
+sensor coreMat core mat
+jump 69 lessThan coreMat 300
+set mat @coal
+fetch build build thisTeam 0 @mechanical-drill
+jump 60 strictEqual build null
+sensor buildMat build mat
+jump 60 lessThan buildMat 5
+sensor coreMat core mat
+jump 142 lessThan coreMat 300
+set mat @sand
+fetch build build thisTeam 0 @pulverizer
+jump 67 strictEqual build null
+sensor buildMat build mat
+jump 67 lessThan buildMat 5
+sensor coreMat core mat
+jump 155 lessThan coreMat 300
+end
+jump 44 greaterThanEq coreMat 300
+sensor uItemT @unit @firstItem
+sensor uItem @unit @totalItems
+jump 74 equal uItem 0
+jump 76 notEqual uItemT mat
+jump 76 greaterThanEq uItem 20
+ulocate ore core true mat oreX oreY found 0
+jump 82 equal found true
+ucontrol approach coreX coreY 8 0 0
+ucontrol itemDrop core 30 0 0 0
+sensor ismining @unit @mining
+jump 81 equal isMining false
+ucontrol stop 0 0 0 0 0
+end
+ucontrol approach oreX oreY 8 0 0
+ucontrol mine oreX oreY 0 0 0
+end
+fetch core core thisTeam 0 @conveyor
+spawn unitType coreX coreY 0 thisTeam unit
+wait 0.5
+end
+ulocate ore core true @coal oreX oreY found building
+jump 92 equal found true
+end
+ucontrol approach oreX oreY 8 0 0
+set count 0
+ucontrol build oreX oreY @mechanical-drill 0 0
+wait 1.0
+jump 105 greaterThan count 5
+op add count count 1
+fetch buildCount buildCount thisTeam 0 @mechanical-drill
+jump 105 greaterThan buildCount 0
+op rand rx -1 0
+op rand ry -1 0
+op add oreX oreX rx
+op add oreY oreY ry
+jump 94 always 0 0
+end
+op add bX coreX -2
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @power-node 0 0
+wait 1.0
+end
+op add bX coreX -3
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @battery 0 0
+wait 1.0
+end
+op add bX coreX -4
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @combustion-generator 0 0
+wait 1.0
+end
+op add bX coreX -1
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @pulverizer 0 0
+wait 1.0
+end
+op add bX coreX 0
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @silicon-smelter 0 0
+wait 1.0
+end
+op add bX coreX 2
+op add bY coreY 3
+ucontrol approach bX bY 8 0 0
+ucontrol build bX bY @graphite-press 0 0
+wait 1.0
+end
+fetch build build thisTeam 0 @mechanical-drill
+sensor prod build @coal
+jump 154 lessThan prod 5
+ucontrol stop 0 0 0 0 0
+sensor uItem @unit @totalItems
+sensor uItemType @unit @firstItem
+jump 150 strictEqual uItemType null
+jump 76 greaterThan uItem 0
+sensor bX build @x
+sensor bY build @y
+ucontrol approach bX bY 5 0 0
+ucontrol itemTake build @coal 30 0 0
+end
+fetch build build thisTeam 0 @pulverizer
+sensor prod build @sand
+jump 167 lessThan prod 5
+ucontrol stop 0 0 0 0 0
+sensor uItem @unit @totalItems
+sensor uItemType @unit @firstItem
+jump 163 strictEqual uItemType null
+jump 76 greaterThan uItem 0
+sensor bX build @x
+sensor bY build @y
+ucontrol approach bX bY 5 0 0
+ucontrol itemTake build @sand 30 0 0
+end
+fetch build build thisTeam 0 @silicon-smelter
+sensor prod build @silicon
+jump 180 lessThan prod 5
+ucontrol stop 0 0 0 0 0
+sensor uItem @unit @totalItems
+sensor uItemType @unit @firstItem
+jump 176 strictEqual uItemType null
+jump 76 greaterThan uItem 0
+sensor bX build @x
+sensor bY build @y
+ucontrol approach bX bY 5 0 0
+ucontrol itemTake build @silicon 30 0 0
+end
+fetch build build thisTeam 0 @graphite-press
+sensor prod build @graphite
+jump 193 lessThan prod 5
+ucontrol stop 0 0 0 0 0
+sensor uItem @unit @totalItems
+sensor uItemType @unit @firstItem
+jump 189 strictEqual uItemType null
+jump 76 greaterThan uItem 0
+sensor bX build @x
+sensor bY build @y
+ucontrol approach bX bY 5 0 0
+ucontrol itemTake build @coal 30 0 0
+end

@@ -1,0 +1,15 @@
+setrule lighting 1 0 0 100 100
+set dayLength 600000
+set scale 2
+set dayLati 0.0
+set maxDarkness 0.95
+op div dayTime @time dayLength
+op mul dayTime dayTime 360
+op sin darkness dayTime 0
+op sub darkness darkness dayLati
+op mul darkness darkness scale
+op max darkness darkness 0
+op min darkness darkness maxDarkness
+packcolor col 0 0 0 darkness
+setrule ambientLight col 0 0 100 100
+jump 5 always 0 0

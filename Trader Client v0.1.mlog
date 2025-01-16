@@ -1,0 +1,7 @@
+set amount 0
+set team 0
+write amount cell1 0
+write team cell1 1
+wait 3.0
+sensor enabled switch1 @enabled
+jump 4 equal enabled 0

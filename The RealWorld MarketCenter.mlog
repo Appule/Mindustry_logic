@@ -1,0 +1,36 @@
+set scale 100000
+set maxR 5
+op mod i i 5
+op add i i 1
+read income1 cell1 i
+read income2 cell2 i
+read pay1 cell3 i
+read pay2 cell4 i
+op add income income1 income2
+op add pay pay1 pay2
+op sub mp income pay
+write mp cell5 i
+op add j j 1
+op mod j j 22
+op add t j 6
+op add s j 22
+read sellAm cell1 t
+read buyAm cell3 t
+op sub totalAm buyAm sellAm
+op div scTotalAm totalAm scale
+op max scTotalAm scTotalAm -1
+op min scTotalAm scTotalAm 1
+op pow rate maxR scTotalAm
+write rate cell7 s
+op add k k 1
+op mod k k 11
+op add t k 6
+op add s j 11
+read sellAm cell2 t
+read buyAm cell4 t
+op sub totalAm buyAm sellAm
+op div scTotalAm totalAm scale
+op max scTotalAm scTotalAm -1
+op min scTotalAm scTotalAm 1
+op pow rate maxR scTotalAm
+write rate cell6 s

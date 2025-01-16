@@ -1,0 +1,12 @@
+getlink bl0 0
+getlink bl1 1
+radar player any any distance bl0 1 pl
+sensor sw0 bl1 @enabled
+jump 0 notEqual sw0 1
+jump 0 strictEqual pl null
+wait 0.1
+control enabled bl1 0 0 0 0
+sensor plTeam pl @team
+op mod nextTeam plTeam 5
+op add nextTeam nextTeam 1
+setprop @team pl nextTeam

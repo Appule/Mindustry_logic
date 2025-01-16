@@ -1,0 +1,19 @@
+set i 0
+set t 15
+write t cell1 i
+op add i i 1
+op add t t 1
+jump 7 greaterThanEq i 5
+jump 2 always 0 0
+set t 48
+write t cell1 i
+op add i i 1
+op add t t 1
+jump 13 greaterThanEq i 10
+jump 8 always 0 0
+read t cell1 i
+lookup unit uType t
+ubind uType
+op add i i 1
+op mod i i 10
+jump 13 always x false

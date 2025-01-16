@@ -1,0 +1,29 @@
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @container
+jump 0 greaterThanEq j buildAm
+fetch build cont i j @container
+sensor x cont @x
+sensor y cont @y
+op add cx x 2
+getblock building micro cx y
+sensor cType micro @type
+jump 27 notEqual cType @freelogic-micro
+op add cy y 1
+getblock building cell cx cy
+sensor cType cell @type
+jump 27 notEqual cType @freelogic-cell
+read tTeam cell 0
+fetch core core tTeam 0 @conveyor
+jump 27 strictEqual core null
+sensor mat cont @firstItem
+sensor amount cont mat
+sensor cMatAm core mat
+op add cMatAm cMatAm amount
+setprop mat cont 0
+setprop mat core cMatAm
+sensor totalAm cont @totalItems
+jump 19 notEqual totalAm 0
+op add j j 1
+jump 4 always 0 0

@@ -1,0 +1,62 @@
+setrate 100
+set walkCD 5000
+set walkDist 10
+set coreDist 50
+sensor thisTeam @this @team
+fetch unit unit thisTeam i @conveyor
+op add i i 1
+op mod i i unitCount
+fetch unitCount unitCount thisTeam i @conveyor
+sensor uType unit @type
+jump 5 equal uType @alpha
+jump 5 equal uType @beta
+jump 5 equal uType @gamma
+jump 5 equal uType @mono
+jump 5 equal uType @poly
+jump 5 equal uType @mega
+jump 5 equal uType @flare
+jump 5 equal uType @risso
+jump 5 equal uType @minke
+jump 5 equal uType @bryde
+jump 5 equal uType @sei
+jump 5 equal uType @omura
+jump 5 equal uType @retusa
+jump 5 equal uType @oxynoe
+jump 5 equal uType @cyerce
+jump 5 equal uType @aegires
+jump 5 equal uType @navanax
+ubind uType
+sensor flag @unit @flag
+op sub isReady? @time flag
+jump 56 lessThan isReady? walkCD
+ucontrol flag @time y 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+ulocate building core false @copper coreX coreY found core
+jump 56 equal found false
+op sub rx coreX x
+op sub ry coreY y
+op mul rxSq rx rx
+op mul rySq ry ry
+op add distSq rxSq rySq
+op sqrt dist distSq 0
+jump 45 lessThan dist coreDist
+set x coreX
+set y coreY
+op rand rndR walkDist 0
+op rand rndTh 360 0
+op cos rndX rndTh 0
+op sin rndY rndTh 0
+op mul rndX rndX rndR
+op mul rndY rndY rndR
+op add x x rndX
+op add y y rndY
+getblock floor floor x y
+jump 56 equal floor @deep-water
+ucontrol pathfind x y 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 60 strictEqual enemy null
+ucontrol targetp enemy true 0 0 0
+end
+ucontrol targetp enemy false 0 0 0
+end

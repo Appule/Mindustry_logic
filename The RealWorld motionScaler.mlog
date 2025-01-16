@@ -1,0 +1,21 @@
+setrate 1000
+set i 0
+fetch unitCount j i 0 @conveyor
+op sub j j 1
+jump 18 lessThan j 0
+fetch unit unit i j @conveyor
+sensor uType unit @type
+jump 14 equal uType @scathe-missile
+sensor cont unit @controlled
+jump 14 equal cont @ctrlPlayer
+status false spore-slowed unit 600
+status false tarred unit 600
+status false sapped unit 600
+jump 3 always 0 0
+status true spore-slowed unit 600
+status true tarred unit 600
+status true sapped unit 600
+jump 3 always 0 0
+op mod i i 5
+op add i i 1
+jump 2 always 0 0

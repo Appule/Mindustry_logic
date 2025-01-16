@@ -1,0 +1,38 @@
+set walkCD 5000
+set walkDist 10
+set coreDist 50
+ubind @dagger
+sensor flag @unit @flag
+op sub isReady? @time flag
+jump 32 lessThan isReady? walkCD
+ucontrol flag @time y 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+ulocate building core false @copper coreX coreY found core
+jump 21 equal found 0
+op sub rx coreX x
+op sub ry coreY y
+op mul rxSq rx rx
+op mul rySq ry ry
+op add distSq rxSq rySq
+op sqrt dist distSq 0
+jump 21 lessThan dist coreDist
+set x coreX
+set y coreY
+op rand rndR walkDist 0
+op rand rndTh 360 0
+op cos rndX rndTh 0
+op sin rndY rndTh 0
+op mul rndX rndX rndR
+op mul rndY rndY rndR
+op add x x rndX
+op add y y rndY
+getblock floor floor x y
+jump 32 equal floor @deep-water
+ucontrol pathfind x y 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 36 strictEqual enemy null
+ucontrol targetp enemy true 0 0 0
+jump 37 always 0 0
+ucontrol targetp enemy false 0 0 0
+jump 3 always 0 0

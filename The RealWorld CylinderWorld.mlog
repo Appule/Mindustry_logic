@@ -1,0 +1,29 @@
+setrate 1000
+set antiChat -2
+set wl 3
+op sub wr @mapw 1
+op sub wr wr wl
+op sub wr wr wl
+set i 0
+set j 0
+fetch unitCount j i 0 @conveyor
+op sub j j 1
+jump 25 lessThan j 0
+fetch unit unit i j @conveyor
+sensor ix unit @x
+op sub x ix wl
+op add x x wr
+op mod x x wr
+op add x x wl
+jump 24 equal x ix
+op sub dx x ix
+op abs absDx dx 0
+op div dx dx absDx
+op mul dx dx antiChat
+op add x x dx
+setprop @x unit x
+jump 9 always 0 0
+op mod i i 5
+op add i i 1
+jump 8 always 0 0
+end

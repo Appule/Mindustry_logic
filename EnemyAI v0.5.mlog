@@ -1,0 +1,94 @@
+setrate 100
+set walkCD 5000
+set walkDist 20
+set coreDist 300
+sensor thisTeam @this @team
+fetch unit unit thisTeam i @conveyor
+op add i i 1
+op mod i i unitCount
+fetch unitCount unitCount thisTeam i @conveyor
+sensor uType unit @type
+jump 5 equal uType @alpha
+jump 5 equal uType @beta
+jump 5 equal uType @gamma
+jump 5 equal uType @mono
+jump 5 equal uType @poly
+jump 5 equal uType @mega
+jump 5 equal uType @flare
+jump 5 equal uType @risso
+jump 5 equal uType @minke
+jump 5 equal uType @bryde
+jump 5 equal uType @sei
+jump 5 equal uType @omura
+jump 5 equal uType @retusa
+jump 5 equal uType @oxynoe
+jump 5 equal uType @cyerce
+jump 5 equal uType @aegires
+jump 5 equal uType @navanax
+ubind uType
+sensor flag @unit @flag
+op sub isReady? @time flag
+jump 58 lessThan isReady? walkCD
+ucontrol flag @time y 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+ulocate building core false @copper coreX coreY found core
+jump 58 equal found false
+op sub rx coreX x
+op sub ry coreY y
+op mul rxSq rx rx
+op mul rySq ry ry
+op add distSq rxSq rySq
+op sqrt dist distSq 0
+jump 45 lessThan dist coreDist
+set x coreX
+set y coreY
+op rand rndR walkDist 0
+op rand rndTh 360 0
+op cos rndX rndTh 0
+op sin rndY rndTh 0
+op mul rndX rndX rndR
+op mul rndY rndY rndR
+op add x x rndX
+op add y y rndY
+op floor x x 0
+op floor y y 0
+getblock floor floor x y
+jump 58 equal floor @deep-water
+ucontrol pathfind x y 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 64 strictEqual enemy null
+sensor isDead enemy @dead
+jump 64 equal isDead true
+ucontrol targetp enemy true 0 0 0
+end
+ucontrol targetp enemy false 0 0 0
+ulocate building core true @copper ex ey found eCore
+jump 92 equal found false
+set i 0
+op add i i 1
+fetch core mainCore i 0 @conveyor
+sensor mx mainCore @x
+sensor my mainCore @y
+op equal sx mx ex
+op equal sy my ey
+op land isMain sx sy
+jump 92 equal isMain true
+jump 68 lessThan i 5
+sensor range @unit @range
+op div range_half range 2
+op rand rx range 0
+op rand ry range 0
+op sub rx rx range_half
+op sub ry ry range_half
+op add x ex rx
+op add y ey ry
+ucontrol pathfind x y 0 0 0
+ucontrol within ex ey range w 0
+jump 92 equal w false
+sensor isDead eCore @dead
+jump 92 equal isDead true
+ucontrol targetp eCore true 0 0 0
+end
+ucontrol targetp eCore false 0 0 0
+end

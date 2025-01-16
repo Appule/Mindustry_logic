@@ -1,0 +1,22 @@
+read team cell1 1
+jump 0 strictEqual team null
+jump 0 strictEqual team 0
+read num cell1 0
+jump 0 strictEqual num null
+jump 0 lessThanEq num 0
+getlink matBlk 1
+sensor mat sorter1 @config
+jump 0 strictEqual mat null
+fetch core fcore @sharded 0 @conveyor
+sensor fmatNum fcore mat
+jump 19 lessThan fmatNum num
+fetch core tcore team 0 @conveyor
+jump 19 strictEqual tcore null
+op sub fmatNum fmatNum num
+sensor tmatNum tcore mat
+op add tmatNum tmatNum num
+setprop mat fcore fmatNum
+setprop mat tcore tmatNum
+wait 1.0
+write 0 cell1 0
+write 0 cell1 1
