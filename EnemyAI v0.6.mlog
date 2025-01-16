@@ -1,0 +1,82 @@
+setrate 100
+set walkCD 5000
+set walkDist 20
+set coreDist 300
+sensor thisTeam @this @team
+fetch unit unit thisTeam i @conveyor
+fetch unitCount unitCount thisTeam i @conveyor
+op add i i 1
+op mod i i unitCount
+sensor uType unit @type
+jump 5 equal uType @alpha
+jump 5 equal uType @beta
+jump 5 equal uType @gamma
+jump 5 equal uType @mono
+jump 5 equal uType @poly
+jump 5 equal uType @mega
+jump 5 equal uType @flare
+ubind uType
+sensor flag @unit @flag
+op sub isReady? @time flag
+jump 46 lessThan isReady? walkCD
+ucontrol flag @time y 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+ulocate building core false @copper coreX coreY found core
+jump 46 equal found false
+op sub rx coreX x
+op sub ry coreY y
+op mul rxSq rx rx
+op mul rySq ry ry
+op add distSq rxSq rySq
+op sqrt dist distSq 0
+jump 35 lessThan dist coreDist
+set x coreX
+set y coreY
+op rand rndR walkDist 0
+op rand rndTh 360 0
+op cos rndX rndTh 0
+op sin rndY rndTh 0
+op mul rndX rndX rndR
+op mul rndY rndY rndR
+op add x x rndX
+op add y y rndY
+op floor x x 0
+op floor y y 0
+ucontrol pathfind x y 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 52 strictEqual enemy null
+sensor isDead enemy @dead
+jump 52 equal isDead true
+ucontrol targetp enemy true 0 0 0
+end
+ucontrol targetp enemy false 0 0 0
+ulocate building core true @copper ex ey found eCore
+jump 80 equal found false
+set i 0
+op add i i 1
+fetch core mainCore i 0 @conveyor
+sensor mx mainCore @x
+sensor my mainCore @y
+op equal sx mx ex
+op equal sy my ey
+op land isMain sx sy
+jump 80 equal isMain true
+jump 56 lessThan i 5
+sensor range @unit @range
+op mul 2range 2 range
+op rand rx 2range 0
+op rand ry 2range 0
+op sub rx rx range
+op sub ry ry range
+op add x ex rx
+op add y ey ry
+ucontrol pathfind x y 0 0 0
+ucontrol within ex ey range w 0
+jump 80 equal w false
+sensor isDead eCore @dead
+jump 80 equal isDead true
+ucontrol targetp eCore true 0 0 0
+end
+ucontrol targetp eCore false 0 0 0
+end

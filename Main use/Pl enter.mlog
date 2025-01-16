@@ -1,5 +1,5 @@
 op rand ID -999999999 0
-set UNIT @ # write unit's name
+set UNIT @
 getlink building_1 0
 jump 2 strictEqual building_1 null
 sensor havepayload? building_1 @payloadCount
@@ -16,7 +16,7 @@ sensor flag @unit @flag
 jump 6 notEqual flag ID
 sensor building_x building_1 @x
 sensor building_y building_1 @y
-ucontrol approach building_x building_y 0 0 0
+ucontrol pathfind building_x building_y 0 0 0
 ucontrol payEnter 0 0 0 0 0
 wait 0.5
 sensor controlled? @unit @controlled

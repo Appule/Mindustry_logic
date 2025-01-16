@@ -1,0 +1,17 @@
+getlink blk0 0
+set dayLength 600000
+op div dayTime @time dayLength
+op mul dayTime dayTime 360
+op add clockTime dayTime 270
+op mod clockTime clockTime 360
+op div clockTime clockTime 360
+op mul clockTime clockTime 24
+op floor hourTime clockTime 0
+op mod minTime clockTime 1
+op mul minTime minTime 60
+op floor minTime minTime 0
+print hourTime
+print " : "
+print minTime
+printflush blk0
+jump 2 always 0 0

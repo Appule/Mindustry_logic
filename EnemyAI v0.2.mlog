@@ -1,0 +1,26 @@
+set walkCD 5000
+set walkDist 10
+ubind @dagger
+sensor flag @unit @flag
+op sub isReady? @time flag
+jump 20 lessThan isReady? walkCD
+ucontrol flag @time y 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+op rand rndR walkDist 0
+op rand rndTh 360 0
+op cos rndX rndTh 0
+op sin rndY rndTh 0
+op mul rndX rndX rndR
+op mul rndY rndY rndR
+op add x x rndX
+op add y y rndY
+getblock floor floor x y
+jump 20 equal floor @deep-water
+ucontrol pathfind x y 0 0 0
+uradar enemy any any distance 0 1 enemy
+jump 24 strictEqual enemy null
+ucontrol targetp enemy true 0 0 0
+jump 25 always 0 0
+ucontrol targetp enemy false 0 0 0
+jump 2 always 0 0

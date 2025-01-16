@@ -1,0 +1,27 @@
+sensor thisTeam @this @team
+set i 0
+set t 0
+write t cell1 i
+op add i i 1
+op add t t 1
+jump 8 greaterThanEq i 15
+jump 3 always 0 0
+set t 38
+write t cell1 i
+op add i i 1
+op add t t 1
+jump 14 greaterThanEq i 25
+jump 9 always 0 0
+read t cell1 i
+lookup unit uType t
+ubind uType
+jump 22 strictEqual @unit null
+sensor flag @unit @flag
+jump 22 notEqual flag 0
+op add j j 1
+ucontrol flag j 0 0 0 0
+op add i i 1
+op mod i i 25
+jump 14 always 0 0
+jump 14 always 0 0
+jump 14 always 0 0

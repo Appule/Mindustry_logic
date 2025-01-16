@@ -1,0 +1,59 @@
+set buyRate 1.05
+set interval 5000
+setrate 100
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @freelogic-cell-2
+jump 3 greaterThanEq j buildAm
+fetch build cell i j @freelogic-cell-2
+sensor x cell @x
+sensor y cell @y
+op add cx x 1
+getblock building cont cx y
+sensor cType cont @type
+jump 57 notEqual cType @liquid-container
+op add cy y 1
+getblock building message x cy
+sensor cType message @type
+jump 57 notEqual cType @freelogic-message-i
+op sub cx x 1
+getblock building sorter cx y
+sensor cType sorter @type
+jump 57 notEqual cType @sorter
+sensor team cell @team
+read mp cell1 team
+read ptime cell 1
+op sub dtime @time ptime
+jump 53 lessThan dtime interval
+sensor item sorter @config
+jump 53 strictEqual item null
+sensor id item @id
+lookup liquid mat id
+jump 53 strictEqual mat null
+sensor contCap cont @liquidCapacity
+sensor matTotal cont @totalLiquids
+op sub matAm contCap matTotal
+jump 53 lessThanEq matAm 0
+read price cell2 id
+op add rid id 11
+read rate cell2 rid
+op mul price price rate
+op mul price price buyRate
+op mul totalPrice price matAm
+jump 53 lessThan mp totalPrice
+read pay cell3 team
+op add pay pay totalPrice
+write pay cell3 team
+op add t id 6
+read totalBuy cell3 t
+op add totalBuy totalBuy matAm
+write totalBuy cell3 t
+setprop mat cont contCap
+write @time cell 1
+op floor mp mp 0
+print mp
+print " MP"
+printflush message
+op add j j 1
+jump 7 always 0 0

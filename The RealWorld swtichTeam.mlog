@@ -1,0 +1,44 @@
+op mod i i 5
+op add i i 1
+set j 0
+set coreBuild @door
+set subBuild1 @freelogic-cell
+set subBuild2 @freelogic-micro
+set subBuild3 @copper-wall
+set subBuild4 @duo
+fetch buildCount buildAm i 0 coreBuild
+jump 0 greaterThanEq j buildAm
+fetch build door i j coreBuild
+sensor x door @x
+sensor y door @y
+op add cy y 1
+getblock building cell x cy
+sensor bType cell @type
+jump 42 notEqual bType subBuild1
+op sub cy y 1
+getblock building b x cy
+sensor bType b @type
+jump 42 notEqual bType subBuild2
+op add cx x 1
+getblock building proc cx y
+sensor bType proc @type
+jump 42 notEqual bType subBuild3
+op sub cx x 1
+getblock building b cx y
+sensor bType b @type
+jump 42 notEqual bType subBuild3
+op add cy y 2
+getblock building duo x cy
+sensor bType duo @type
+jump 42 notEqual bType subBuild4
+sensor doorOpen door @enabled
+jump 42 equal doorOpen false
+wait 2.0
+read tTeam cell 0
+jump 42 equal tTeam 0
+radar player ally any distance duo 1 pl
+jump 42 strictEqual pl null
+setprop @team pl tTeam
+control enabled door false 0 0 0
+op add j j 1
+jump 9 always 0 0
