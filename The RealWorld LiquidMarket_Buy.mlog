@@ -12,36 +12,38 @@ sensor y cell @y
 op add cx x 1
 getblock building cont cx y
 sensor cType cont @type
-jump 57 notEqual cType @liquid-container
+jump 60 notEqual cType @liquid-container
 op add cy y 1
 getblock building message x cy
 sensor cType message @type
-jump 57 notEqual cType @freelogic-message-i
+jump 60 notEqual cType @freelogic-message-i
 op sub cx x 1
 getblock building sorter cx y
 sensor cType sorter @type
-jump 57 notEqual cType @sorter
+jump 60 notEqual cType @sorter
 sensor team cell @team
 read mp cell1 team
 read ptime cell 1
 op sub dtime @time ptime
-jump 53 lessThan dtime interval
+jump 56 lessThan dtime interval
 sensor item sorter @config
-jump 53 strictEqual item null
+jump 56 strictEqual item null
 sensor id item @id
 lookup liquid mat id
-jump 53 strictEqual mat null
+jump 56 strictEqual mat null
+read cellmatAm cell 0
 sensor contCap cont @liquidCapacity
 sensor matTotal cont @totalLiquids
 op sub matAm contCap matTotal
-jump 53 lessThanEq matAm 0
+op min matAm matAm cellmatAm
+jump 56 lessThanEq matAm 0
 read price cell2 id
 op add rid id 11
 read rate cell2 rid
 op mul price price rate
 op mul price price buyRate
 op mul totalPrice price matAm
-jump 53 lessThan mp totalPrice
+jump 56 lessThan mp totalPrice
 read pay cell3 team
 op add pay pay totalPrice
 write pay cell3 team
@@ -49,7 +51,8 @@ op add t id 6
 read totalBuy cell3 t
 op add totalBuy totalBuy matAm
 write totalBuy cell3 t
-setprop mat cont contCap
+op add matTotal matTotal matAm
+setprop mat cont matTotal
 write @time cell 1
 op floor mp mp 0
 print mp

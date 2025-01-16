@@ -1,4 +1,4 @@
-set buyRate 1.05
+set price 0.02
 set interval 5000
 setrate 100
 op mod i i 5
@@ -9,49 +9,38 @@ jump 3 greaterThanEq j buildAm
 fetch build cell i j @freelogic-cell-2
 sensor x cell @x
 sensor y cell @y
-op add cx x 1
-getblock building cont cx y
-sensor cType cont @type
-jump 59 notEqual cType @container
+op add cx x 2
+getblock building bat cx y
+sensor cType bat @type
+jump 48 notEqual cType @battery-large
 op add cy y 1
 getblock building message x cy
 sensor cType message @type
-jump 59 notEqual cType @freelogic-message-i
+jump 48 notEqual cType @freelogic-message-i
 op sub cx x 1
 getblock building sorter cx y
 sensor cType sorter @type
-jump 59 notEqual cType @sorter
+jump 48 notEqual cType @sorter
 sensor team cell @team
 read mp cell1 team
 read ptime cell 1
 op sub dtime @time ptime
-jump 55 lessThan dtime interval
-sensor mat sorter @config
-jump 55 strictEqual mat null
-sensor id mat @id
+jump 44 lessThan dtime interval
+sensor sOn sorter @config
+jump 44 strictEqual sOn null
 read cellmatAm cell 0
-sensor contCap cont @itemCapacity
-sensor contAm cont mat
+sensor contCap bat @powerCapacity
+sensor contAm bat @totalPower
 op sub limit contCap contAm
 op min matAm cellmatAm limit
-jump 55 lessThanEq matAm 0
-sensor id mat @id
-read price cell2 id
-op add rid id 22
-read rate cell2 rid
-op mul price price rate
-op mul price price buyRate
+jump 44 lessThanEq matAm 0
 op mul totalPrice price matAm
-jump 55 lessThan mp totalPrice
-read pay cell3 team
+jump 44 lessThan mp totalPrice
+read pay cell2 team
 op add pay pay totalPrice
-write pay cell3 team
-op add t id 6
-read totalBuy cell3 t
-op add totalBuy totalBuy matAm
-write totalBuy cell3 t
+write pay cell2 team
 op add contAm contAm matAm
-setprop mat cont contAm
+setprop @totalPower bat contAm
 write @time cell 1
 op floor mp mp 0
 print mp

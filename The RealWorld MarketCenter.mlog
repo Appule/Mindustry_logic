@@ -1,13 +1,17 @@
-set scale 100000
-set maxR 5
+set scale 20000
+set maxR 3
 op mod i i 5
 op add i i 1
 read income1 cell1 i
 read income2 cell2 i
+read income3 cell8 i
 read pay1 cell3 i
 read pay2 cell4 i
+read pay3 cell9 i
 op add income income1 income2
+op add income income income3
 op add pay pay1 pay2
+op add pay pay pay3
 op sub mp income pay
 write mp cell5 i
 op add j j 1
