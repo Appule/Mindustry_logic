@@ -1,4 +1,4 @@
-set buyRate 1.05
+set buyRate 1.02
 set interval 1000
 setrate 100
 op mod i i 5
@@ -12,36 +12,37 @@ sensor y cell @y
 op add cy y 1
 getblock building message x cy
 sensor cType message @type
-jump 58 notEqual cType @freelogic-message-i
+jump 59 notEqual cType @freelogic-message-i
 op sub cx x 1
 getblock building sw cx y
 sensor cType sw @type
-jump 58 notEqual cType @sorter
+jump 59 notEqual cType @sorter
 op add cx x 1
 getblock building cont cx y
 sensor contCap cont @itemCapacity
-jump 58 equal contCap 0
+jump 59 equal contCap 0
 sensor team cell @team
 read mp cell1 team
 read ptime cell 1
 op sub dtime @time ptime
-jump 54 lessThan dtime interval
+jump 55 lessThan dtime interval
 sensor mat sw @config
-jump 54 strictEqual mat null
+jump 55 strictEqual mat null
 sensor id mat @id
 read cellmatAm cell 0
 sensor contAm cont mat
 op sub limit contCap contAm
 op min matAm cellmatAm limit
-jump 54 lessThanEq matAm 0
+jump 55 lessThanEq matAm 0
 sensor id mat @id
 read price cell2 id
-op add rid id 22
+op add rid id 100
 read rate cell2 rid
+jump 55 greaterThanEq rate 1
 op mul price price rate
 op mul price price buyRate
 op mul totalPrice price matAm
-jump 54 lessThan mp totalPrice
+jump 55 lessThan mp totalPrice
 read pay cell3 team
 op add pay pay totalPrice
 write pay cell3 team

@@ -55,20 +55,23 @@ fetch build dis i j @freelogic-ip-display-8
 sensor x dis @x
 sensor y dis @y
 op sub cx x 4
+op sub cy y 2
+getblock building mes cx cy
+sensor cType mes @type
+jump 138 notEqual cType @freelogic-message-i
 op sub cy y 3
 getblock building sw cx cy
 sensor cType sw @type
-jump 126 notEqual cType @switch
+jump 138 notEqual cType @switch
 sensor sOn sw @enabled
-jump 126 notEqual sOn true
 set n 0
 read id cell3 n
-jump 71 greaterThanEq n 20
+jump 74 greaterThanEq n 20
 op add id2 id 100
 lookup item mat id
 read price cell1 id
 read rate cell1 id2
-jump 75 always 0 0
+jump 78 always 0 0
 op add id2 id 100
 lookup liquid mat id
 read price cell2 id
@@ -78,6 +81,10 @@ op mul bx X 32
 op idiv Y n 8
 op mul Y Y 2
 op mul by Y 32
+op mul value rate 100
+jump 89 notEqual sOn true
+set value 0
+jump 89 greaterThanEq rate 1
 op mul value price rate
 op mul value value 10
 set cdigit 10000
@@ -113,7 +120,7 @@ op add y y 16
 draw rect x y t 1 0 0
 op add y y 16
 draw rect x y t 1 0 0
-jump 88 greaterThanEq t 2
+jump 95 greaterThanEq t 2
 op add cx bx 16
 op add cy by 48
 draw stroke 8 255 255 255 0 0
@@ -123,6 +130,11 @@ draw color 255 255 255 255 0 0
 draw image cx cy mat 24 0 0
 op add n n 1
 drawflush dis
-jump 64 lessThan n 30
+jump 67 lessThan n 30
+jump 136 equal sOn true
+print "Rate"
+jump 137 always 0 0
+print "Price"
+printflush mes
 op add j j 1
 jump 52 always 0 0

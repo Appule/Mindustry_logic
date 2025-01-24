@@ -1,25 +1,25 @@
-set sellRate 0.95
+set sellRate 0.98
 setrate 100
-write 1 cell1 0
+write 1.0 cell1 0
 write 1.2 cell1 1
-write 2 cell1 2
-write 3.5 cell1 3
+write 2.6 cell1 2
+write 3.6 cell1 3
 write 0.6 cell1 4
 write 1.5 cell1 5
-write 3 cell1 6
-write 4 cell1 7
+write 3.0 cell1 6
+write 4.0 cell1 7
 write 0.5 cell1 8
-write 4 cell1 9
-write 5 cell1 10
-write 30 cell1 11
-write 30 cell1 12
-write 1.8 cell1 13
-write 10 cell1 14
-write 7.5 cell1 15
-write 3 cell1 16
-write 4 cell1 19
-write 30 cell1 20
-write 10 cell1 21
+write 3.9 cell1 9
+write 46.8 cell1 10
+write 31.7 cell1 11
+write 44.0 cell1 12
+write 2.4 cell1 13
+write 15.0 cell1 14
+write 8.0 cell1 15
+write 3.0 cell1 16
+write 4.0 cell1 19
+write 29.7 cell1 20
+write 10.4 cell1 21
 op mod i i 5
 op add i i 1
 set j 0
@@ -52,7 +52,7 @@ sensor mat cont @firstItem
 sensor matAm cont mat
 sensor id mat @id
 read price cell1 id
-op add rid id 22
+op add rid id 100
 read rate cell1 rid
 op mul price price rate
 op mul price price sellRate
