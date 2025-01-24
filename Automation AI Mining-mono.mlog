@@ -1,0 +1,44 @@
+ubind @mono
+getlink str 0
+jump 0 strictEqual str null
+sensor strCap str @itemCapacity
+jump 0 equal strCap 0
+sensor sx str @x
+sensor sy str @y
+sensor sc str @scrap
+sensor cu str @copper
+sensor pb str @lead
+op min minAm sc cu
+op min minAm minAm pb
+set ore @scrap
+jump 17 equal minAm sc
+set ore @copper
+jump 17 equal minAm cu
+set ore @lead
+sensor strOreAm str ore
+sensor strCap str @itemCapacity
+op mul strCap strCap 0.8
+op sub strLim strCap strOreAm
+sensor itemAm @unit @totalItems
+jump 37 greaterThanEq itemAm strLim
+jump 29 equal itemAm 0
+sensor item @unit @firstItem
+jump 37 notEqual item ore
+sensor uCap @unit @itemCapacity
+op mul uCap uCap 0.8
+jump 37 greaterThanEq itemAm uCap
+ulocate ore core true ore ox oy found building
+ucontrol within ox oy 8 wi 0
+jump 34 equal wi false
+ucontrol idle 0 0 0 0 0
+jump 35 always 0 0
+ucontrol pathfind ox oy 0 0 0
+ucontrol mine ox oy 0 0 0
+end
+ucontrol stop 0 0 0 0 0
+ucontrol pathfind sx sy 0 0 0
+ucontrol within sx sy 8 wi 0
+jump 42 equal wi true
+end
+sensor uCap @unit @itemCapacity
+ucontrol itemDrop str uCap 0 0 0

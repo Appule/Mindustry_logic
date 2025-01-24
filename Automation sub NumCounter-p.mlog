@@ -1,0 +1,38 @@
+sensor s1 sw1 @enabled
+control enabled sw1 0 0 0 0
+sensor s2 sw2 @enabled
+control enabled sw2 0 0 0 0
+sensor s3 sw3 @enabled
+control enabled sw3 0 0 0 0
+sensor s4 sw4 @enabled
+control enabled sw4 0 0 0 0
+sensor s5 sw5 @enabled
+control enabled sw5 0 0 0 0
+sensor s6 sw6 @enabled
+control enabled sw6 0 0 0 0
+sensor s7 sw7 @enabled
+control enabled sw7 0 0 0 0
+sensor s8 sw8 @enabled
+control enabled sw8 0 0 0 0
+set val 0
+jump 19 equal s1 false
+op add val val -1
+jump 21 equal s2 false
+op add val val -10
+jump 23 equal s3 false
+op add val val -100
+jump 25 equal s4 false
+op add val val -1000
+jump 27 equal s5 false
+op add val val 1
+jump 29 equal s6 false
+op add val val 10
+jump 31 equal s7 false
+op add val val 100
+jump 33 equal s8 false
+op add val val 1000
+read pval cell1 0
+op add val pval val
+write val cell1 0
+print val
+printflush i1

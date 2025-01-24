@@ -13,53 +13,57 @@ write 1 cell1 10
 op mod i i 5
 op add i i 1
 set j 0
-fetch buildCount buildAm i 0 @liquid-container
+fetch buildCount buildAm i 0 @freelogic-mls-cell
 jump 12 greaterThanEq j buildAm
-fetch build cont i j @liquid-container
-sensor x cont @x
-sensor y cont @y
-op add cx x 2
-getblock building sorter cx y
-sensor cType sorter @type
-jump 87 notEqual cType @sorter
+fetch build cell i j @freelogic-mls-cell
+sensor x cell @x
+sensor y cell @y
+op add cx x 1
+getblock building sw cx y
+sensor cType sw @type
+jump 91 notEqual cType @sorter
 op add cy y 1
-getblock building message cx cy
+getblock building message x cy
 sensor cType message @type
-jump 87 notEqual cType @freelogic-message-i
+jump 91 notEqual cType @freelogic-message-i
+op sub cx x 1
+getblock building cont cx y
+sensor contCap cont @liquidCapacity
+jump 91 equal contCap 0
 sensor team cont @team
 sensor totalAm cont @totalLiquids
-jump 82 equal totalAm 0
-sensor item sorter @config
-jump 35 strictEqual item null
+jump 86 equal totalAm 0
+sensor item sw @config
+jump 39 strictEqual item null
 sensor id item @id
-jump 66 always 0 0
+jump 70 always 0 0
 set id 0
 sensor totalAm cont @water
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 1
 sensor totalAm cont @slag
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 2
 sensor totalAm cont @oil
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 3
 sensor totalAm cont @cryofluid
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 4
 sensor totalAm cont @neoplasm
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 5
 sensor totalAm cont @hydrogen
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 6
 sensor totalAm cont @ozone
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 7
 sensor totalAm cont @cyanogen
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 9
 sensor totalAm cont @nitrogen
-jump 64 notEqual totalAm 0
+jump 68 notEqual totalAm 0
 set id 10
 sensor totalAm cont @arkycite
 lookup item item id
@@ -67,7 +71,7 @@ control config sorter item 0 0 0
 lookup liquid mat id
 sensor matAm cont mat
 read price cell1 id
-op add rid id 11
+op add rid id 100
 read rate cell1 rid
 op mul price price rate
 op mul price price sellRate

@@ -1,0 +1,16 @@
+op mod i i 5
+op add i i 1
+setprop @team @this i
+wait 0.1
+ubind @alpha
+jump 7 strictEqual @unit null
+end
+fetch core core i 0 @conveyor
+sensor coreMatAm core @scrap
+jump 11 greaterThanEq coreMatAm 100
+end
+op sub coreMatAm coreMatAm 100
+setprop @scrap core coreMatAm
+sensor x core @x
+sensor y core @y
+spawn @alpha x y 90 i alpha
