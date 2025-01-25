@@ -1,0 +1,10 @@
+op add i i 1
+op mod i i @unitCount
+lookup unit uType i
+ubind uType
+jump 0 strictEqual @unit null
+sensor ctrl @unit @controlled
+wait 0.01
+jump 0 equal ctrl @ctrlProcessor
+ucontrol flag 0 0 0 0 0
+ucontrol unbind 0 0 0 0 0

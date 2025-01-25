@@ -20,34 +20,43 @@ write 3.0 cell1 16
 write 4.0 cell1 19
 write 29.7 cell1 20
 write 10.4 cell1 21
+write 1000 cell2 6
+write 1000 cell2 7
+write 1000 cell2 10
+write 1000 cell2 11
+write 1000 cell2 12
+write 1000 cell2 13
+write 1000 cell2 14
+write 1000 cell2 22
+write 1000 cell2 25
 op mod i i 5
 op add i i 1
 set j 0
 fetch buildCount buildAm i 0 @freelogic-mis-cell
-jump 22 greaterThanEq j buildAm
+jump 31 greaterThanEq j buildAm
 fetch build cell i j @freelogic-mis-cell
 sensor x cell @x
 sensor y cell @y
 op add cx x 1
 getblock building sw cx y
 sensor cType sw @type
-jump 75 notEqual cType @sorter
+jump 84 notEqual cType @sorter
 op add cy y 1
 getblock building message x cy
 sensor cType message @type
-jump 75 notEqual cType @freelogic-message-i
+jump 84 notEqual cType @freelogic-message-i
 op sub cx x 1
 getblock building cont cx y
 sensor contCap cont @itemCapacity
-jump 75 equal contCap 0
+jump 84 equal contCap 0
 sensor team cont @team
 sensor totalAm cont @totalItems
 sensor smat sw @config
 set mat smat
-jump 49 strictEqual mat null
+jump 58 strictEqual mat null
 sensor totalAm cont mat
-jump 51 always 0 0
-jump 70 equal totalAm 0
+jump 60 always 0 0
+jump 79 equal totalAm 0
 sensor mat cont @firstItem
 sensor matAm cont mat
 sensor id mat @id
@@ -65,13 +74,13 @@ read totalSell cell2 t
 op add totalSell totalSell matAm
 write totalSell cell2 t
 setprop mat cont 0
-jump 70 notEqual smat null
+jump 79 notEqual smat null
 sensor totalAm cont @totalItems
-jump 50 notEqual totalAm 0
+jump 59 notEqual totalAm 0
 read mp cell3 team
 op floor mp mp 0
 print mp
 print " MP"
 printflush message
 op add j j 1
-jump 26 always 0 0
+jump 35 always 0 0

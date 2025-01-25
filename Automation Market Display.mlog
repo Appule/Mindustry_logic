@@ -62,7 +62,7 @@ jump 138 notEqual cType @freelogic-message-i
 op sub cy y 3
 getblock building sw cx cy
 sensor cType sw @type
-jump 138 notEqual cType @switch
+jump 138 notEqual cType @freelogic-sw
 sensor sOn sw @enabled
 set n 0
 read id cell3 n

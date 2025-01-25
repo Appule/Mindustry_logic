@@ -1,0 +1,64 @@
+set carryRate 0.5
+set fillRate 0.8
+ubind @alpha
+sensor uType @unit @type
+jump 2 equal uType null
+op pow idMax 2 63
+op rand id idMax 0
+getlink sorter 0
+sensor mat sorter @config
+jump 7 strictEqual mat null
+getlink str0 1
+sensor str0Cap str0 @itemCapacity
+jump 10 equal str0Cap 0
+getlink str1 2
+sensor str1Cap str1 @itemCapacity
+jump 13 equal str1Cap 0
+ucontrol flag 0 0 0 0 0
+ucontrol unbind 0 0 0 0 0
+set dump false
+wait 0.1
+sensor isDead str1 @dead
+jump 7 equal isDead true
+sensor str1Cap str1 @itemCapacity
+op mul str1Cap str1Cap fillRate
+sensor str1MatAm str1 mat
+jump 19 greaterThanEq str1MatAm str1Cap
+ubind uType
+sensor ctrl @unit @controlled
+jump 17 equal ctrl 2
+jump 17 equal ctrl 3
+sensor uf @unit @flag
+wait 0.001
+jump 17 notEqual uf 0
+ucontrol flag id 0 0 0 0
+wait 0.001
+sensor uf @unit @flag
+jump 17 notEqual uf id
+sensor uAm @unit @totalItems
+jump 52 notEqual uAm 0
+sensor str0MatAm str0 mat
+sensor uCap @unit @itemCapacity
+op mul uCap2 uCap carryRate
+jump 16 lessThan str0MatAm uCap2
+sensor str1Cap str1 @itemCapacity
+op mul str1Cap str1Cap fillRate
+sensor str1MatAm str1 mat
+jump 16 greaterThanEq str1MatAm str1Cap
+op sub carryAm str1Cap str1Am
+op min carryAm carryAm uCap
+set destId 0
+set dest str0
+jump 54 always 0 0
+set destId 1
+set dest str1
+sensor x dest @x
+sensor y dest @y
+ucontrol pathfind x y 0 0 0
+ucontrol within x y 8 wi 0
+jump 35 equal wi false
+jump 62 equal destId 1
+ucontrol itemTake dest mat carryAm 0 0
+jump 35 always 0 0
+ucontrol itemDrop dest uAm 0 0 0
+jump 35 always 0 0
