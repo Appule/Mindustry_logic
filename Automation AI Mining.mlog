@@ -46,7 +46,7 @@ sensor sy str @y
 sensor itemAm @unit @totalItems
 jump 48 notEqual itemAm 0
 set dump true
-jump 75 equal dump false
+jump 78 equal dump false
 jump 51 notEqual ore null
 sensor ore @unit @firstItem
 sensor sox l0 @x
@@ -60,25 +60,30 @@ sensor strCap str @itemCapacity
 op mul strCap strCap fillRate
 jump 8 greaterThanEq strAm strCap
 op sub strLim strCap strAm
+sensor item @unit @firstItem
+jump 65 strictEqual item null
+jump 78 notEqual item ore
 sensor itemAm @unit @totalItems
-jump 75 greaterThanEq itemAm strLim
-jump 68 equal itemAm 0
+jump 78 greaterThanEq itemAm strLim
+jump 71 equal itemAm 0
 sensor uCap @unit @itemCapacity
 op mul uCap uCap fillRate
-jump 75 greaterThanEq itemAm uCap
+jump 78 greaterThanEq itemAm uCap
 ucontrol within ox oy 8 wi 0
-jump 72 equal wi false
+jump 75 equal wi false
 ucontrol idle 0 0 0 0 0
-jump 73 always 0 0
+jump 76 always 0 0
 ucontrol pathfind ox oy 0 0 0
 ucontrol mine ox oy 0 0 0
 jump 34 always 0 0
 ucontrol stop 0 0 0 0 0
+jump 81 equal dump true
+ulocate building core false @copper sx sy found str
 ucontrol pathfind sx sy 0 0 0
 wait 0.5
 ucontrol within sx sy 8 wi 0
-jump 81 equal wi true
-jump 74 always 0 0
+jump 86 equal wi true
+jump 77 always 0 0
 sensor uCap @unit @itemCapacity
 ucontrol itemDrop str uCap 0 0 0
-jump 80 always 0 0
+jump 85 always 0 0

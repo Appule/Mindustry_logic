@@ -36,7 +36,8 @@ wait 0.001
 sensor uf @unit @flag
 jump 17 notEqual uf id
 sensor uAm @unit @totalItems
-jump 52 notEqual uAm 0
+jump 53 notEqual uAm 0
+set dump true
 sensor str0MatAm str0 mat
 sensor uCap @unit @itemCapacity
 op mul uCap2 uCap carryRate
@@ -45,19 +46,22 @@ sensor str1Cap str1 @itemCapacity
 op mul str1Cap str1Cap fillRate
 sensor str1MatAm str1 mat
 jump 16 greaterThanEq str1MatAm str1Cap
-op sub carryAm str1Cap str1Am
+op sub carryAm str1Cap str1MatAm
 op min carryAm carryAm uCap
 set destId 0
 set dest str0
-jump 54 always 0 0
+jump 58 always 0 0
 set destId 1
+jump 57 equal dump true
+ulocate building core false @copper x y found dest
+jump 60 always 0 0
 set dest str1
 sensor x dest @x
 sensor y dest @y
 ucontrol pathfind x y 0 0 0
 ucontrol within x y 8 wi 0
 jump 35 equal wi false
-jump 62 equal destId 1
+jump 66 equal destId 1
 ucontrol itemTake dest mat carryAm 0 0
 jump 35 always 0 0
 ucontrol itemDrop dest uAm 0 0 0
