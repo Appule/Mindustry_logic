@@ -1,6 +1,6 @@
 set carryRate 0.5
 set fillRate 0.8
-ubind @alpha
+ubind @nova
 sensor uType @unit @type
 jump 2 equal uType null
 op pow idMax 2 63
@@ -17,26 +17,33 @@ jump 13 equal str1Cap 0
 ucontrol flag 0 0 0 0 0
 ucontrol unbind 0 0 0 0 0
 set dump false
+set tryNum 0
 wait 0.1
 sensor isDead str1 @dead
 jump 7 equal isDead true
 sensor str1Cap str1 @itemCapacity
 op mul str1Cap str1Cap fillRate
 sensor str1MatAm str1 mat
-jump 19 greaterThanEq str1MatAm str1Cap
+jump 20 greaterThanEq str1MatAm str1Cap
 ubind uType
 sensor ctrl @unit @controlled
-jump 17 equal ctrl 2
-jump 17 equal ctrl 3
+jump 17 equal ctrl 1
+jump 16 equal ctrl 2
+jump 16 equal ctrl 3
+wait 0.01
 sensor uf @unit @flag
-wait 0.001
 jump 17 notEqual uf 0
 ucontrol flag id 0 0 0 0
-wait 0.001
+wait 0.01
 sensor uf @unit @flag
 jump 17 notEqual uf id
+sensor isDead @unit @dead
+jump 17 equal isDead true
+sensor ctrl @unit @controlled
+jump 16 equal ctrl 2
+jump 16 equal ctrl 3
 sensor uAm @unit @totalItems
-jump 53 notEqual uAm 0
+jump 60 notEqual uAm 0
 set dump true
 sensor str0MatAm str0 mat
 sensor uCap @unit @itemCapacity
@@ -50,19 +57,60 @@ op sub carryAm str1Cap str1MatAm
 op min carryAm carryAm uCap
 set destId 0
 set dest str0
-jump 58 always 0 0
+jump 65 always 0 0
 set destId 1
-jump 57 equal dump true
+jump 64 equal dump true
 ulocate building core false @copper x y found dest
-jump 60 always 0 0
+jump 67 always 0 0
 set dest str1
 sensor x dest @x
 sensor y dest @y
-ucontrol pathfind x y 0 0 0
-ucontrol within x y 8 wi 0
-jump 35 equal wi false
-jump 66 equal destId 1
+ucontrol within x y 7 wi 0
+jump 111 equal wi true
+jump 73 equal destId 1
+set r r0
+set th th0
+jump 75 always 0 0
+set r r1
+set th th1
+op cos rx th 0
+op sin ry th 0
+op mul rx rx r
+op mul ry ry r
+op add xr x rx
+op add yr y ry
+ucontrol pathfind xr yr 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+jump 107 strictEqual px null
+op sub dx x px
+op sub dy y py
+op mul dxSq dx dx
+op mul dySq dy dy
+op add dSq dxSq dySq
+jump 106 notEqual dSq 0
+jump 99 equal destId 1
+op add r0 r0 1.1
+op idiv dth r0 5.5
+op mul dth dth 37.7
+op add th0 th0 dth
+op mod r0 r0 5.5
+op add tryNum tryNum 1
+jump 107 always 0 0
+op add r1 r1 1.1
+op idiv dth r1 5.5
+op mul dth dth 37.7
+op add th1 th1 dth
+op mod r1 r1 5.5
+op add tryNum tryNum 1
+jump 107 always 0 0
+set tryNum 0
+set px x
+set py y
+jump 16 greaterThan tryNum 60
+jump 36 always 0 0
+jump 114 equal destId 1
 ucontrol itemTake dest mat carryAm 0 0
-jump 35 always 0 0
+jump 110 always 0 0
 ucontrol itemDrop dest uAm 0 0 0
-jump 35 always 0 0
+jump 110 always 0 0

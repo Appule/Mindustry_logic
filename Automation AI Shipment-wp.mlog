@@ -1,0 +1,37 @@
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @freelogic-sis-cell
+jump 0 greaterThanEq j buildAm
+fetch build cell i j @freelogic-sis-cell
+sensor x cell @x
+sensor y cell @y
+op sub cx x 1
+getblock building str cx y
+sensor strCap str @itemCapacity
+jump 35 equal strCap 0
+op add cx x 1
+getblock building sw cx y
+sensor cType sw @type
+jump 35 notEqual cType @freelogic-sw
+op add cy y 1
+getblock building sorter x cy
+sensor cType sorter @type
+jump 35 notEqual cType @sorter
+sensor swOn sw @enabled
+jump 35 notEqual swOn true
+sensor tidMat sorter @config
+sensor tid tidMat @id
+read tTeam cell1 tid
+fetch core core tTeam 0 @conveyor
+jump 35 strictEqual core null
+sensor mat str @firstItem
+sensor amount str mat
+sensor cMatAm core mat
+op add cMatAm cMatAm amount
+setprop mat str 0
+setprop mat core cMatAm
+sensor totalAm str @totalItems
+jump 27 notEqual totalAm 0
+op add j j 1
+jump 4 always 0 0

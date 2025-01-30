@@ -3,8 +3,15 @@ op mod i i @unitCount
 lookup unit uType i
 ubind uType
 jump 0 strictEqual @unit null
+wait 0.05
+sensor uf @unit @flag
+jump 0 equal uf 0
 sensor ctrl @unit @controlled
-wait 0.01
+jump 0 equal ctrl @ctrlProcessor
+sensor uf @unit @flag
+wait 0.05
+jump 0 equal uf 0
+sensor ctrl @unit @controlled
 jump 0 equal ctrl @ctrlProcessor
 ucontrol flag 0 0 0 0 0
 ucontrol unbind 0 0 0 0 0

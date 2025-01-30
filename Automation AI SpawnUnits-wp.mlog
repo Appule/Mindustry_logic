@@ -17,22 +17,21 @@ jump 17 equal n 1
 set bType @apmod-gamma-fac
 fetch buildCount strNum i 0 bType
 set j 0
-jump 37 greaterThanEq j strNum
+jump 36 greaterThanEq j strNum
 fetch build str i j bType
 sensor strMatAm str @scrap
 op add costId n 3
 read cost cell1 costId
 jump 26 greaterThanEq strMatAm cost
-jump 35 always 0 0
+jump 34 always 0 0
 sensor x str @x
 sensor y str @y
 set unit null
 spawn uType x y 90 i unit
 sensor isFail unit @dead
-jump 19 equal isFail true
+jump 34 equal isFail true
 op sub strMatAm strMatAm cost
 setprop @scrap str strMatAm
-jump 19 always 0 0
 op add j j 1
 jump 19 always 0 0
 op add n n 1
