@@ -8,10 +8,14 @@ sensor uf @unit @flag
 jump 0 equal uf 0
 sensor ctrl @unit @controlled
 jump 0 equal ctrl @ctrlProcessor
-sensor uf @unit @flag
 wait 0.05
+sensor uf @unit @flag
 jump 0 equal uf 0
 sensor ctrl @unit @controlled
 jump 0 equal ctrl @ctrlProcessor
+sensor itemAm @unit @totalItems
+jump 19 equal itemAm 0
+ucontrol flag -92003 0 0 0 0
+jump 20 always 0 0
 ucontrol flag 0 0 0 0 0
 ucontrol unbind 0 0 0 0 0

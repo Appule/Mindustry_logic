@@ -1,4 +1,4 @@
-set price 0.1
+set price 0.015
 set interval 1000
 setrate 100
 op mod i i 5

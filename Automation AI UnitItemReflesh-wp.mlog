@@ -1,0 +1,26 @@
+setrate 1000
+op mod n n 5
+op add n n 1
+setprop @team @this n
+set i 0
+jump 1 greaterThanEq i @unitCount
+lookup unit uType i
+op add i i 1
+ubind uType
+jump 5 strictEqual @unit null
+sensor ctrl @unit @controlled
+jump 5 equal ctrl @ctrlProcessor
+jump 6 equal ctrl @ctrlPlayer
+sensor uf @unit @flag
+jump 16 equal uf -92003
+jump 5 always 0 0
+sensor mat @unit @firstItem
+sensor uMatAm @unit mat
+fetch core core n 0 @conveyor
+sensor matAm core mat
+op add matAm matAm uMatAm
+setprop mat @unit 0
+setprop mat core matAm
+ucontrol flag 0 0 0 0 0
+ucontrol unbind 0 0 0 0 0
+jump 5 always 0 0

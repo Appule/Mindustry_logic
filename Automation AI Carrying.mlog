@@ -30,11 +30,11 @@ sensor ctrl @unit @controlled
 jump 17 equal ctrl 1
 jump 16 equal ctrl 2
 jump 16 equal ctrl 3
-wait 0.01
+wait 0.1
 sensor uf @unit @flag
 jump 17 notEqual uf 0
 ucontrol flag id 0 0 0 0
-wait 0.01
+wait 0.2
 sensor uf @unit @flag
 jump 17 notEqual uf id
 sensor isDead @unit @dead
@@ -107,7 +107,7 @@ jump 107 always 0 0
 set tryNum 0
 set px x
 set py y
-jump 16 greaterThan tryNum 60
+jump 16 greaterThan tryNum 20
 jump 36 always 0 0
 jump 114 equal destId 1
 ucontrol itemTake dest mat carryAm 0 0

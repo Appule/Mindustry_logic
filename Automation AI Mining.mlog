@@ -29,11 +29,11 @@ sensor ctrl @unit @controlled
 jump 9 equal ctrl 1
 jump 8 equal ctrl 2
 jump 8 equal ctrl 3
-wait 0.01
+wait 0.1
 sensor uf @unit @flag
 jump 9 notEqual uf 0
 ucontrol flag id 0 0 0 0
-wait 0.01
+wait 0.1
 sensor uf @unit @flag
 jump 9 notEqual uf id
 sensor isDead @unit @dead
@@ -99,16 +99,16 @@ op mul dySq dy dy
 op add dSq dxSq dySq
 jump 107 notEqual dSq 0
 op add or or 1.1
-op idiv dth or 6
+op idiv dth or 5.5
 op mul dth dth 37.7
 op add oth oth dth
-op mod or or 6
+op mod or or 5.5
 op add tryNum tryNum 1
 jump 108 always 0 0
 set tryNum 0
 set px x
 set py y
-jump 8 greaterThan tryNum 60
+jump 8 greaterThan tryNum 20
 ucontrol mine ox oy 0 0 0
 jump 35 always 0 0
 ucontrol stop 0 0 0 0 0
@@ -133,16 +133,16 @@ op mul dySq dy dy
 op add dSq dxSq dySq
 jump 141 notEqual dSq 0
 op add sr sr 1.1
-op idiv dth sr 6
+op idiv dth sr 5.5
 op mul dth dth 37.7
 op add sth sth dth
-op mod sr sr 6
+op mod sr sr 5.5
 op add tryNum tryNum 1
 jump 142 always 0 0
 set tryNum 0
 set px x
 set py y
-jump 8 greaterThan tryNum 60
+jump 8 greaterThan tryNum 20
 jump 112 always 0 0
 sensor uCap @unit @itemCapacity
 wait 0.3

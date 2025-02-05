@@ -1,4 +1,4 @@
-set price 0.1
+set price 0.01
 setrate 100
 op mod i i 5
 op add i i 1
