@@ -1,0 +1,86 @@
+set sellRate 0.98
+setrate 100
+write 1.0 cell1 0
+write 1.2 cell1 1
+write 2.6 cell1 2
+write 3.6 cell1 3
+write 0.6 cell1 4
+write 1.5 cell1 5
+write 3.0 cell1 6
+write 4.0 cell1 7
+write 0.5 cell1 8
+write 3.9 cell1 9
+write 46.8 cell1 10
+write 31.7 cell1 11
+write 44.0 cell1 12
+write 2.4 cell1 13
+write 15.0 cell1 14
+write 8.0 cell1 15
+write 3.0 cell1 16
+write 4.0 cell1 19
+write 29.7 cell1 20
+write 10.4 cell1 21
+write 1000 cell2 6
+write 1000 cell2 7
+write 1000 cell2 10
+write 1000 cell2 11
+write 1000 cell2 12
+write 1000 cell2 13
+write 1000 cell2 14
+write 1000 cell2 22
+write 1000 cell2 25
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @freelogic-mis-cell
+jump 31 greaterThanEq j buildAm
+fetch build cell i j @freelogic-mis-cell
+sensor x cell @x
+sensor y cell @y
+op add cx x 1
+getblock building sw cx y
+sensor cType sw @type
+jump 84 notEqual cType @sorter
+op add cy y 1
+getblock building message x cy
+sensor cType message @type
+jump 84 notEqual cType @freelogic-message-i
+op sub cx x 1
+getblock building cont cx y
+sensor contCap cont @itemCapacity
+jump 84 equal contCap 0
+sensor team cont @team
+sensor totalAm cont @totalItems
+sensor smat sw @config
+set mat smat
+jump 58 strictEqual mat null
+sensor totalAm cont mat
+jump 60 always 0 0
+jump 79 equal totalAm 0
+sensor mat cont @firstItem
+sensor matAm cont mat
+sensor id mat @id
+read price cell1 id
+op add rid id 100
+read rate cell1 rid
+op mul price price rate
+op mul price price sellRate
+op mul totalPrice price matAm
+read cash cell2 team
+op add cash cash totalPrice
+write cash cell2 team
+op add t id 6
+read totalSell cell2 t
+op add totalSell totalSell matAm
+write totalSell cell2 t
+setprop mat cont 0
+jump 79 notEqual smat null
+sensor totalAm cont @totalItems
+jump 59 notEqual totalAm 0
+read mp cell3 team
+op floor mp mp 0
+print mp
+print " MP"
+printflush message
+op add j j 1
+jump 35 always 0 0

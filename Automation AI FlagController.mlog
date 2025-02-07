@@ -1,0 +1,17 @@
+op add i i 1
+op mod i i @unitCount
+lookup unit uType i
+ubind uType
+jump 0 strictEqual @unit null
+wait 0.05
+sensor ctrl @unit @controlled
+jump 0 equal ctrl @ctrlProcessor
+wait 0.05
+sensor ctrl @unit @controlled
+jump 0 equal ctrl @ctrlProcessor
+sensor itemAm @unit @totalItems
+jump 15 equal itemAm 0
+ucontrol flag -92003 0 0 0 0
+jump 16 always 0 0
+ucontrol flag 0 0 0 0 0
+ucontrol unbind 0 0 0 0 0

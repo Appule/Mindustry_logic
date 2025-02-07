@@ -1,0 +1,119 @@
+setrate 100
+write 0 cell3 0
+write 1 cell3 1
+write 2 cell3 2
+write 3 cell3 3
+write 4 cell3 4
+write 5 cell3 5
+write 6 cell3 6
+write 7 cell3 7
+write 8 cell3 8
+write 9 cell3 9
+write 10 cell3 10
+write 11 cell3 11
+write 12 cell3 12
+write 13 cell3 13
+write 14 cell3 14
+write 15 cell3 15
+write 16 cell3 16
+write 19 cell3 17
+write 20 cell3 18
+write 21 cell3 19
+write 0 cell3 20
+write 1 cell3 21
+write 2 cell3 22
+write 3 cell3 23
+write 4 cell3 24
+write 5 cell3 25
+write 6 cell3 26
+write 7 cell3 27
+write 9 cell3 28
+write 10 cell3 29
+write 14277081 cell3 30
+write 0 cell3 31
+write 2231994 cell3 32
+write 2709743 cell3 33
+write 3904241 cell3 34
+write 3926257 cell3 35
+write 2748272 cell3 36
+write 11071273 cell3 37
+write 15717161 cell3 38
+write 15692841 cell3 39
+write 15673641 cell3 40
+read colInt cell3 30
+op mod B colInt 256
+op mod G colInt 65536
+op idiv G G 256
+op idiv R colInt 65536
+draw clear R G B 0 0 0
+op mod i i 5
+op add i i 1
+set j 0
+fetch buildCount buildAm i 0 @freelogic-ip-display-8
+jump 48 greaterThanEq j buildAm
+fetch build dis i j @freelogic-ip-display-8
+sensor x dis @x
+sensor y dis @y
+op sub cx x 4
+op sub cy y 3
+getblock building sw cx cy
+sensor cType sw @type
+jump 117 notEqual cType @switch
+sensor sOn sw @enabled
+jump 117 notEqual sOn true
+set n 0
+read id cell3 n
+jump 71 greaterThanEq n 20
+op add id2 id 22
+lookup item mat id
+read price cell1 id
+read rate cell1 id2
+jump 75 always 0 0
+op add id2 id 11
+lookup liquid mat id
+read price cell2 id
+read rate cell2 id2
+op mod X n 8
+op mul bx X 32
+op idiv Y n 8
+op mul Y Y 2
+op mul by Y 32
+op mul value price rate
+op mul value value 10
+set cdigit 10000
+set dx -8
+set t 10
+draw color 217 217 217 255 0 0
+draw rect bx by 32 32 0 0
+op div cdigit cdigit 10
+op add dx dx t
+op add dx dx 1
+op sub t t 2
+op mod digit value cdigit
+op mul digit digit 10
+op idiv digit digit cdigit
+op add digitInd digit 31
+read colInt cell3 digitInd
+op mod B colInt 256
+op mod G colInt 65536
+op idiv G G 256
+op idiv R colInt 65536
+draw color R G B 255 0 0
+op add x bx dx
+op div H 32 10
+op mul H H digit
+op add H H 1
+draw rect x by t H 0 0
+jump 87 greaterThanEq t 2
+op add cx bx 16
+op add cy by 48
+draw stroke 8 255 255 255 0 0
+draw color 205 255 255 255 0 0
+draw linePoly cx cy 16 10 0 0
+draw color 255 255 255 255 0 0
+draw image cx cy mat 24 0 0
+op add n n 1
+drawflush dis
+jump 64 lessThan n 30
+op add j j 1
+jump 52 always 0 0

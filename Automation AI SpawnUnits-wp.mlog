@@ -1,0 +1,39 @@
+write 35 cell1 0
+write 36 cell1 1
+write 37 cell1 2
+write 50 cell1 3
+write 100 cell1 4
+write 200 cell1 5
+set n 0
+op mod i i 5
+op add i i 1
+read uId cell1 n
+lookup unit uType uId
+wait 0.001
+set bType @apmod-alpha-fac
+jump 17 equal n 0
+set bType @apmod-beta-fac
+jump 17 equal n 1
+set bType @apmod-gamma-fac
+fetch buildCount strNum i 0 bType
+set j 0
+jump 36 greaterThanEq j strNum
+fetch build str i j bType
+sensor strMatAm str @scrap
+op add costId n 3
+read cost cell1 costId
+jump 26 greaterThanEq strMatAm cost
+jump 34 always 0 0
+sensor x str @x
+sensor y str @y
+set unit null
+spawn uType x y 90 i unit
+sensor isFail unit @dead
+jump 34 equal isFail true
+op sub strMatAm strMatAm cost
+setprop @scrap str strMatAm
+op add j j 1
+jump 19 always 0 0
+op add n n 1
+jump 6 greaterThanEq n 3
+jump 9 always 0 0

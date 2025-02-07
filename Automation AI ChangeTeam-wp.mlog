@@ -1,0 +1,55 @@
+write 0 cell1 9
+write 1 cell1 12
+write 2 cell1 14
+write 3 cell1 13
+write 4 cell1 10
+write 5 cell1 6
+op add i i 1
+op mod i i 6
+set j 0
+fetch buildCount buildAm i 0 @freelogic-sus-cell
+jump 6 greaterThanEq j buildAm
+fetch build cell i j @freelogic-sus-cell
+sensor x cell @x
+sensor y cell @y
+op add cy y 1
+getblock building sw x cy
+sensor bType sw @type
+jump 53 notEqual bType @freelogic-sw
+op add cy y 2
+getblock building sorter x cy
+sensor bType sorter @type
+jump 53 notEqual bType @sorter
+sensor swOn sw @enabled
+jump 53 equal swOn false
+wait 0.1
+sensor tidMat sorter @config
+sensor tid tidMat @id
+read tTeam cell1 tid
+fetch core core tTeam 0 @conveyor
+jump 52 strictEqual core null
+sensor fTeam sw @team
+set n 0
+set dstSq 10000
+set npl null
+fetch player pl fTeam n @conveyor
+jump 50 strictEqual pl null
+sensor px pl @x
+sensor py pl @y
+sensor bx cell @x
+sensor by cell @y
+op sub rx px bx
+op sub ry py by
+op mul rxSq rx rx
+op mul rySq ry ry
+op add rSq rxSq rySq
+jump 48 lessThanEq dstSq rSq
+set dstSq rSq
+set npl pl
+op add n n 1
+jump 34 always 0 0
+jump 52 strictEqual npl null
+setprop @team npl tTeam
+control enabled sw false 0 0 0
+op add j j 1
+jump 10 always 0 0

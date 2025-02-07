@@ -1,0 +1,150 @@
+set fillRate 0.8
+ubind @nova
+sensor uType @unit @type
+jump 1 equal uType null
+op pow idMax 2 63
+op rand id idMax 0
+getlink l0 0
+jump 6 strictEqual l0 null
+ucontrol flag 0 0 0 0 0
+ucontrol unbind 0 0 0 0 0
+set dump false
+set tryNum 0
+getlink l1 1
+sensor l1Cap l1 @itemCapacity
+jump 16 greaterThan l1Cap 0
+jump 17 always 0 0
+set str l1
+jump 26 strictEqual str null
+jump 26 strictEqual ore null
+wait 0.1
+sensor strIsD str @dead
+jump 26 equal strIsD true
+sensor strCap str @itemCapacity
+op mul strCap strCap fillRate
+sensor strAm str ore
+jump 17 greaterThanEq strAm strCap
+ubind uType
+sensor ctrl @unit @controlled
+jump 9 equal ctrl 1
+jump 8 equal ctrl 2
+jump 8 equal ctrl 3
+wait 0.1
+sensor uf @unit @flag
+jump 9 notEqual uf 0
+ucontrol flag id 0 0 0 0
+wait 0.1
+sensor uf @unit @flag
+jump 9 notEqual uf id
+sensor isDead @unit @dead
+jump 9 equal isDead true
+sensor ctrl @unit @controlled
+jump 8 equal ctrl 2
+jump 8 equal ctrl 3
+getlink l1 1
+sensor l1Cap l1 @itemCapacity
+jump 49 notEqual l1Cap 0
+ulocate building storage false @copper sx sy found str
+jump 8 strictEqual str null
+jump 52 always 0 0
+set str l1
+sensor sx str @x
+sensor sy str @y
+sensor itemAm @unit @totalItems
+jump 55 notEqual itemAm 0
+set dump true
+jump 113 equal dump false
+jump 58 notEqual ore null
+sensor ore @unit @firstItem
+sensor sox l0 @x
+sensor soy l0 @y
+op sub dsox sox @thisx
+op sub dsoy soy @thisy
+op sub ox @thisx dsox
+op sub oy @thisy dsoy
+sensor strAm str ore
+sensor strCap str @itemCapacity
+op mul strCap strCap fillRate
+jump 70 lessThan strAm strCap
+jump 8 equal itemAm 0
+jump 113 always 0 0
+op sub strLim strCap strAm
+sensor item @unit @firstItem
+jump 74 strictEqual item null
+jump 113 notEqual item ore
+sensor itemAm @unit @totalItems
+jump 113 greaterThanEq itemAm strLim
+jump 80 equal itemAm 0
+sensor uCap @unit @itemCapacity
+op mul uCap uCap fillRate
+jump 113 greaterThanEq itemAm uCap
+ucontrol within ox oy 6 wi 0
+jump 84 equal wi false
+ucontrol idle 0 0 0 0 0
+jump 111 always 0 0
+op cos rx oth 0
+op sin ry oth 0
+op mul rx rx or
+op mul ry ry or
+op add oxr ox rx
+op add oyr oy ry
+ucontrol pathfind oxr oyr 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+jump 108 strictEqual px null
+op sub dx x px
+op sub dy y py
+op mul dxSq dx dx
+op mul dySq dy dy
+op add dSq dxSq dySq
+jump 107 notEqual dSq 0
+op add or or 1.1
+op idiv dth or 5.5
+op mul dth dth 37.7
+op add oth oth dth
+op mod or or 5.5
+op add tryNum tryNum 1
+jump 108 always 0 0
+set tryNum 0
+set px x
+set py y
+jump 8 greaterThan tryNum 20
+ucontrol mine ox oy 0 0 0
+jump 35 always 0 0
+ucontrol stop 0 0 0 0 0
+jump 116 equal dump true
+ulocate building core false @copper sx sy found str
+op cos rx sth 0
+op sin ry sth 0
+op mul rx rx sr
+op mul ry ry sr
+op add sxr sx rx
+op add syr sy ry
+ucontrol within sx sy 6 wi 0
+jump 146 equal wi true
+ucontrol pathfind sxr syr 0 0 0
+sensor x @unit @x
+sensor y @unit @y
+jump 142 strictEqual px null
+op sub dx x px
+op sub dy y py
+op mul dxSq dx dx
+op mul dySq dy dy
+op add dSq dxSq dySq
+jump 141 notEqual dSq 0
+op add sr sr 1.1
+op idiv dth sr 5.5
+op mul dth dth 37.7
+op add sth sth dth
+op mod sr sr 5.5
+op add tryNum tryNum 1
+jump 142 always 0 0
+set tryNum 0
+set px x
+set py y
+jump 8 greaterThan tryNum 20
+jump 112 always 0 0
+sensor uCap @unit @itemCapacity
+wait 0.3
+ucontrol itemDrop str uCap 0 0 0
+jump 145 always 0 0
